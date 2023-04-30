@@ -6,7 +6,6 @@ import pytest
 class TestSaiVipEntry:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_vip_entry_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiVipEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_vip_entry_attr_action_set(self, dpu):
+    def test_sai_vip_entry_attr_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_vip_entry_attr_action_set',
@@ -39,7 +38,7 @@ class TestSaiVipEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_vip_entry_attr_action_get(self, dpu):
+    def test_sai_vip_entry_attr_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_vip_entry_attr_action_get',
@@ -55,7 +54,7 @@ class TestSaiVipEntry:
             [result == 'SAI_VIP_ENTRY_ACTION_ACCEPT' for result in results]
         ), 'Get error'
 
-    def test_sai_vip_entry_attr_ip_addr_family_get(self, dpu):
+    def test_sai_vip_entry_attr_ip_addr_family_get(self, npu):
         commands = [
             {
                 'name': 'sai_vip_entry_attr_ip_addr_family_get',

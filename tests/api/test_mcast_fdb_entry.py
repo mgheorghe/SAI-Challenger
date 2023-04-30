@@ -6,7 +6,6 @@ import pytest
 class TestSaiMcastFdbEntry:
     # object with parent SAI_OBJECT_TYPE_L2MC_GROUP
 
-    @pytest.mark.dependency(scope='session')
     def test_mcast_fdb_entry_create(self, npu):
         commands = [
             {
@@ -33,7 +32,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_mcast_fdb_entry_attr_group_id_set(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_group_id_set',
@@ -47,7 +46,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_mcast_fdb_entry_attr_group_id_get(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_group_id_get',
@@ -61,7 +60,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_mcast_fdb_entry_attr_packet_action_set(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_packet_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_packet_action_set',
@@ -75,7 +74,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_mcast_fdb_entry_attr_packet_action_get(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_packet_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_packet_action_get',
@@ -89,7 +88,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_mcast_fdb_entry_attr_meta_data_set(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_meta_data_set(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_meta_data_set',
@@ -103,7 +102,7 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_mcast_fdb_entry_attr_meta_data_get(self, dpu):
+    def test_sai_mcast_fdb_entry_attr_meta_data_get(self, npu):
         commands = [
             {
                 'name': 'sai_mcast_fdb_entry_attr_meta_data_get',

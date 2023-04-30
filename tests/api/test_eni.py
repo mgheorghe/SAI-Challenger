@@ -6,7 +6,6 @@ import pytest
 class TestSaiEni:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_eni_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiEni:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_eni_attr_cps_set(self, dpu):
+    def test_sai_eni_attr_cps_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_cps_set',
@@ -36,7 +35,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_cps_get(self, dpu):
+    def test_sai_eni_attr_cps_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_cps_get',
@@ -50,7 +49,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_pps_set(self, dpu):
+    def test_sai_eni_attr_pps_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_pps_set',
@@ -64,7 +63,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_pps_get(self, dpu):
+    def test_sai_eni_attr_pps_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_pps_get',
@@ -78,7 +77,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_flows_set(self, dpu):
+    def test_sai_eni_attr_flows_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_flows_set',
@@ -92,7 +91,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_flows_get(self, dpu):
+    def test_sai_eni_attr_flows_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_flows_get',
@@ -106,7 +105,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_admin_state_set(self, dpu):
+    def test_sai_eni_attr_admin_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_admin_state_set',
@@ -120,7 +119,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_admin_state_get(self, dpu):
+    def test_sai_eni_attr_admin_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_admin_state_get',
@@ -134,7 +133,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vm_underlay_dip_set(self, dpu):
+    def test_sai_eni_attr_vm_underlay_dip_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vm_underlay_dip_set',
@@ -148,7 +147,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vm_underlay_dip_get(self, dpu):
+    def test_sai_eni_attr_vm_underlay_dip_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vm_underlay_dip_get',
@@ -162,7 +161,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == '0.0.0.0' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vm_vni_set(self, dpu):
+    def test_sai_eni_attr_vm_vni_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vm_vni_set',
@@ -176,7 +175,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vm_vni_get(self, dpu):
+    def test_sai_eni_attr_vm_vni_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vm_vni_get',
@@ -190,7 +189,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vnet_id_set(self, dpu):
+    def test_sai_eni_attr_vnet_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vnet_id_set',
@@ -204,7 +203,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_vnet_id_get(self, dpu):
+    def test_sai_eni_attr_vnet_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_vnet_id_get',
@@ -218,7 +217,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_set',
@@ -235,7 +234,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage1_dash_acl_group_id_get',
@@ -249,7 +248,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_set',
@@ -266,7 +265,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage2_dash_acl_group_id_get',
@@ -280,7 +279,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_set',
@@ -297,7 +296,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage3_dash_acl_group_id_get',
@@ -311,7 +310,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_set',
@@ -328,7 +327,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage4_dash_acl_group_id_get',
@@ -342,7 +341,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_set',
@@ -359,7 +358,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v4_stage5_dash_acl_group_id_get',
@@ -373,7 +372,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_set',
@@ -390,7 +389,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage1_dash_acl_group_id_get',
@@ -404,7 +403,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_set',
@@ -421,7 +420,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage2_dash_acl_group_id_get',
@@ -435,7 +434,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_set',
@@ -452,7 +451,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage3_dash_acl_group_id_get',
@@ -466,7 +465,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_set',
@@ -483,7 +482,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage4_dash_acl_group_id_get',
@@ -497,7 +496,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_set',
@@ -514,7 +513,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_inbound_v6_stage5_dash_acl_group_id_get',
@@ -528,7 +527,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_set',
@@ -545,7 +544,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage1_dash_acl_group_id_get',
@@ -559,7 +558,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_set',
@@ -576,7 +575,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage2_dash_acl_group_id_get',
@@ -590,7 +589,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_set',
@@ -607,7 +606,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage3_dash_acl_group_id_get',
@@ -621,7 +620,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_set',
@@ -638,7 +637,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage4_dash_acl_group_id_get',
@@ -652,7 +651,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_set',
@@ -669,7 +668,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v4_stage5_dash_acl_group_id_get',
@@ -683,7 +682,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_set',
@@ -700,7 +699,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage1_dash_acl_group_id_get',
@@ -714,7 +713,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_set',
@@ -731,7 +730,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage2_dash_acl_group_id_get',
@@ -745,7 +744,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_set',
@@ -762,7 +761,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage3_dash_acl_group_id_get',
@@ -776,7 +775,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_set',
@@ -793,7 +792,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage4_dash_acl_group_id_get',
@@ -807,7 +806,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_set(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_set',
@@ -824,7 +823,7 @@ class TestSaiEni:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_get(self, dpu):
+    def test_sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_attr_outbound_v6_stage5_dash_acl_group_id_get',

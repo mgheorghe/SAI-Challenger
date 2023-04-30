@@ -6,7 +6,6 @@ import pytest
 class TestSaiMyMac:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_my_mac_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiMyMac:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_my_mac_attr_priority_set(self, dpu):
+    def test_sai_my_mac_attr_priority_set(self, npu):
         commands = [
             {
                 'name': 'sai_my_mac_attr_priority_set',
@@ -36,7 +35,7 @@ class TestSaiMyMac:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_my_mac_attr_priority_get(self, dpu):
+    def test_sai_my_mac_attr_priority_get(self, npu):
         commands = [
             {
                 'name': 'sai_my_mac_attr_priority_get',

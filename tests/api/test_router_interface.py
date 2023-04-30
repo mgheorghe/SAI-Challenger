@@ -6,7 +6,6 @@ import pytest
 class TestSaiRouterInterface:
     # object with parent SAI_OBJECT_TYPE_VIRTUAL_ROUTER SAI_OBJECT_TYPE_PORT SAI_OBJECT_TYPE_LAG SAI_OBJECT_TYPE_SYSTEM_PORT SAI_OBJECT_TYPE_VLAN SAI_OBJECT_TYPE_BRIDGE
 
-    @pytest.mark.dependency(scope='session')
     def test_router_interface_create(self, npu):
         commands = [
             {
@@ -66,7 +65,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_router_interface_attr_src_mac_address_set(self, dpu):
+    def test_sai_router_interface_attr_src_mac_address_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_src_mac_address_set',
@@ -83,7 +82,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_src_mac_address_get(self, dpu):
+    def test_sai_router_interface_attr_src_mac_address_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_src_mac_address_get',
@@ -102,7 +101,7 @@ class TestSaiRouterInterface:
             ]
         ), 'Get error'
 
-    def test_sai_router_interface_attr_admin_v4_state_set(self, dpu):
+    def test_sai_router_interface_attr_admin_v4_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_v4_state_set',
@@ -116,7 +115,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_admin_v4_state_get(self, dpu):
+    def test_sai_router_interface_attr_admin_v4_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_v4_state_get',
@@ -130,7 +129,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'true' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_admin_v6_state_set(self, dpu):
+    def test_sai_router_interface_attr_admin_v6_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_v6_state_set',
@@ -144,7 +143,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_admin_v6_state_get(self, dpu):
+    def test_sai_router_interface_attr_admin_v6_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_v6_state_get',
@@ -158,7 +157,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'true' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_mtu_set(self, dpu):
+    def test_sai_router_interface_attr_mtu_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_mtu_set',
@@ -172,7 +171,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_mtu_get(self, dpu):
+    def test_sai_router_interface_attr_mtu_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_mtu_get',
@@ -186,7 +185,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == '1514' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_ingress_acl_set(self, dpu):
+    def test_sai_router_interface_attr_ingress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_ingress_acl_set',
@@ -203,7 +202,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_ingress_acl_get(self, dpu):
+    def test_sai_router_interface_attr_ingress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_ingress_acl_get',
@@ -217,7 +216,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_egress_acl_set(self, dpu):
+    def test_sai_router_interface_attr_egress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_egress_acl_set',
@@ -234,7 +233,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_egress_acl_get(self, dpu):
+    def test_sai_router_interface_attr_egress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_egress_acl_get',
@@ -248,7 +247,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_neighbor_miss_packet_action_set(self, dpu):
+    def test_sai_router_interface_attr_neighbor_miss_packet_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_neighbor_miss_packet_action_set',
@@ -265,7 +264,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_neighbor_miss_packet_action_get(self, dpu):
+    def test_sai_router_interface_attr_neighbor_miss_packet_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_neighbor_miss_packet_action_get',
@@ -281,7 +280,7 @@ class TestSaiRouterInterface:
             [result == 'SAI_PACKET_ACTION_TRAP' for result in results]
         ), 'Get error'
 
-    def test_sai_router_interface_attr_v4_mcast_enable_set(self, dpu):
+    def test_sai_router_interface_attr_v4_mcast_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_v4_mcast_enable_set',
@@ -295,7 +294,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_v4_mcast_enable_get(self, dpu):
+    def test_sai_router_interface_attr_v4_mcast_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_v4_mcast_enable_get',
@@ -309,7 +308,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_v6_mcast_enable_set(self, dpu):
+    def test_sai_router_interface_attr_v6_mcast_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_v6_mcast_enable_set',
@@ -323,7 +322,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_v6_mcast_enable_get(self, dpu):
+    def test_sai_router_interface_attr_v6_mcast_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_v6_mcast_enable_get',
@@ -337,7 +336,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_loopback_packet_action_set(self, dpu):
+    def test_sai_router_interface_attr_loopback_packet_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_loopback_packet_action_set',
@@ -354,7 +353,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_loopback_packet_action_get(self, dpu):
+    def test_sai_router_interface_attr_loopback_packet_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_loopback_packet_action_get',
@@ -370,7 +369,7 @@ class TestSaiRouterInterface:
             [result == 'SAI_PACKET_ACTION_FORWARD' for result in results]
         ), 'Get error'
 
-    def test_sai_router_interface_attr_nat_zone_id_set(self, dpu):
+    def test_sai_router_interface_attr_nat_zone_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_nat_zone_id_set',
@@ -384,7 +383,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_nat_zone_id_get(self, dpu):
+    def test_sai_router_interface_attr_nat_zone_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_nat_zone_id_get',
@@ -398,7 +397,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_disable_decrement_ttl_set(self, dpu):
+    def test_sai_router_interface_attr_disable_decrement_ttl_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_disable_decrement_ttl_set',
@@ -415,7 +414,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_disable_decrement_ttl_get(self, dpu):
+    def test_sai_router_interface_attr_disable_decrement_ttl_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_disable_decrement_ttl_get',
@@ -429,7 +428,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_admin_mpls_state_set(self, dpu):
+    def test_sai_router_interface_attr_admin_mpls_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_mpls_state_set',
@@ -443,7 +442,7 @@ class TestSaiRouterInterface:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_router_interface_attr_admin_mpls_state_get(self, dpu):
+    def test_sai_router_interface_attr_admin_mpls_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_router_interface_attr_admin_mpls_state_get',

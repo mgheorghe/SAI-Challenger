@@ -6,7 +6,6 @@ import pytest
 class TestSaiInsegEntry:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_inseg_entry_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_inseg_entry_attr_num_of_pop_set(self, dpu):
+    def test_sai_inseg_entry_attr_num_of_pop_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_num_of_pop_set',
@@ -36,7 +35,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_num_of_pop_get(self, dpu):
+    def test_sai_inseg_entry_attr_num_of_pop_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_num_of_pop_get',
@@ -50,7 +49,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_packet_action_set(self, dpu):
+    def test_sai_inseg_entry_attr_packet_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_packet_action_set',
@@ -67,7 +66,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_packet_action_get(self, dpu):
+    def test_sai_inseg_entry_attr_packet_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_packet_action_get',
@@ -83,7 +82,7 @@ class TestSaiInsegEntry:
             [result == 'SAI_PACKET_ACTION_FORWARD' for result in results]
         ), 'Get error'
 
-    def test_sai_inseg_entry_attr_trap_priority_set(self, dpu):
+    def test_sai_inseg_entry_attr_trap_priority_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_trap_priority_set',
@@ -97,7 +96,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_trap_priority_get(self, dpu):
+    def test_sai_inseg_entry_attr_trap_priority_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_trap_priority_get',
@@ -111,7 +110,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_next_hop_id_set(self, dpu):
+    def test_sai_inseg_entry_attr_next_hop_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_next_hop_id_set',
@@ -125,7 +124,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_next_hop_id_get(self, dpu):
+    def test_sai_inseg_entry_attr_next_hop_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_next_hop_id_get',
@@ -139,7 +138,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_psc_type_set(self, dpu):
+    def test_sai_inseg_entry_attr_psc_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_psc_type_set',
@@ -156,7 +155,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_psc_type_get(self, dpu):
+    def test_sai_inseg_entry_attr_psc_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_psc_type_get',
@@ -172,7 +171,7 @@ class TestSaiInsegEntry:
             [result == 'SAI_INSEG_ENTRY_PSC_TYPE_ELSP' for result in results]
         ), 'Get error'
 
-    def test_sai_inseg_entry_attr_qos_tc_set(self, dpu):
+    def test_sai_inseg_entry_attr_qos_tc_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_qos_tc_set',
@@ -186,7 +185,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_qos_tc_get(self, dpu):
+    def test_sai_inseg_entry_attr_qos_tc_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_qos_tc_get',
@@ -200,7 +199,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_mpls_exp_to_tc_map_set(self, dpu):
+    def test_sai_inseg_entry_attr_mpls_exp_to_tc_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_mpls_exp_to_tc_map_set',
@@ -217,7 +216,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_mpls_exp_to_tc_map_get(self, dpu):
+    def test_sai_inseg_entry_attr_mpls_exp_to_tc_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_mpls_exp_to_tc_map_get',
@@ -231,7 +230,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_mpls_exp_to_color_map_set(self, dpu):
+    def test_sai_inseg_entry_attr_mpls_exp_to_color_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_mpls_exp_to_color_map_set',
@@ -248,7 +247,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_mpls_exp_to_color_map_get(self, dpu):
+    def test_sai_inseg_entry_attr_mpls_exp_to_color_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_mpls_exp_to_color_map_get',
@@ -262,7 +261,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_pop_ttl_mode_set(self, dpu):
+    def test_sai_inseg_entry_attr_pop_ttl_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_pop_ttl_mode_set',
@@ -279,7 +278,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_pop_ttl_mode_get(self, dpu):
+    def test_sai_inseg_entry_attr_pop_ttl_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_pop_ttl_mode_get',
@@ -295,7 +294,7 @@ class TestSaiInsegEntry:
             [result == 'SAI_INSEG_ENTRY_POP_TTL_MODE_UNIFORM' for result in results]
         ), 'Get error'
 
-    def test_sai_inseg_entry_attr_pop_qos_mode_set(self, dpu):
+    def test_sai_inseg_entry_attr_pop_qos_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_pop_qos_mode_set',
@@ -312,7 +311,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_pop_qos_mode_get(self, dpu):
+    def test_sai_inseg_entry_attr_pop_qos_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_pop_qos_mode_get',
@@ -328,7 +327,7 @@ class TestSaiInsegEntry:
             [result == 'SAI_INSEG_ENTRY_POP_QOS_MODE_UNIFORM' for result in results]
         ), 'Get error'
 
-    def test_sai_inseg_entry_attr_counter_id_set(self, dpu):
+    def test_sai_inseg_entry_attr_counter_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_counter_id_set',
@@ -342,7 +341,7 @@ class TestSaiInsegEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_inseg_entry_attr_counter_id_get(self, dpu):
+    def test_sai_inseg_entry_attr_counter_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_inseg_entry_attr_counter_id_get',

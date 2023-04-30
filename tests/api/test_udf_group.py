@@ -6,7 +6,6 @@ import pytest
 class TestSaiUdfGroup:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_udf_group_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiUdfGroup:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_udf_group_attr_udf_list_get(self, dpu):
+    def test_sai_udf_group_attr_udf_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_udf_group_attr_udf_list_get',

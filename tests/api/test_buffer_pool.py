@@ -6,7 +6,6 @@ import pytest
 class TestSaiBufferPool:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_buffer_pool_create(self, npu):
         commands = [
             {
@@ -27,7 +26,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_buffer_pool_attr_shared_size_get(self, dpu):
+    def test_sai_buffer_pool_attr_shared_size_get(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_shared_size_get',
@@ -41,7 +40,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_size_set(self, dpu):
+    def test_sai_buffer_pool_attr_size_set(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_size_set',
@@ -55,7 +54,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_size_get(self, dpu):
+    def test_sai_buffer_pool_attr_size_get(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_size_get',
@@ -69,7 +68,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_tam_set(self, dpu):
+    def test_sai_buffer_pool_attr_tam_set(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_tam_set',
@@ -83,7 +82,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_tam_get(self, dpu):
+    def test_sai_buffer_pool_attr_tam_get(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_tam_get',
@@ -97,7 +96,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_xoff_size_set(self, dpu):
+    def test_sai_buffer_pool_attr_xoff_size_set(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_xoff_size_set',
@@ -111,7 +110,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_xoff_size_get(self, dpu):
+    def test_sai_buffer_pool_attr_xoff_size_get(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_xoff_size_get',
@@ -125,7 +124,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_wred_profile_id_set(self, dpu):
+    def test_sai_buffer_pool_attr_wred_profile_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_wred_profile_id_set',
@@ -142,7 +141,7 @@ class TestSaiBufferPool:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_buffer_pool_attr_wred_profile_id_get(self, dpu):
+    def test_sai_buffer_pool_attr_wred_profile_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_buffer_pool_attr_wred_profile_id_get',

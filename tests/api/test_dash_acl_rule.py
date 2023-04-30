@@ -6,7 +6,6 @@ import pytest
 class TestSaiDashAclRule:
     # object with parent SAI_OBJECT_TYPE_DASH_ACL_GROUP
 
-    @pytest.mark.dependency(scope='session')
     def test_dash_acl_rule_create(self, npu):
         commands = [
             {
@@ -43,7 +42,7 @@ class TestSaiDashAclRule:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_dash_acl_rule_attr_action_set(self, dpu):
+    def test_sai_dash_acl_rule_attr_action_set(self, npu):
         commands = [
             {
                 'name': 'sai_dash_acl_rule_attr_action_set',
@@ -60,7 +59,7 @@ class TestSaiDashAclRule:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dash_acl_rule_attr_action_get(self, dpu):
+    def test_sai_dash_acl_rule_attr_action_get(self, npu):
         commands = [
             {
                 'name': 'sai_dash_acl_rule_attr_action_get',
@@ -76,7 +75,7 @@ class TestSaiDashAclRule:
             [result == 'SAI_DASH_ACL_RULE_ACTION_PERMIT' for result in results]
         ), 'Get error'
 
-    def test_sai_dash_acl_rule_attr_counter_id_set(self, dpu):
+    def test_sai_dash_acl_rule_attr_counter_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_dash_acl_rule_attr_counter_id_set',
@@ -93,7 +92,7 @@ class TestSaiDashAclRule:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dash_acl_rule_attr_counter_id_get(self, dpu):
+    def test_sai_dash_acl_rule_attr_counter_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_dash_acl_rule_attr_counter_id_get',
@@ -107,7 +106,7 @@ class TestSaiDashAclRule:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_dash_acl_rule_attr_ip_addr_family_get(self, dpu):
+    def test_sai_dash_acl_rule_attr_ip_addr_family_get(self, npu):
         commands = [
             {
                 'name': 'sai_dash_acl_rule_attr_ip_addr_family_get',

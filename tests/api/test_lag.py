@@ -6,7 +6,6 @@ import pytest
 class TestSaiLag:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_lag_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiLag:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_lag_attr_port_list_get(self, dpu):
+    def test_sai_lag_attr_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_port_list_get',
@@ -36,7 +35,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ingress_acl_set(self, dpu):
+    def test_sai_lag_attr_ingress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ingress_acl_set',
@@ -50,7 +49,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ingress_acl_get(self, dpu):
+    def test_sai_lag_attr_ingress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ingress_acl_get',
@@ -64,7 +63,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_egress_acl_set(self, dpu):
+    def test_sai_lag_attr_egress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_egress_acl_set',
@@ -78,7 +77,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_egress_acl_get(self, dpu):
+    def test_sai_lag_attr_egress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_egress_acl_get',
@@ -92,7 +91,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_port_vlan_id_set(self, dpu):
+    def test_sai_lag_attr_port_vlan_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_port_vlan_id_set',
@@ -106,7 +105,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_port_vlan_id_get(self, dpu):
+    def test_sai_lag_attr_port_vlan_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_port_vlan_id_get',
@@ -120,7 +119,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == '1' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_default_vlan_priority_set(self, dpu):
+    def test_sai_lag_attr_default_vlan_priority_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_default_vlan_priority_set',
@@ -134,7 +133,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_default_vlan_priority_get(self, dpu):
+    def test_sai_lag_attr_default_vlan_priority_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_default_vlan_priority_get',
@@ -148,7 +147,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_drop_untagged_set(self, dpu):
+    def test_sai_lag_attr_drop_untagged_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_drop_untagged_set',
@@ -162,7 +161,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_drop_untagged_get(self, dpu):
+    def test_sai_lag_attr_drop_untagged_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_drop_untagged_get',
@@ -176,7 +175,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_drop_tagged_set(self, dpu):
+    def test_sai_lag_attr_drop_tagged_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_drop_tagged_set',
@@ -190,7 +189,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_drop_tagged_get(self, dpu):
+    def test_sai_lag_attr_drop_tagged_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_drop_tagged_get',
@@ -204,7 +203,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_tpid_set(self, dpu):
+    def test_sai_lag_attr_tpid_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_tpid_set',
@@ -218,7 +217,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_tpid_get(self, dpu):
+    def test_sai_lag_attr_tpid_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_tpid_get',
@@ -232,7 +231,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == '0x8100' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_label_set(self, dpu):
+    def test_sai_lag_attr_label_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_label_set',
@@ -246,7 +245,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_label_get(self, dpu):
+    def test_sai_lag_attr_label_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_label_get',
@@ -260,7 +259,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == '""' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ars_object_id_set(self, dpu):
+    def test_sai_lag_attr_ars_object_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ars_object_id_set',
@@ -274,7 +273,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ars_object_id_get(self, dpu):
+    def test_sai_lag_attr_ars_object_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ars_object_id_get',
@@ -288,7 +287,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ars_packet_drops_get(self, dpu):
+    def test_sai_lag_attr_ars_packet_drops_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ars_packet_drops_get',
@@ -302,7 +301,7 @@ class TestSaiLag:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_lag_attr_ars_port_reassignments_get(self, dpu):
+    def test_sai_lag_attr_ars_port_reassignments_get(self, npu):
         commands = [
             {
                 'name': 'sai_lag_attr_ars_port_reassignments_get',

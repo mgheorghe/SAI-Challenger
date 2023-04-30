@@ -6,7 +6,6 @@ import pytest
 class TestSaiSrv6Sidlist:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_srv6_sidlist_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_srv6_sidlist_attr_tlv_list_set(self, dpu):
+    def test_sai_srv6_sidlist_attr_tlv_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_tlv_list_set',
@@ -36,7 +35,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_srv6_sidlist_attr_tlv_list_get(self, dpu):
+    def test_sai_srv6_sidlist_attr_tlv_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_tlv_list_get',
@@ -50,7 +49,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_srv6_sidlist_attr_segment_list_set(self, dpu):
+    def test_sai_srv6_sidlist_attr_segment_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_segment_list_set',
@@ -64,7 +63,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_srv6_sidlist_attr_segment_list_get(self, dpu):
+    def test_sai_srv6_sidlist_attr_segment_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_segment_list_get',
@@ -78,7 +77,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_srv6_sidlist_attr_next_hop_id_set(self, dpu):
+    def test_sai_srv6_sidlist_attr_next_hop_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_next_hop_id_set',
@@ -95,7 +94,7 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_srv6_sidlist_attr_next_hop_id_get(self, dpu):
+    def test_sai_srv6_sidlist_attr_next_hop_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_srv6_sidlist_attr_next_hop_id_get',

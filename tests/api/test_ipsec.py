@@ -6,7 +6,6 @@ import pytest
 class TestSaiIpsec:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_ipsec_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_ipsec_attr_term_remote_ip_match_supported_get(self, dpu):
+    def test_sai_ipsec_attr_term_remote_ip_match_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_term_remote_ip_match_supported_get',
@@ -36,7 +35,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_switching_mode_cut_through_supported_get(self, dpu):
+    def test_sai_ipsec_attr_switching_mode_cut_through_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_switching_mode_cut_through_supported_get',
@@ -50,7 +49,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_switching_mode_store_and_forward_supported_get(self, dpu):
+    def test_sai_ipsec_attr_switching_mode_store_and_forward_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_switching_mode_store_and_forward_supported_get',
@@ -64,7 +63,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stats_mode_read_supported_get(self, dpu):
+    def test_sai_ipsec_attr_stats_mode_read_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stats_mode_read_supported_get',
@@ -78,7 +77,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stats_mode_read_clear_supported_get(self, dpu):
+    def test_sai_ipsec_attr_stats_mode_read_clear_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stats_mode_read_clear_supported_get',
@@ -92,7 +91,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_sn_32bit_supported_get(self, dpu):
+    def test_sai_ipsec_attr_sn_32bit_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_sn_32bit_supported_get',
@@ -106,7 +105,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_esn_64bit_supported_get(self, dpu):
+    def test_sai_ipsec_attr_esn_64bit_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_esn_64bit_supported_get',
@@ -120,7 +119,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_supported_cipher_list_get(self, dpu):
+    def test_sai_ipsec_attr_supported_cipher_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_supported_cipher_list_get',
@@ -134,7 +133,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_system_side_mtu_get(self, dpu):
+    def test_sai_ipsec_attr_system_side_mtu_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_system_side_mtu_get',
@@ -148,7 +147,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_warm_boot_supported_get(self, dpu):
+    def test_sai_ipsec_attr_warm_boot_supported_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_warm_boot_supported_get',
@@ -162,7 +161,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_warm_boot_enable_set(self, dpu):
+    def test_sai_ipsec_attr_warm_boot_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_warm_boot_enable_set',
@@ -176,7 +175,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_warm_boot_enable_get(self, dpu):
+    def test_sai_ipsec_attr_warm_boot_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_warm_boot_enable_get',
@@ -190,7 +189,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_ctag_tpid_set(self, dpu):
+    def test_sai_ipsec_attr_ctag_tpid_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_ctag_tpid_set',
@@ -204,7 +203,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_ctag_tpid_get(self, dpu):
+    def test_sai_ipsec_attr_ctag_tpid_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_ctag_tpid_get',
@@ -218,7 +217,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == '0x8100' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stag_tpid_set(self, dpu):
+    def test_sai_ipsec_attr_stag_tpid_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stag_tpid_set',
@@ -232,7 +231,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stag_tpid_get(self, dpu):
+    def test_sai_ipsec_attr_stag_tpid_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stag_tpid_get',
@@ -246,7 +245,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == '0x88A8' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_max_vlan_tags_parsed_set(self, dpu):
+    def test_sai_ipsec_attr_max_vlan_tags_parsed_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_max_vlan_tags_parsed_set',
@@ -260,7 +259,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_max_vlan_tags_parsed_get(self, dpu):
+    def test_sai_ipsec_attr_max_vlan_tags_parsed_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_max_vlan_tags_parsed_get',
@@ -274,7 +273,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_octet_count_high_watermark_set(self, dpu):
+    def test_sai_ipsec_attr_octet_count_high_watermark_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_octet_count_high_watermark_set',
@@ -288,7 +287,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_octet_count_high_watermark_get(self, dpu):
+    def test_sai_ipsec_attr_octet_count_high_watermark_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_octet_count_high_watermark_get',
@@ -302,7 +301,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_octet_count_low_watermark_set(self, dpu):
+    def test_sai_ipsec_attr_octet_count_low_watermark_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_octet_count_low_watermark_set',
@@ -316,7 +315,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_octet_count_low_watermark_get(self, dpu):
+    def test_sai_ipsec_attr_octet_count_low_watermark_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_octet_count_low_watermark_get',
@@ -330,7 +329,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stats_mode_set(self, dpu):
+    def test_sai_ipsec_attr_stats_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stats_mode_set',
@@ -347,7 +346,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_stats_mode_get(self, dpu):
+    def test_sai_ipsec_attr_stats_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_stats_mode_get',
@@ -363,7 +362,7 @@ class TestSaiIpsec:
             [result == 'SAI_STATS_MODE_READ_AND_CLEAR' for result in results]
         ), 'Get error'
 
-    def test_sai_ipsec_attr_available_ipsec_sa_get(self, dpu):
+    def test_sai_ipsec_attr_available_ipsec_sa_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_available_ipsec_sa_get',
@@ -377,7 +376,7 @@ class TestSaiIpsec:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_attr_sa_list_get(self, dpu):
+    def test_sai_ipsec_attr_sa_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_attr_sa_list_get',

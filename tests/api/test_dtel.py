@@ -6,7 +6,6 @@ import pytest
 class TestSaiDtel:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_dtel_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiDtel:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_dtel_attr_int_endpoint_enable_set(self, dpu):
+    def test_sai_dtel_attr_int_endpoint_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_endpoint_enable_set',
@@ -36,7 +35,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_int_endpoint_enable_get(self, dpu):
+    def test_sai_dtel_attr_int_endpoint_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_endpoint_enable_get',
@@ -50,7 +49,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_int_transit_enable_set(self, dpu):
+    def test_sai_dtel_attr_int_transit_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_transit_enable_set',
@@ -64,7 +63,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_int_transit_enable_get(self, dpu):
+    def test_sai_dtel_attr_int_transit_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_transit_enable_get',
@@ -78,7 +77,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_postcard_enable_set(self, dpu):
+    def test_sai_dtel_attr_postcard_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_postcard_enable_set',
@@ -92,7 +91,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_postcard_enable_get(self, dpu):
+    def test_sai_dtel_attr_postcard_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_postcard_enable_get',
@@ -106,7 +105,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_drop_report_enable_set(self, dpu):
+    def test_sai_dtel_attr_drop_report_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_drop_report_enable_set',
@@ -120,7 +119,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_drop_report_enable_get(self, dpu):
+    def test_sai_dtel_attr_drop_report_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_drop_report_enable_get',
@@ -134,7 +133,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_queue_report_enable_set(self, dpu):
+    def test_sai_dtel_attr_queue_report_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_queue_report_enable_set',
@@ -148,7 +147,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_queue_report_enable_get(self, dpu):
+    def test_sai_dtel_attr_queue_report_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_queue_report_enable_get',
@@ -162,7 +161,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_switch_id_set(self, dpu):
+    def test_sai_dtel_attr_switch_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_switch_id_set',
@@ -176,7 +175,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_switch_id_get(self, dpu):
+    def test_sai_dtel_attr_switch_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_switch_id_get',
@@ -190,7 +189,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_flow_state_clear_cycle_set(self, dpu):
+    def test_sai_dtel_attr_flow_state_clear_cycle_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_flow_state_clear_cycle_set',
@@ -204,7 +203,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_flow_state_clear_cycle_get(self, dpu):
+    def test_sai_dtel_attr_flow_state_clear_cycle_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_flow_state_clear_cycle_get',
@@ -218,7 +217,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_latency_sensitivity_set(self, dpu):
+    def test_sai_dtel_attr_latency_sensitivity_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_latency_sensitivity_set',
@@ -232,7 +231,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_latency_sensitivity_get(self, dpu):
+    def test_sai_dtel_attr_latency_sensitivity_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_latency_sensitivity_get',
@@ -246,7 +245,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_sink_port_list_set(self, dpu):
+    def test_sai_dtel_attr_sink_port_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_sink_port_list_set',
@@ -260,7 +259,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_sink_port_list_get(self, dpu):
+    def test_sai_dtel_attr_sink_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_sink_port_list_get',
@@ -274,7 +273,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_int_l4_dscp_set(self, dpu):
+    def test_sai_dtel_attr_int_l4_dscp_set(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_l4_dscp_set',
@@ -288,7 +287,7 @@ class TestSaiDtel:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_dtel_attr_int_l4_dscp_get(self, dpu):
+    def test_sai_dtel_attr_int_l4_dscp_get(self, npu):
         commands = [
             {
                 'name': 'sai_dtel_attr_int_l4_dscp_get',

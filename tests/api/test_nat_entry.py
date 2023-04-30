@@ -6,7 +6,6 @@ import pytest
 class TestSaiNatEntry:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_nat_entry_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_nat_entry_attr_nat_type_set(self, dpu):
+    def test_sai_nat_entry_attr_nat_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_nat_type_set',
@@ -36,7 +35,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_nat_type_get(self, dpu):
+    def test_sai_nat_entry_attr_nat_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_nat_type_get',
@@ -50,7 +49,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_NAT_TYPE_NONE' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_src_ip_set(self, dpu):
+    def test_sai_nat_entry_attr_src_ip_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_src_ip_set',
@@ -64,7 +63,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_src_ip_get(self, dpu):
+    def test_sai_nat_entry_attr_src_ip_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_src_ip_get',
@@ -78,7 +77,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0.0.0.0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_src_ip_mask_set(self, dpu):
+    def test_sai_nat_entry_attr_src_ip_mask_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_src_ip_mask_set',
@@ -92,7 +91,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_src_ip_mask_get(self, dpu):
+    def test_sai_nat_entry_attr_src_ip_mask_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_src_ip_mask_get',
@@ -106,7 +105,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0.0.0.0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_vr_id_set(self, dpu):
+    def test_sai_nat_entry_attr_vr_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_vr_id_set',
@@ -120,7 +119,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_vr_id_get(self, dpu):
+    def test_sai_nat_entry_attr_vr_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_vr_id_get',
@@ -134,7 +133,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_dst_ip_set(self, dpu):
+    def test_sai_nat_entry_attr_dst_ip_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_dst_ip_set',
@@ -148,7 +147,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_dst_ip_get(self, dpu):
+    def test_sai_nat_entry_attr_dst_ip_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_dst_ip_get',
@@ -162,7 +161,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0.0.0.0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_dst_ip_mask_set(self, dpu):
+    def test_sai_nat_entry_attr_dst_ip_mask_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_dst_ip_mask_set',
@@ -176,7 +175,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_dst_ip_mask_get(self, dpu):
+    def test_sai_nat_entry_attr_dst_ip_mask_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_dst_ip_mask_get',
@@ -190,7 +189,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0.0.0.0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_l4_src_port_set(self, dpu):
+    def test_sai_nat_entry_attr_l4_src_port_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_l4_src_port_set',
@@ -204,7 +203,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_l4_src_port_get(self, dpu):
+    def test_sai_nat_entry_attr_l4_src_port_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_l4_src_port_get',
@@ -218,7 +217,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_l4_dst_port_set(self, dpu):
+    def test_sai_nat_entry_attr_l4_dst_port_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_l4_dst_port_set',
@@ -232,7 +231,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_l4_dst_port_get(self, dpu):
+    def test_sai_nat_entry_attr_l4_dst_port_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_l4_dst_port_get',
@@ -246,7 +245,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_enable_packet_count_set(self, dpu):
+    def test_sai_nat_entry_attr_enable_packet_count_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_enable_packet_count_set',
@@ -260,7 +259,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_enable_packet_count_get(self, dpu):
+    def test_sai_nat_entry_attr_enable_packet_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_enable_packet_count_get',
@@ -274,7 +273,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_packet_count_set(self, dpu):
+    def test_sai_nat_entry_attr_packet_count_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_packet_count_set',
@@ -288,7 +287,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_packet_count_get(self, dpu):
+    def test_sai_nat_entry_attr_packet_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_packet_count_get',
@@ -302,7 +301,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_enable_byte_count_set(self, dpu):
+    def test_sai_nat_entry_attr_enable_byte_count_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_enable_byte_count_set',
@@ -316,7 +315,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_enable_byte_count_get(self, dpu):
+    def test_sai_nat_entry_attr_enable_byte_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_enable_byte_count_get',
@@ -330,7 +329,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_byte_count_set(self, dpu):
+    def test_sai_nat_entry_attr_byte_count_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_byte_count_set',
@@ -344,7 +343,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_byte_count_get(self, dpu):
+    def test_sai_nat_entry_attr_byte_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_byte_count_get',
@@ -358,7 +357,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_hit_bit_cor_set(self, dpu):
+    def test_sai_nat_entry_attr_hit_bit_cor_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_hit_bit_cor_set',
@@ -372,7 +371,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_hit_bit_cor_get(self, dpu):
+    def test_sai_nat_entry_attr_hit_bit_cor_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_hit_bit_cor_get',
@@ -386,7 +385,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_hit_bit_set(self, dpu):
+    def test_sai_nat_entry_attr_hit_bit_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_hit_bit_set',
@@ -400,7 +399,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_hit_bit_get(self, dpu):
+    def test_sai_nat_entry_attr_hit_bit_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_hit_bit_get',
@@ -414,7 +413,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_aging_time_set(self, dpu):
+    def test_sai_nat_entry_attr_aging_time_set(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_aging_time_set',
@@ -428,7 +427,7 @@ class TestSaiNatEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_nat_entry_attr_aging_time_get(self, dpu):
+    def test_sai_nat_entry_attr_aging_time_get(self, npu):
         commands = [
             {
                 'name': 'sai_nat_entry_attr_aging_time_get',

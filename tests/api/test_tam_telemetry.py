@@ -6,7 +6,6 @@ import pytest
 class TestSaiTamTelemetry:
     # object with parent SAI_OBJECT_TYPE_TAM_COLLECTOR
 
-    @pytest.mark.dependency(scope='session')
     def test_tam_telemetry_create(self, npu):
         commands = [
             {
@@ -25,7 +24,7 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_tam_telemetry_attr_tam_type_list_set(self, dpu):
+    def test_sai_tam_telemetry_attr_tam_type_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_tam_type_list_set',
@@ -39,7 +38,7 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_telemetry_attr_tam_type_list_get(self, dpu):
+    def test_sai_tam_telemetry_attr_tam_type_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_tam_type_list_get',
@@ -53,7 +52,7 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_tam_telemetry_attr_tam_reporting_unit_set(self, dpu):
+    def test_sai_tam_telemetry_attr_tam_reporting_unit_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_tam_reporting_unit_set',
@@ -70,7 +69,7 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_telemetry_attr_tam_reporting_unit_get(self, dpu):
+    def test_sai_tam_telemetry_attr_tam_reporting_unit_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_tam_reporting_unit_get',
@@ -86,7 +85,7 @@ class TestSaiTamTelemetry:
             [result == 'SAI_TAM_REPORTING_UNIT_SEC' for result in results]
         ), 'Get error'
 
-    def test_sai_tam_telemetry_attr_reporting_interval_set(self, dpu):
+    def test_sai_tam_telemetry_attr_reporting_interval_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_reporting_interval_set',
@@ -100,7 +99,7 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_telemetry_attr_reporting_interval_get(self, dpu):
+    def test_sai_tam_telemetry_attr_reporting_interval_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_telemetry_attr_reporting_interval_get',

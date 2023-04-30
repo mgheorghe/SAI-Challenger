@@ -6,7 +6,6 @@ import pytest
 class TestSaiTamMathFunc:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_tam_math_func_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiTamMathFunc:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_tam_math_func_attr_tam_tel_math_func_type_set(self, dpu):
+    def test_sai_tam_math_func_attr_tam_tel_math_func_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_math_func_attr_tam_tel_math_func_type_set',
@@ -39,7 +38,7 @@ class TestSaiTamMathFunc:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_math_func_attr_tam_tel_math_func_type_get(self, dpu):
+    def test_sai_tam_math_func_attr_tam_tel_math_func_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_math_func_attr_tam_tel_math_func_type_get',

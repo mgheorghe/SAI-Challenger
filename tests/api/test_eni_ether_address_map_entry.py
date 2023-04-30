@@ -6,7 +6,6 @@ import pytest
 class TestSaiEniEtherAddressMapEntry:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_eni_ether_address_map_entry_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiEniEtherAddressMapEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_eni_ether_address_map_entry_attr_eni_id_set(self, dpu):
+    def test_sai_eni_ether_address_map_entry_attr_eni_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_eni_ether_address_map_entry_attr_eni_id_set',
@@ -39,7 +38,7 @@ class TestSaiEniEtherAddressMapEntry:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_eni_ether_address_map_entry_attr_eni_id_get(self, dpu):
+    def test_sai_eni_ether_address_map_entry_attr_eni_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_eni_ether_address_map_entry_attr_eni_id_get',

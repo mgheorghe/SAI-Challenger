@@ -6,7 +6,6 @@ import pytest
 class TestSaiStpPort:
     # object with parent SAI_OBJECT_TYPE_STP SAI_OBJECT_TYPE_BRIDGE_PORT
 
-    @pytest.mark.dependency(scope='session')
     def test_stp_port_create(self, npu):
         commands = [
             {
@@ -117,7 +116,7 @@ class TestSaiStpPort:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_stp_port_attr_state_set(self, dpu):
+    def test_sai_stp_port_attr_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_stp_port_attr_state_set',
@@ -131,7 +130,7 @@ class TestSaiStpPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_stp_port_attr_state_get(self, dpu):
+    def test_sai_stp_port_attr_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_stp_port_attr_state_get',

@@ -6,7 +6,6 @@ import pytest
 class TestSaiIpsecSa:
     # object with parent SAI_OBJECT_TYPE_IPSEC
 
-    @pytest.mark.dependency(scope='session')
     def test_ipsec_sa_create(self, npu):
         commands = [
             {
@@ -47,7 +46,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_ipsec_sa_attr_octet_count_status_get(self, dpu):
+    def test_sai_ipsec_sa_attr_octet_count_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_octet_count_status_get',
@@ -61,7 +60,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_external_sa_index_set(self, dpu):
+    def test_sai_ipsec_sa_attr_external_sa_index_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_external_sa_index_set',
@@ -75,7 +74,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_external_sa_index_get(self, dpu):
+    def test_sai_ipsec_sa_attr_external_sa_index_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_external_sa_index_get',
@@ -89,7 +88,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_sa_index_get(self, dpu):
+    def test_sai_ipsec_sa_attr_sa_index_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_sa_index_get',
@@ -103,7 +102,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_port_list_set(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_port_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_port_list_set',
@@ -117,7 +116,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_port_list_get(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_port_list_get',
@@ -131,7 +130,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_set(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_replay_protection_enable_set',
@@ -148,7 +147,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_get(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_replay_protection_enable_get',
@@ -162,7 +161,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_replay_protection_window_set(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_replay_protection_window_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_replay_protection_window_set',
@@ -176,7 +175,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_ipsec_replay_protection_window_get(self, dpu):
+    def test_sai_ipsec_sa_attr_ipsec_replay_protection_window_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_ipsec_replay_protection_window_get',
@@ -190,7 +189,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_egress_esn_set(self, dpu):
+    def test_sai_ipsec_sa_attr_egress_esn_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_egress_esn_set',
@@ -204,7 +203,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_egress_esn_get(self, dpu):
+    def test_sai_ipsec_sa_attr_egress_esn_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_egress_esn_get',
@@ -218,7 +217,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_minimum_ingress_esn_set(self, dpu):
+    def test_sai_ipsec_sa_attr_minimum_ingress_esn_set(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_minimum_ingress_esn_set',
@@ -232,7 +231,7 @@ class TestSaiIpsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_ipsec_sa_attr_minimum_ingress_esn_get(self, dpu):
+    def test_sai_ipsec_sa_attr_minimum_ingress_esn_get(self, npu):
         commands = [
             {
                 'name': 'sai_ipsec_sa_attr_minimum_ingress_esn_get',

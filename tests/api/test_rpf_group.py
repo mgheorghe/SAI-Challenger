@@ -6,7 +6,6 @@ import pytest
 class TestSaiRpfGroup:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_rpf_group_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiRpfGroup:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_rpf_group_attr_rpf_interface_count_get(self, dpu):
+    def test_sai_rpf_group_attr_rpf_interface_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_rpf_group_attr_rpf_interface_count_get',
@@ -36,7 +35,7 @@ class TestSaiRpfGroup:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_rpf_group_attr_rpf_member_list_get(self, dpu):
+    def test_sai_rpf_group_attr_rpf_member_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_rpf_group_attr_rpf_member_list_get',

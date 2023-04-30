@@ -6,7 +6,6 @@ import pytest
 class TestSaiPortPool:
     # object with parent SAI_OBJECT_TYPE_PORT SAI_OBJECT_TYPE_BUFFER_POOL
 
-    @pytest.mark.dependency(scope='session')
     def test_port_pool_create(self, npu):
         commands = [
             {
@@ -49,7 +48,7 @@ class TestSaiPortPool:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_port_pool_attr_qos_wred_profile_id_set(self, dpu):
+    def test_sai_port_pool_attr_qos_wred_profile_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_pool_attr_qos_wred_profile_id_set',
@@ -66,7 +65,7 @@ class TestSaiPortPool:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_pool_attr_qos_wred_profile_id_get(self, dpu):
+    def test_sai_port_pool_attr_qos_wred_profile_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_pool_attr_qos_wred_profile_id_get',

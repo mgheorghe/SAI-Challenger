@@ -6,7 +6,6 @@ import pytest
 class TestSaiStp:
     # object with no attributes
 
-    @pytest.mark.dependency(scope='session')
     def test_stp_create(self, npu):
         commands = [
             {
@@ -22,7 +21,7 @@ class TestSaiStp:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_stp_attr_vlan_list_get(self, dpu):
+    def test_sai_stp_attr_vlan_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_stp_attr_vlan_list_get',
@@ -36,7 +35,7 @@ class TestSaiStp:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_stp_attr_bridge_id_get(self, dpu):
+    def test_sai_stp_attr_bridge_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_stp_attr_bridge_id_get',
@@ -50,7 +49,7 @@ class TestSaiStp:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_stp_attr_port_list_get(self, dpu):
+    def test_sai_stp_attr_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_stp_attr_port_list_get',

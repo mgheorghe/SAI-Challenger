@@ -6,7 +6,6 @@ import pytest
 class TestSaiTamInt:
     # object with parent SAI_OBJECT_TYPE_TAM_REPORT
 
-    @pytest.mark.dependency(scope='session')
     def test_tam_int_create(self, npu):
         commands = [
             {
@@ -47,7 +46,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_tam_int_attr_ioam_trace_type_set(self, dpu):
+    def test_sai_tam_int_attr_ioam_trace_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_ioam_trace_type_set',
@@ -61,7 +60,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_ioam_trace_type_get(self, dpu):
+    def test_sai_tam_int_attr_ioam_trace_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_ioam_trace_type_get',
@@ -75,7 +74,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_trace_vector_set(self, dpu):
+    def test_sai_tam_int_attr_trace_vector_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_trace_vector_set',
@@ -89,7 +88,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_trace_vector_get(self, dpu):
+    def test_sai_tam_int_attr_trace_vector_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_trace_vector_get',
@@ -103,7 +102,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_action_vector_set(self, dpu):
+    def test_sai_tam_int_attr_action_vector_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_action_vector_set',
@@ -117,7 +116,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_action_vector_get(self, dpu):
+    def test_sai_tam_int_attr_action_vector_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_action_vector_get',
@@ -131,7 +130,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_p4_int_instruction_bitmap_set(self, dpu):
+    def test_sai_tam_int_attr_p4_int_instruction_bitmap_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_p4_int_instruction_bitmap_set',
@@ -145,7 +144,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_p4_int_instruction_bitmap_get(self, dpu):
+    def test_sai_tam_int_attr_p4_int_instruction_bitmap_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_p4_int_instruction_bitmap_get',
@@ -159,7 +158,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_metadata_fragment_enable_set(self, dpu):
+    def test_sai_tam_int_attr_metadata_fragment_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_metadata_fragment_enable_set',
@@ -173,7 +172,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_metadata_fragment_enable_get(self, dpu):
+    def test_sai_tam_int_attr_metadata_fragment_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_metadata_fragment_enable_get',
@@ -187,7 +186,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_metadata_checksum_enable_set(self, dpu):
+    def test_sai_tam_int_attr_metadata_checksum_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_metadata_checksum_enable_set',
@@ -201,7 +200,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_metadata_checksum_enable_get(self, dpu):
+    def test_sai_tam_int_attr_metadata_checksum_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_metadata_checksum_enable_get',
@@ -215,7 +214,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_report_all_packets_set(self, dpu):
+    def test_sai_tam_int_attr_report_all_packets_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_report_all_packets_set',
@@ -229,7 +228,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_report_all_packets_get(self, dpu):
+    def test_sai_tam_int_attr_report_all_packets_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_report_all_packets_get',
@@ -243,7 +242,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_flow_liveness_period_set(self, dpu):
+    def test_sai_tam_int_attr_flow_liveness_period_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_flow_liveness_period_set',
@@ -257,7 +256,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_flow_liveness_period_get(self, dpu):
+    def test_sai_tam_int_attr_flow_liveness_period_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_flow_liveness_period_get',
@@ -271,7 +270,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_latency_sensitivity_set(self, dpu):
+    def test_sai_tam_int_attr_latency_sensitivity_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_latency_sensitivity_set',
@@ -285,7 +284,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_latency_sensitivity_get(self, dpu):
+    def test_sai_tam_int_attr_latency_sensitivity_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_latency_sensitivity_get',
@@ -299,7 +298,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '20' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_acl_group_set(self, dpu):
+    def test_sai_tam_int_attr_acl_group_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_acl_group_set',
@@ -313,7 +312,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_acl_group_get(self, dpu):
+    def test_sai_tam_int_attr_acl_group_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_acl_group_get',
@@ -327,7 +326,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_max_hop_count_set(self, dpu):
+    def test_sai_tam_int_attr_max_hop_count_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_max_hop_count_set',
@@ -341,7 +340,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_max_hop_count_get(self, dpu):
+    def test_sai_tam_int_attr_max_hop_count_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_max_hop_count_get',
@@ -355,7 +354,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_max_length_set(self, dpu):
+    def test_sai_tam_int_attr_max_length_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_max_length_set',
@@ -369,7 +368,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_max_length_get(self, dpu):
+    def test_sai_tam_int_attr_max_length_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_max_length_get',
@@ -383,7 +382,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_name_space_id_set(self, dpu):
+    def test_sai_tam_int_attr_name_space_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_name_space_id_set',
@@ -397,7 +396,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_name_space_id_get(self, dpu):
+    def test_sai_tam_int_attr_name_space_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_name_space_id_get',
@@ -411,7 +410,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_name_space_id_global_set(self, dpu):
+    def test_sai_tam_int_attr_name_space_id_global_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_name_space_id_global_set',
@@ -425,7 +424,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_name_space_id_global_get(self, dpu):
+    def test_sai_tam_int_attr_name_space_id_global_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_name_space_id_global_get',
@@ -439,7 +438,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_ingress_samplepacket_enable_set(self, dpu):
+    def test_sai_tam_int_attr_ingress_samplepacket_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_ingress_samplepacket_enable_set',
@@ -456,7 +455,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_ingress_samplepacket_enable_get(self, dpu):
+    def test_sai_tam_int_attr_ingress_samplepacket_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_ingress_samplepacket_enable_get',
@@ -470,7 +469,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_collector_list_set(self, dpu):
+    def test_sai_tam_int_attr_collector_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_collector_list_set',
@@ -484,7 +483,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_collector_list_get(self, dpu):
+    def test_sai_tam_int_attr_collector_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_collector_list_get',
@@ -498,7 +497,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_math_func_set(self, dpu):
+    def test_sai_tam_int_attr_math_func_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_math_func_set',
@@ -512,7 +511,7 @@ class TestSaiTamInt:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_int_attr_math_func_get(self, dpu):
+    def test_sai_tam_int_attr_math_func_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_int_attr_math_func_get',

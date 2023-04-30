@@ -6,7 +6,6 @@ import pytest
 class TestSaiAclCounter:
     # object with parent SAI_OBJECT_TYPE_ACL_TABLE
 
-    @pytest.mark.dependency(scope='session')
     def test_acl_counter_create(self, npu):
         commands = [
             {
@@ -28,7 +27,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_acl_counter_attr_packets_set(self, dpu):
+    def test_sai_acl_counter_attr_packets_set(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_packets_set',
@@ -42,7 +41,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_acl_counter_attr_packets_get(self, dpu):
+    def test_sai_acl_counter_attr_packets_get(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_packets_get',
@@ -56,7 +55,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_acl_counter_attr_bytes_set(self, dpu):
+    def test_sai_acl_counter_attr_bytes_set(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_bytes_set',
@@ -70,7 +69,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_acl_counter_attr_bytes_get(self, dpu):
+    def test_sai_acl_counter_attr_bytes_get(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_bytes_get',
@@ -84,7 +83,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_acl_counter_attr_label_set(self, dpu):
+    def test_sai_acl_counter_attr_label_set(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_label_set',
@@ -98,7 +97,7 @@ class TestSaiAclCounter:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_acl_counter_attr_label_get(self, dpu):
+    def test_sai_acl_counter_attr_label_get(self, npu):
         commands = [
             {
                 'name': 'sai_acl_counter_attr_label_get',

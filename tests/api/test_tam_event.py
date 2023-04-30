@@ -6,7 +6,6 @@ import pytest
 class TestSaiTamEvent:
     # object with parent SAI_OBJECT_TYPE_TAM_EVENT_ACTION SAI_OBJECT_TYPE_TAM_COLLECTOR
 
-    @pytest.mark.dependency(scope='session')
     def test_tam_event_create(self, npu):
         commands = [
             {
@@ -29,7 +28,7 @@ class TestSaiTamEvent:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_tam_event_attr_threshold_set(self, dpu):
+    def test_sai_tam_event_attr_threshold_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_event_attr_threshold_set',
@@ -43,7 +42,7 @@ class TestSaiTamEvent:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_event_attr_threshold_get(self, dpu):
+    def test_sai_tam_event_attr_threshold_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_event_attr_threshold_get',
@@ -57,7 +56,7 @@ class TestSaiTamEvent:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_tam_event_attr_dscp_value_set(self, dpu):
+    def test_sai_tam_event_attr_dscp_value_set(self, npu):
         commands = [
             {
                 'name': 'sai_tam_event_attr_dscp_value_set',
@@ -71,7 +70,7 @@ class TestSaiTamEvent:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_tam_event_attr_dscp_value_get(self, dpu):
+    def test_sai_tam_event_attr_dscp_value_get(self, npu):
         commands = [
             {
                 'name': 'sai_tam_event_attr_dscp_value_get',

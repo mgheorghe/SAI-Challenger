@@ -6,7 +6,6 @@ import pytest
 class TestSaiMacsecSa:
     # object with parent SAI_OBJECT_TYPE_MACSEC_SC
 
-    @pytest.mark.dependency(scope='session')
     def test_macsec_sa_create(self, npu):
         commands = [
             {
@@ -61,7 +60,7 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_macsec_sa_attr_configured_egress_xpn_set(self, dpu):
+    def test_sai_macsec_sa_attr_configured_egress_xpn_set(self, npu):
         commands = [
             {
                 'name': 'sai_macsec_sa_attr_configured_egress_xpn_set',
@@ -75,7 +74,7 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_macsec_sa_attr_configured_egress_xpn_get(self, dpu):
+    def test_sai_macsec_sa_attr_configured_egress_xpn_get(self, npu):
         commands = [
             {
                 'name': 'sai_macsec_sa_attr_configured_egress_xpn_get',
@@ -89,7 +88,7 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_macsec_sa_attr_current_xpn_get(self, dpu):
+    def test_sai_macsec_sa_attr_current_xpn_get(self, npu):
         commands = [
             {
                 'name': 'sai_macsec_sa_attr_current_xpn_get',
@@ -103,7 +102,7 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_macsec_sa_attr_minimum_ingress_xpn_set(self, dpu):
+    def test_sai_macsec_sa_attr_minimum_ingress_xpn_set(self, npu):
         commands = [
             {
                 'name': 'sai_macsec_sa_attr_minimum_ingress_xpn_set',
@@ -117,7 +116,7 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_macsec_sa_attr_minimum_ingress_xpn_get(self, dpu):
+    def test_sai_macsec_sa_attr_minimum_ingress_xpn_get(self, npu):
         commands = [
             {
                 'name': 'sai_macsec_sa_attr_minimum_ingress_xpn_get',

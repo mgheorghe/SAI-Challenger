@@ -6,7 +6,6 @@ import pytest
 class TestSaiNextHopGroupMap:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_next_hop_group_map_create(self, npu):
         commands = [
             {
@@ -25,7 +24,7 @@ class TestSaiNextHopGroupMap:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_next_hop_group_map_attr_map_to_value_list_set(self, dpu):
+    def test_sai_next_hop_group_map_attr_map_to_value_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_next_hop_group_map_attr_map_to_value_list_set',
@@ -39,7 +38,7 @@ class TestSaiNextHopGroupMap:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_next_hop_group_map_attr_map_to_value_list_get(self, dpu):
+    def test_sai_next_hop_group_map_attr_map_to_value_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_next_hop_group_map_attr_map_to_value_list_get',

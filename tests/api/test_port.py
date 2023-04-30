@@ -6,7 +6,6 @@ import pytest
 class TestSaiPort:
     # object with no parents
 
-    @pytest.mark.dependency(scope='session')
     def test_port_create(self, npu):
         commands = [
             {
@@ -27,7 +26,7 @@ class TestSaiPort:
         pprint(results)
         assert all(results), 'Create error'
 
-    def test_sai_port_attr_type_get(self, dpu):
+    def test_sai_port_attr_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_type_get',
@@ -41,7 +40,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_oper_status_get(self, dpu):
+    def test_sai_port_attr_oper_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_oper_status_get',
@@ -55,7 +54,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_breakout_mode_type_get(self, dpu):
+    def test_sai_port_attr_supported_breakout_mode_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_breakout_mode_type_get',
@@ -69,7 +68,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_current_breakout_mode_type_get(self, dpu):
+    def test_sai_port_attr_current_breakout_mode_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_current_breakout_mode_type_get',
@@ -83,7 +82,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_number_of_queues_get(self, dpu):
+    def test_sai_port_attr_qos_number_of_queues_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_number_of_queues_get',
@@ -97,7 +96,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_queue_list_get(self, dpu):
+    def test_sai_port_attr_qos_queue_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_queue_list_get',
@@ -111,7 +110,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_number_of_scheduler_groups_get(self, dpu):
+    def test_sai_port_attr_qos_number_of_scheduler_groups_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_number_of_scheduler_groups_get',
@@ -125,7 +124,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_scheduler_group_list_get(self, dpu):
+    def test_sai_port_attr_qos_scheduler_group_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_scheduler_group_list_get',
@@ -139,7 +138,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_maximum_headroom_size_get(self, dpu):
+    def test_sai_port_attr_qos_maximum_headroom_size_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_maximum_headroom_size_get',
@@ -153,7 +152,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_speed_get(self, dpu):
+    def test_sai_port_attr_supported_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_speed_get',
@@ -167,7 +166,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_fec_mode_get(self, dpu):
+    def test_sai_port_attr_supported_fec_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_fec_mode_get',
@@ -181,7 +180,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_fec_mode_extended_get(self, dpu):
+    def test_sai_port_attr_supported_fec_mode_extended_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_fec_mode_extended_get',
@@ -195,7 +194,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_half_duplex_speed_get(self, dpu):
+    def test_sai_port_attr_supported_half_duplex_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_half_duplex_speed_get',
@@ -209,7 +208,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_auto_neg_mode_get(self, dpu):
+    def test_sai_port_attr_supported_auto_neg_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_auto_neg_mode_get',
@@ -223,7 +222,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_flow_control_mode_get(self, dpu):
+    def test_sai_port_attr_supported_flow_control_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_flow_control_mode_get',
@@ -237,7 +236,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_asymmetric_pause_mode_get(self, dpu):
+    def test_sai_port_attr_supported_asymmetric_pause_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_asymmetric_pause_mode_get',
@@ -251,7 +250,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_media_type_get(self, dpu):
+    def test_sai_port_attr_supported_media_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_media_type_get',
@@ -265,7 +264,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_speed_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_speed_get',
@@ -279,7 +278,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_fec_mode_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_fec_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_fec_mode_get',
@@ -293,7 +292,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_fec_mode_extended_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_fec_mode_extended_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_fec_mode_extended_get',
@@ -307,7 +306,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_half_duplex_speed_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_half_duplex_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_half_duplex_speed_get',
@@ -321,7 +320,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_auto_neg_mode_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_auto_neg_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_auto_neg_mode_get',
@@ -335,7 +334,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_flow_control_mode_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_flow_control_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_flow_control_mode_get',
@@ -349,7 +348,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_asymmetric_pause_mode_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_asymmetric_pause_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_asymmetric_pause_mode_get',
@@ -363,7 +362,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_media_type_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_media_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_media_type_get',
@@ -377,7 +376,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_remote_advertised_oui_code_get(self, dpu):
+    def test_sai_port_attr_remote_advertised_oui_code_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_remote_advertised_oui_code_get',
@@ -391,7 +390,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_number_of_ingress_priority_groups_get(self, dpu):
+    def test_sai_port_attr_number_of_ingress_priority_groups_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_number_of_ingress_priority_groups_get',
@@ -405,7 +404,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_priority_group_list_get(self, dpu):
+    def test_sai_port_attr_ingress_priority_group_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_priority_group_list_get',
@@ -419,7 +418,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eye_values_get(self, dpu):
+    def test_sai_port_attr_eye_values_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eye_values_get',
@@ -433,7 +432,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_oper_speed_get(self, dpu):
+    def test_sai_port_attr_oper_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_oper_speed_get',
@@ -447,7 +446,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_speed_set(self, dpu):
+    def test_sai_port_attr_speed_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_speed_set',
@@ -461,7 +460,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_speed_get(self, dpu):
+    def test_sai_port_attr_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_speed_get',
@@ -475,7 +474,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_mode_set(self, dpu):
+    def test_sai_port_attr_auto_neg_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_mode_set',
@@ -489,7 +488,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_mode_get(self, dpu):
+    def test_sai_port_attr_auto_neg_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_mode_get',
@@ -503,7 +502,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_admin_state_set(self, dpu):
+    def test_sai_port_attr_admin_state_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_admin_state_set',
@@ -517,7 +516,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_admin_state_get(self, dpu):
+    def test_sai_port_attr_admin_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_admin_state_get',
@@ -531,7 +530,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_media_type_set(self, dpu):
+    def test_sai_port_attr_media_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_media_type_set',
@@ -548,7 +547,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_media_type_get(self, dpu):
+    def test_sai_port_attr_media_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_media_type_get',
@@ -564,7 +563,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_MEDIA_TYPE_NOT_PRESENT' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_advertised_speed_set(self, dpu):
+    def test_sai_port_attr_advertised_speed_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_speed_set',
@@ -578,7 +577,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_speed_get(self, dpu):
+    def test_sai_port_attr_advertised_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_speed_get',
@@ -592,7 +591,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_fec_mode_set(self, dpu):
+    def test_sai_port_attr_advertised_fec_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_fec_mode_set',
@@ -606,7 +605,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_fec_mode_get(self, dpu):
+    def test_sai_port_attr_advertised_fec_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_fec_mode_get',
@@ -620,7 +619,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_fec_mode_extended_set(self, dpu):
+    def test_sai_port_attr_advertised_fec_mode_extended_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_fec_mode_extended_set',
@@ -634,7 +633,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_fec_mode_extended_get(self, dpu):
+    def test_sai_port_attr_advertised_fec_mode_extended_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_fec_mode_extended_get',
@@ -648,7 +647,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_half_duplex_speed_set(self, dpu):
+    def test_sai_port_attr_advertised_half_duplex_speed_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_half_duplex_speed_set',
@@ -662,7 +661,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_half_duplex_speed_get(self, dpu):
+    def test_sai_port_attr_advertised_half_duplex_speed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_half_duplex_speed_get',
@@ -676,7 +675,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_auto_neg_mode_set(self, dpu):
+    def test_sai_port_attr_advertised_auto_neg_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_auto_neg_mode_set',
@@ -690,7 +689,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_auto_neg_mode_get(self, dpu):
+    def test_sai_port_attr_advertised_auto_neg_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_auto_neg_mode_get',
@@ -704,7 +703,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_flow_control_mode_set(self, dpu):
+    def test_sai_port_attr_advertised_flow_control_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_flow_control_mode_set',
@@ -721,7 +720,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_flow_control_mode_get(self, dpu):
+    def test_sai_port_attr_advertised_flow_control_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_flow_control_mode_get',
@@ -737,7 +736,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_FLOW_CONTROL_MODE_DISABLE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_advertised_asymmetric_pause_mode_set(self, dpu):
+    def test_sai_port_attr_advertised_asymmetric_pause_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_asymmetric_pause_mode_set',
@@ -754,7 +753,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_asymmetric_pause_mode_get(self, dpu):
+    def test_sai_port_attr_advertised_asymmetric_pause_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_asymmetric_pause_mode_get',
@@ -768,7 +767,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_media_type_set(self, dpu):
+    def test_sai_port_attr_advertised_media_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_media_type_set',
@@ -785,7 +784,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_media_type_get(self, dpu):
+    def test_sai_port_attr_advertised_media_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_media_type_get',
@@ -801,7 +800,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_MEDIA_TYPE_UNKNOWN' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_advertised_oui_code_set(self, dpu):
+    def test_sai_port_attr_advertised_oui_code_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_oui_code_set',
@@ -815,7 +814,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_oui_code_get(self, dpu):
+    def test_sai_port_attr_advertised_oui_code_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_oui_code_get',
@@ -829,7 +828,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0x6A737D' for result in results]), 'Get error'
 
-    def test_sai_port_attr_port_vlan_id_set(self, dpu):
+    def test_sai_port_attr_port_vlan_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_port_vlan_id_set',
@@ -843,7 +842,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_port_vlan_id_get(self, dpu):
+    def test_sai_port_attr_port_vlan_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_port_vlan_id_get',
@@ -857,7 +856,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '1' for result in results]), 'Get error'
 
-    def test_sai_port_attr_default_vlan_priority_set(self, dpu):
+    def test_sai_port_attr_default_vlan_priority_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_default_vlan_priority_set',
@@ -871,7 +870,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_default_vlan_priority_get(self, dpu):
+    def test_sai_port_attr_default_vlan_priority_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_default_vlan_priority_get',
@@ -885,7 +884,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_drop_untagged_set(self, dpu):
+    def test_sai_port_attr_drop_untagged_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_drop_untagged_set',
@@ -899,7 +898,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_drop_untagged_get(self, dpu):
+    def test_sai_port_attr_drop_untagged_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_drop_untagged_get',
@@ -913,7 +912,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_drop_tagged_set(self, dpu):
+    def test_sai_port_attr_drop_tagged_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_drop_tagged_set',
@@ -927,7 +926,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_drop_tagged_get(self, dpu):
+    def test_sai_port_attr_drop_tagged_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_drop_tagged_get',
@@ -941,7 +940,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_internal_loopback_mode_set(self, dpu):
+    def test_sai_port_attr_internal_loopback_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_internal_loopback_mode_set',
@@ -958,7 +957,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_internal_loopback_mode_get(self, dpu):
+    def test_sai_port_attr_internal_loopback_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_internal_loopback_mode_get',
@@ -974,7 +973,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_INTERNAL_LOOPBACK_MODE_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_use_extended_fec_set(self, dpu):
+    def test_sai_port_attr_use_extended_fec_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_use_extended_fec_set',
@@ -988,7 +987,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_use_extended_fec_get(self, dpu):
+    def test_sai_port_attr_use_extended_fec_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_use_extended_fec_get',
@@ -1002,7 +1001,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fec_mode_set(self, dpu):
+    def test_sai_port_attr_fec_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fec_mode_set',
@@ -1016,7 +1015,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fec_mode_get(self, dpu):
+    def test_sai_port_attr_fec_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fec_mode_get',
@@ -1032,7 +1031,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_FEC_MODE_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_fec_mode_extended_set(self, dpu):
+    def test_sai_port_attr_fec_mode_extended_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fec_mode_extended_set',
@@ -1049,7 +1048,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fec_mode_extended_get(self, dpu):
+    def test_sai_port_attr_fec_mode_extended_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fec_mode_extended_get',
@@ -1065,7 +1064,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_FEC_MODE_EXTENDED_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_update_dscp_set(self, dpu):
+    def test_sai_port_attr_update_dscp_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_update_dscp_set',
@@ -1079,7 +1078,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_update_dscp_get(self, dpu):
+    def test_sai_port_attr_update_dscp_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_update_dscp_get',
@@ -1093,7 +1092,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_mtu_set(self, dpu):
+    def test_sai_port_attr_mtu_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_mtu_set',
@@ -1107,7 +1106,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_mtu_get(self, dpu):
+    def test_sai_port_attr_mtu_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_mtu_get',
@@ -1121,7 +1120,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '1514' for result in results]), 'Get error'
 
-    def test_sai_port_attr_flood_storm_control_policer_id_set(self, dpu):
+    def test_sai_port_attr_flood_storm_control_policer_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_flood_storm_control_policer_id_set',
@@ -1138,7 +1137,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_flood_storm_control_policer_id_get(self, dpu):
+    def test_sai_port_attr_flood_storm_control_policer_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_flood_storm_control_policer_id_get',
@@ -1152,7 +1151,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_broadcast_storm_control_policer_id_set(self, dpu):
+    def test_sai_port_attr_broadcast_storm_control_policer_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_broadcast_storm_control_policer_id_set',
@@ -1169,7 +1168,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_broadcast_storm_control_policer_id_get(self, dpu):
+    def test_sai_port_attr_broadcast_storm_control_policer_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_broadcast_storm_control_policer_id_get',
@@ -1183,7 +1182,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_multicast_storm_control_policer_id_set(self, dpu):
+    def test_sai_port_attr_multicast_storm_control_policer_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_multicast_storm_control_policer_id_set',
@@ -1200,7 +1199,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_multicast_storm_control_policer_id_get(self, dpu):
+    def test_sai_port_attr_multicast_storm_control_policer_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_multicast_storm_control_policer_id_get',
@@ -1214,7 +1213,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_global_flow_control_mode_set(self, dpu):
+    def test_sai_port_attr_global_flow_control_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_global_flow_control_mode_set',
@@ -1231,7 +1230,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_global_flow_control_mode_get(self, dpu):
+    def test_sai_port_attr_global_flow_control_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_global_flow_control_mode_get',
@@ -1247,7 +1246,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_FLOW_CONTROL_MODE_DISABLE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_ingress_acl_set(self, dpu):
+    def test_sai_port_attr_ingress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_acl_set',
@@ -1261,7 +1260,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_acl_get(self, dpu):
+    def test_sai_port_attr_ingress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_acl_get',
@@ -1275,7 +1274,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_acl_set(self, dpu):
+    def test_sai_port_attr_egress_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_acl_set',
@@ -1289,7 +1288,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_acl_get(self, dpu):
+    def test_sai_port_attr_egress_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_acl_get',
@@ -1303,7 +1302,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_macsec_acl_set(self, dpu):
+    def test_sai_port_attr_ingress_macsec_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_macsec_acl_set',
@@ -1317,7 +1316,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_macsec_acl_get(self, dpu):
+    def test_sai_port_attr_ingress_macsec_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_macsec_acl_get',
@@ -1331,7 +1330,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_macsec_acl_set(self, dpu):
+    def test_sai_port_attr_egress_macsec_acl_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_macsec_acl_set',
@@ -1345,7 +1344,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_macsec_acl_get(self, dpu):
+    def test_sai_port_attr_egress_macsec_acl_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_macsec_acl_get',
@@ -1359,7 +1358,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_macsec_port_list_get(self, dpu):
+    def test_sai_port_attr_macsec_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_macsec_port_list_get',
@@ -1373,7 +1372,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_mirror_session_set(self, dpu):
+    def test_sai_port_attr_ingress_mirror_session_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_mirror_session_set',
@@ -1387,7 +1386,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_mirror_session_get(self, dpu):
+    def test_sai_port_attr_ingress_mirror_session_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_mirror_session_get',
@@ -1401,7 +1400,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_mirror_session_set(self, dpu):
+    def test_sai_port_attr_egress_mirror_session_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_mirror_session_set',
@@ -1415,7 +1414,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_mirror_session_get(self, dpu):
+    def test_sai_port_attr_egress_mirror_session_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_mirror_session_get',
@@ -1429,7 +1428,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_samplepacket_enable_set(self, dpu):
+    def test_sai_port_attr_ingress_samplepacket_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_samplepacket_enable_set',
@@ -1446,7 +1445,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_samplepacket_enable_get(self, dpu):
+    def test_sai_port_attr_ingress_samplepacket_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_samplepacket_enable_get',
@@ -1460,7 +1459,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_samplepacket_enable_set(self, dpu):
+    def test_sai_port_attr_egress_samplepacket_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_samplepacket_enable_set',
@@ -1477,7 +1476,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_samplepacket_enable_get(self, dpu):
+    def test_sai_port_attr_egress_samplepacket_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_samplepacket_enable_get',
@@ -1491,7 +1490,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_sample_mirror_session_set(self, dpu):
+    def test_sai_port_attr_ingress_sample_mirror_session_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_sample_mirror_session_set',
@@ -1505,7 +1504,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ingress_sample_mirror_session_get(self, dpu):
+    def test_sai_port_attr_ingress_sample_mirror_session_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ingress_sample_mirror_session_get',
@@ -1519,7 +1518,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_sample_mirror_session_set(self, dpu):
+    def test_sai_port_attr_egress_sample_mirror_session_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_sample_mirror_session_set',
@@ -1533,7 +1532,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_sample_mirror_session_get(self, dpu):
+    def test_sai_port_attr_egress_sample_mirror_session_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_sample_mirror_session_get',
@@ -1547,7 +1546,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_policer_id_set(self, dpu):
+    def test_sai_port_attr_policer_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_policer_id_set',
@@ -1561,7 +1560,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_policer_id_get(self, dpu):
+    def test_sai_port_attr_policer_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_policer_id_get',
@@ -1575,7 +1574,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_default_tc_set(self, dpu):
+    def test_sai_port_attr_qos_default_tc_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_default_tc_set',
@@ -1589,7 +1588,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_default_tc_get(self, dpu):
+    def test_sai_port_attr_qos_default_tc_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_default_tc_get',
@@ -1603,7 +1602,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dot1p_to_tc_map_set(self, dpu):
+    def test_sai_port_attr_qos_dot1p_to_tc_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dot1p_to_tc_map_set',
@@ -1620,7 +1619,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dot1p_to_tc_map_get(self, dpu):
+    def test_sai_port_attr_qos_dot1p_to_tc_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dot1p_to_tc_map_get',
@@ -1634,7 +1633,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dot1p_to_color_map_set(self, dpu):
+    def test_sai_port_attr_qos_dot1p_to_color_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dot1p_to_color_map_set',
@@ -1651,7 +1650,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dot1p_to_color_map_get(self, dpu):
+    def test_sai_port_attr_qos_dot1p_to_color_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dot1p_to_color_map_get',
@@ -1665,7 +1664,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_tc_map_set(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_tc_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_tc_map_set',
@@ -1679,7 +1678,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_tc_map_get(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_tc_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_tc_map_get',
@@ -1693,7 +1692,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_color_map_set(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_color_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_color_map_set',
@@ -1710,7 +1709,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_color_map_get(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_color_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_color_map_get',
@@ -1724,7 +1723,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_to_queue_map_set(self, dpu):
+    def test_sai_port_attr_qos_tc_to_queue_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_to_queue_map_set',
@@ -1741,7 +1740,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_to_queue_map_get(self, dpu):
+    def test_sai_port_attr_qos_tc_to_queue_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_to_queue_map_get',
@@ -1755,7 +1754,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_dot1p_map_set(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_dot1p_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_dot1p_map_set',
@@ -1772,7 +1771,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_dot1p_map_get(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_dot1p_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_dot1p_map_get',
@@ -1786,7 +1785,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_dscp_map_set(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_dscp_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_dscp_map_set',
@@ -1803,7 +1802,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_dscp_map_get(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_dscp_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_dscp_map_get',
@@ -1817,7 +1816,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_to_priority_group_map_set(self, dpu):
+    def test_sai_port_attr_qos_tc_to_priority_group_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_to_priority_group_map_set',
@@ -1834,7 +1833,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_to_priority_group_map_get(self, dpu):
+    def test_sai_port_attr_qos_tc_to_priority_group_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_to_priority_group_map_get',
@@ -1848,7 +1847,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_pfc_priority_to_priority_group_map_set(self, dpu):
+    def test_sai_port_attr_qos_pfc_priority_to_priority_group_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_pfc_priority_to_priority_group_map_set',
@@ -1865,7 +1864,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_pfc_priority_to_priority_group_map_get(self, dpu):
+    def test_sai_port_attr_qos_pfc_priority_to_priority_group_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_pfc_priority_to_priority_group_map_get',
@@ -1879,7 +1878,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_pfc_priority_to_queue_map_set(self, dpu):
+    def test_sai_port_attr_qos_pfc_priority_to_queue_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_pfc_priority_to_queue_map_set',
@@ -1896,7 +1895,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_pfc_priority_to_queue_map_get(self, dpu):
+    def test_sai_port_attr_qos_pfc_priority_to_queue_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_pfc_priority_to_queue_map_get',
@@ -1910,7 +1909,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_scheduler_profile_id_set(self, dpu):
+    def test_sai_port_attr_qos_scheduler_profile_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_scheduler_profile_id_set',
@@ -1927,7 +1926,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_scheduler_profile_id_get(self, dpu):
+    def test_sai_port_attr_qos_scheduler_profile_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_scheduler_profile_id_get',
@@ -1941,7 +1940,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_ingress_buffer_profile_list_set(self, dpu):
+    def test_sai_port_attr_qos_ingress_buffer_profile_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_ingress_buffer_profile_list_set',
@@ -1955,7 +1954,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_ingress_buffer_profile_list_get(self, dpu):
+    def test_sai_port_attr_qos_ingress_buffer_profile_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_ingress_buffer_profile_list_get',
@@ -1969,7 +1968,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_egress_buffer_profile_list_set(self, dpu):
+    def test_sai_port_attr_qos_egress_buffer_profile_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_egress_buffer_profile_list_set',
@@ -1983,7 +1982,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_egress_buffer_profile_list_get(self, dpu):
+    def test_sai_port_attr_qos_egress_buffer_profile_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_egress_buffer_profile_list_get',
@@ -1997,7 +1996,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_mode_set(self, dpu):
+    def test_sai_port_attr_priority_flow_control_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_mode_set',
@@ -2014,7 +2013,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_mode_get(self, dpu):
+    def test_sai_port_attr_priority_flow_control_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_mode_get',
@@ -2033,7 +2032,7 @@ class TestSaiPort:
             ]
         ), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_set(self, dpu):
+    def test_sai_port_attr_priority_flow_control_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_set',
@@ -2047,7 +2046,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_get(self, dpu):
+    def test_sai_port_attr_priority_flow_control_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_get',
@@ -2061,7 +2060,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_rx_set(self, dpu):
+    def test_sai_port_attr_priority_flow_control_rx_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_rx_set',
@@ -2075,7 +2074,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_rx_get(self, dpu):
+    def test_sai_port_attr_priority_flow_control_rx_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_rx_get',
@@ -2089,7 +2088,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_tx_set(self, dpu):
+    def test_sai_port_attr_priority_flow_control_tx_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_tx_set',
@@ -2103,7 +2102,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_tx_get(self, dpu):
+    def test_sai_port_attr_priority_flow_control_tx_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_tx_get',
@@ -2117,7 +2116,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_meta_data_set(self, dpu):
+    def test_sai_port_attr_meta_data_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_meta_data_set',
@@ -2131,7 +2130,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_meta_data_get(self, dpu):
+    def test_sai_port_attr_meta_data_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_meta_data_get',
@@ -2145,7 +2144,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_block_port_list_set(self, dpu):
+    def test_sai_port_attr_egress_block_port_list_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_block_port_list_set',
@@ -2159,7 +2158,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_egress_block_port_list_get(self, dpu):
+    def test_sai_port_attr_egress_block_port_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_egress_block_port_list_get',
@@ -2173,7 +2172,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_hw_profile_id_set(self, dpu):
+    def test_sai_port_attr_hw_profile_id_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_hw_profile_id_set',
@@ -2187,7 +2186,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_hw_profile_id_get(self, dpu):
+    def test_sai_port_attr_hw_profile_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_hw_profile_id_get',
@@ -2201,7 +2200,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'vendor' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_enable_set(self, dpu):
+    def test_sai_port_attr_eee_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_enable_set',
@@ -2215,7 +2214,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_enable_get(self, dpu):
+    def test_sai_port_attr_eee_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_enable_get',
@@ -2229,7 +2228,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_idle_time_set(self, dpu):
+    def test_sai_port_attr_eee_idle_time_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_idle_time_set',
@@ -2243,7 +2242,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_idle_time_get(self, dpu):
+    def test_sai_port_attr_eee_idle_time_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_idle_time_get',
@@ -2257,7 +2256,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '2500' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_wake_time_set(self, dpu):
+    def test_sai_port_attr_eee_wake_time_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_wake_time_set',
@@ -2271,7 +2270,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_eee_wake_time_get(self, dpu):
+    def test_sai_port_attr_eee_wake_time_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_eee_wake_time_get',
@@ -2285,7 +2284,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '5' for result in results]), 'Get error'
 
-    def test_sai_port_attr_port_pool_list_get(self, dpu):
+    def test_sai_port_attr_port_pool_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_port_pool_list_get',
@@ -2299,7 +2298,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_isolation_group_set(self, dpu):
+    def test_sai_port_attr_isolation_group_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_isolation_group_set',
@@ -2313,7 +2312,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_isolation_group_get(self, dpu):
+    def test_sai_port_attr_isolation_group_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_isolation_group_get',
@@ -2327,7 +2326,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pkt_tx_enable_set(self, dpu):
+    def test_sai_port_attr_pkt_tx_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pkt_tx_enable_set',
@@ -2341,7 +2340,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pkt_tx_enable_get(self, dpu):
+    def test_sai_port_attr_pkt_tx_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pkt_tx_enable_get',
@@ -2355,7 +2354,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'true' for result in results]), 'Get error'
 
-    def test_sai_port_attr_tam_object_set(self, dpu):
+    def test_sai_port_attr_tam_object_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_tam_object_set',
@@ -2369,7 +2368,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_tam_object_get(self, dpu):
+    def test_sai_port_attr_tam_object_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_tam_object_get',
@@ -2383,7 +2382,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_preemphasis_set(self, dpu):
+    def test_sai_port_attr_serdes_preemphasis_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_preemphasis_set',
@@ -2397,7 +2396,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_preemphasis_get(self, dpu):
+    def test_sai_port_attr_serdes_preemphasis_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_preemphasis_get',
@@ -2411,7 +2410,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'internal' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_idriver_set(self, dpu):
+    def test_sai_port_attr_serdes_idriver_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_idriver_set',
@@ -2425,7 +2424,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_idriver_get(self, dpu):
+    def test_sai_port_attr_serdes_idriver_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_idriver_get',
@@ -2439,7 +2438,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'internal' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_ipredriver_set(self, dpu):
+    def test_sai_port_attr_serdes_ipredriver_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_ipredriver_set',
@@ -2453,7 +2452,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_serdes_ipredriver_get(self, dpu):
+    def test_sai_port_attr_serdes_ipredriver_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_serdes_ipredriver_get',
@@ -2467,7 +2466,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'internal' for result in results]), 'Get error'
 
-    def test_sai_port_attr_link_training_enable_set(self, dpu):
+    def test_sai_port_attr_link_training_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_link_training_enable_set',
@@ -2481,7 +2480,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_link_training_enable_get(self, dpu):
+    def test_sai_port_attr_link_training_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_link_training_enable_get',
@@ -2495,7 +2494,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ptp_mode_set(self, dpu):
+    def test_sai_port_attr_ptp_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ptp_mode_set',
@@ -2509,7 +2508,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ptp_mode_get(self, dpu):
+    def test_sai_port_attr_ptp_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ptp_mode_get',
@@ -2525,7 +2524,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_PTP_MODE_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_interface_type_set(self, dpu):
+    def test_sai_port_attr_interface_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_interface_type_set',
@@ -2542,7 +2541,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_interface_type_get(self, dpu):
+    def test_sai_port_attr_interface_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_interface_type_get',
@@ -2558,7 +2557,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_INTERFACE_TYPE_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_advertised_interface_type_set(self, dpu):
+    def test_sai_port_attr_advertised_interface_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_interface_type_set',
@@ -2572,7 +2571,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_advertised_interface_type_get(self, dpu):
+    def test_sai_port_attr_advertised_interface_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_advertised_interface_type_get',
@@ -2586,7 +2585,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_polynomial_set(self, dpu):
+    def test_sai_port_attr_prbs_polynomial_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_polynomial_set',
@@ -2600,7 +2599,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_polynomial_get(self, dpu):
+    def test_sai_port_attr_prbs_polynomial_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_polynomial_get',
@@ -2614,7 +2613,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'internal' for result in results]), 'Get error'
 
-    def test_sai_port_attr_port_serdes_id_get(self, dpu):
+    def test_sai_port_attr_port_serdes_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_port_serdes_id_get',
@@ -2628,7 +2627,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'internal' for result in results]), 'Get error'
 
-    def test_sai_port_attr_link_training_failure_status_get(self, dpu):
+    def test_sai_port_attr_link_training_failure_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_link_training_failure_status_get',
@@ -2642,7 +2641,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_link_training_rx_status_get(self, dpu):
+    def test_sai_port_attr_link_training_rx_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_link_training_rx_status_get',
@@ -2656,7 +2655,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_config_set(self, dpu):
+    def test_sai_port_attr_prbs_config_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_config_set',
@@ -2673,7 +2672,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_config_get(self, dpu):
+    def test_sai_port_attr_prbs_config_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_config_get',
@@ -2689,7 +2688,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_PRBS_CONFIG_DISABLE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_prbs_lock_status_get(self, dpu):
+    def test_sai_port_attr_prbs_lock_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_lock_status_get',
@@ -2703,7 +2702,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_lock_loss_status_get(self, dpu):
+    def test_sai_port_attr_prbs_lock_loss_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_lock_loss_status_get',
@@ -2717,7 +2716,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_rx_status_get(self, dpu):
+    def test_sai_port_attr_prbs_rx_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_rx_status_get',
@@ -2731,7 +2730,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_prbs_rx_state_get(self, dpu):
+    def test_sai_port_attr_prbs_rx_state_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_prbs_rx_state_get',
@@ -2745,7 +2744,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_status_get(self, dpu):
+    def test_sai_port_attr_auto_neg_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_status_get',
@@ -2759,7 +2758,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_disable_decrement_ttl_set(self, dpu):
+    def test_sai_port_attr_disable_decrement_ttl_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_disable_decrement_ttl_set',
@@ -2773,7 +2772,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_disable_decrement_ttl_get(self, dpu):
+    def test_sai_port_attr_disable_decrement_ttl_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_disable_decrement_ttl_get',
@@ -2787,7 +2786,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_tc_map_set(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_tc_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_tc_map_set',
@@ -2804,7 +2803,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_tc_map_get(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_tc_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_tc_map_get',
@@ -2818,7 +2817,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_color_map_set(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_color_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_color_map_set',
@@ -2835,7 +2834,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_color_map_get(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_color_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_color_map_get',
@@ -2849,7 +2848,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_mpls_exp_map_set(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_mpls_exp_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_mpls_exp_map_set',
@@ -2866,7 +2865,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_tc_and_color_to_mpls_exp_map_get(self, dpu):
+    def test_sai_port_attr_qos_tc_and_color_to_mpls_exp_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_tc_and_color_to_mpls_exp_map_get',
@@ -2880,7 +2879,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_tpid_set(self, dpu):
+    def test_sai_port_attr_tpid_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_tpid_set',
@@ -2894,7 +2893,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_tpid_get(self, dpu):
+    def test_sai_port_attr_tpid_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_tpid_get',
@@ -2908,7 +2907,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0x8100' for result in results]), 'Get error'
 
-    def test_sai_port_attr_err_status_list_get(self, dpu):
+    def test_sai_port_attr_err_status_list_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_err_status_list_get',
@@ -2922,7 +2921,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_attached_get(self, dpu):
+    def test_sai_port_attr_fabric_attached_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_attached_get',
@@ -2936,7 +2935,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_attached_switch_type_get(self, dpu):
+    def test_sai_port_attr_fabric_attached_switch_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_attached_switch_type_get',
@@ -2950,7 +2949,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_attached_switch_id_get(self, dpu):
+    def test_sai_port_attr_fabric_attached_switch_id_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_attached_switch_id_get',
@@ -2964,7 +2963,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_attached_port_index_get(self, dpu):
+    def test_sai_port_attr_fabric_attached_port_index_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_attached_port_index_get',
@@ -2978,7 +2977,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_reachability_get(self, dpu):
+    def test_sai_port_attr_fabric_reachability_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_reachability_get',
@@ -2992,7 +2991,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_system_port_get(self, dpu):
+    def test_sai_port_attr_system_port_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_system_port_get',
@@ -3006,7 +3005,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_fec_mode_override_set(self, dpu):
+    def test_sai_port_attr_auto_neg_fec_mode_override_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_fec_mode_override_set',
@@ -3020,7 +3019,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_fec_mode_override_get(self, dpu):
+    def test_sai_port_attr_auto_neg_fec_mode_override_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_fec_mode_override_get',
@@ -3034,7 +3033,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_loopback_mode_set(self, dpu):
+    def test_sai_port_attr_loopback_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_loopback_mode_set',
@@ -3051,7 +3050,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_loopback_mode_get(self, dpu):
+    def test_sai_port_attr_loopback_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_loopback_mode_get',
@@ -3067,7 +3066,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_LOOPBACK_MODE_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_mdix_mode_status_get(self, dpu):
+    def test_sai_port_attr_mdix_mode_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_mdix_mode_status_get',
@@ -3081,7 +3080,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_mdix_mode_config_set(self, dpu):
+    def test_sai_port_attr_mdix_mode_config_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_mdix_mode_config_set',
@@ -3098,7 +3097,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_mdix_mode_config_get(self, dpu):
+    def test_sai_port_attr_mdix_mode_config_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_mdix_mode_config_get',
@@ -3114,7 +3113,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_MDIX_MODE_CONFIG_AUTO' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_auto_neg_config_mode_set(self, dpu):
+    def test_sai_port_attr_auto_neg_config_mode_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_config_mode_set',
@@ -3131,7 +3130,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_auto_neg_config_mode_get(self, dpu):
+    def test_sai_port_attr_auto_neg_config_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_config_mode_get',
@@ -3147,7 +3146,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_AUTO_NEG_CONFIG_MODE_DISABLED' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_1000x_sgmii_slave_autodetect_set(self, dpu):
+    def test_sai_port_attr_1000x_sgmii_slave_autodetect_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_1000x_sgmii_slave_autodetect_set',
@@ -3161,7 +3160,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_1000x_sgmii_slave_autodetect_get(self, dpu):
+    def test_sai_port_attr_1000x_sgmii_slave_autodetect_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_1000x_sgmii_slave_autodetect_get',
@@ -3175,7 +3174,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_module_type_set(self, dpu):
+    def test_sai_port_attr_module_type_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_module_type_set',
@@ -3192,7 +3191,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_module_type_get(self, dpu):
+    def test_sai_port_attr_module_type_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_module_type_get',
@@ -3208,7 +3207,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_MODULE_TYPE_1000BASE_X' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_dual_media_set(self, dpu):
+    def test_sai_port_attr_dual_media_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_dual_media_set',
@@ -3222,7 +3221,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_dual_media_get(self, dpu):
+    def test_sai_port_attr_dual_media_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_dual_media_get',
@@ -3238,7 +3237,7 @@ class TestSaiPort:
             [result == 'SAI_PORT_DUAL_MEDIA_NONE' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_auto_neg_fec_mode_extended_get(self, dpu):
+    def test_sai_port_attr_auto_neg_fec_mode_extended_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_auto_neg_fec_mode_extended_get',
@@ -3252,7 +3251,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ipg_set(self, dpu):
+    def test_sai_port_attr_ipg_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ipg_set',
@@ -3266,7 +3265,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ipg_get(self, dpu):
+    def test_sai_port_attr_ipg_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ipg_get',
@@ -3280,7 +3279,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '96' for result in results]), 'Get error'
 
-    def test_sai_port_attr_global_flow_control_forward_set(self, dpu):
+    def test_sai_port_attr_global_flow_control_forward_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_global_flow_control_forward_set',
@@ -3294,7 +3293,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_global_flow_control_forward_get(self, dpu):
+    def test_sai_port_attr_global_flow_control_forward_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_global_flow_control_forward_get',
@@ -3308,7 +3307,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_forward_set(self, dpu):
+    def test_sai_port_attr_priority_flow_control_forward_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_forward_set',
@@ -3322,7 +3321,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_priority_flow_control_forward_get(self, dpu):
+    def test_sai_port_attr_priority_flow_control_forward_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_priority_flow_control_forward_get',
@@ -3336,7 +3335,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_forwarding_class_map_set(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_forwarding_class_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_forwarding_class_map_set',
@@ -3353,7 +3352,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_dscp_to_forwarding_class_map_get(self, dpu):
+    def test_sai_port_attr_qos_dscp_to_forwarding_class_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_dscp_to_forwarding_class_map_get',
@@ -3367,7 +3366,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_forwarding_class_map_set(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_forwarding_class_map_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_forwarding_class_map_set',
@@ -3384,7 +3383,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_qos_mpls_exp_to_forwarding_class_map_get(self, dpu):
+    def test_sai_port_attr_qos_mpls_exp_to_forwarding_class_map_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_qos_mpls_exp_to_forwarding_class_map_get',
@@ -3398,7 +3397,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ipsec_port_get(self, dpu):
+    def test_sai_port_attr_ipsec_port_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ipsec_port_get',
@@ -3412,7 +3411,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dld_interval_range_get(self, dpu):
+    def test_sai_port_attr_pfc_tc_dld_interval_range_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dld_interval_range_get',
@@ -3426,7 +3425,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dld_interval_set(self, dpu):
+    def test_sai_port_attr_pfc_tc_dld_interval_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dld_interval_set',
@@ -3440,7 +3439,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dld_interval_get(self, dpu):
+    def test_sai_port_attr_pfc_tc_dld_interval_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dld_interval_get',
@@ -3454,7 +3453,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dlr_interval_range_get(self, dpu):
+    def test_sai_port_attr_pfc_tc_dlr_interval_range_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dlr_interval_range_get',
@@ -3468,7 +3467,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dlr_interval_set(self, dpu):
+    def test_sai_port_attr_pfc_tc_dlr_interval_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dlr_interval_set',
@@ -3482,7 +3481,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pfc_tc_dlr_interval_get(self, dpu):
+    def test_sai_port_attr_pfc_tc_dlr_interval_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pfc_tc_dlr_interval_get',
@@ -3496,7 +3495,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'empty' for result in results]), 'Get error'
 
-    def test_sai_port_attr_supported_link_training_mode_get(self, dpu):
+    def test_sai_port_attr_supported_link_training_mode_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_supported_link_training_mode_get',
@@ -3510,7 +3509,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_rx_signal_detect_get(self, dpu):
+    def test_sai_port_attr_rx_signal_detect_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_rx_signal_detect_get',
@@ -3524,7 +3523,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_rx_lock_status_get(self, dpu):
+    def test_sai_port_attr_rx_lock_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_rx_lock_status_get',
@@ -3538,7 +3537,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_pcs_rx_link_status_get(self, dpu):
+    def test_sai_port_attr_pcs_rx_link_status_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_pcs_rx_link_status_get',
@@ -3552,7 +3551,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fec_alignment_lock_get(self, dpu):
+    def test_sai_port_attr_fec_alignment_lock_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fec_alignment_lock_get',
@@ -3566,7 +3565,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_isolate_set(self, dpu):
+    def test_sai_port_attr_fabric_isolate_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_isolate_set',
@@ -3580,7 +3579,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_fabric_isolate_get(self, dpu):
+    def test_sai_port_attr_fabric_isolate_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_fabric_isolate_get',
@@ -3594,7 +3593,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_max_fec_symbol_errors_detectable_get(self, dpu):
+    def test_sai_port_attr_max_fec_symbol_errors_detectable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_max_fec_symbol_errors_detectable_get',
@@ -3608,7 +3607,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_enable_set(self, dpu):
+    def test_sai_port_attr_ars_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_enable_set',
@@ -3622,7 +3621,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_enable_get(self, dpu):
+    def test_sai_port_attr_ars_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_enable_get',
@@ -3636,7 +3635,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_scaling_factor_set(self, dpu):
+    def test_sai_port_attr_ars_port_load_scaling_factor_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_scaling_factor_set',
@@ -3650,7 +3649,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_scaling_factor_get(self, dpu):
+    def test_sai_port_attr_ars_port_load_scaling_factor_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_scaling_factor_get',
@@ -3664,7 +3663,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_past_enable_set(self, dpu):
+    def test_sai_port_attr_ars_port_load_past_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_past_enable_set',
@@ -3678,7 +3677,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_past_enable_get(self, dpu):
+    def test_sai_port_attr_ars_port_load_past_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_past_enable_get',
@@ -3692,7 +3691,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_future_enable_set(self, dpu):
+    def test_sai_port_attr_ars_port_load_future_enable_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_future_enable_set',
@@ -3706,7 +3705,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_port_load_future_enable_get(self, dpu):
+    def test_sai_port_attr_ars_port_load_future_enable_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_port_load_future_enable_get',
@@ -3720,7 +3719,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_alternate_path_set(self, dpu):
+    def test_sai_port_attr_ars_alternate_path_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_alternate_path_set',
@@ -3734,7 +3733,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ars_alternate_path_get(self, dpu):
+    def test_sai_port_attr_ars_alternate_path_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ars_alternate_path_get',
@@ -3748,7 +3747,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'false' for result in results]), 'Get error'
 
-    def test_sai_port_attr_json_formatted_debug_data_get(self, dpu):
+    def test_sai_port_attr_json_formatted_debug_data_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_json_formatted_debug_data_get',
@@ -3762,7 +3761,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'TODO' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_algorithm_set(self, dpu):
+    def test_sai_port_attr_ecmp_hash_algorithm_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_algorithm_set',
@@ -3779,7 +3778,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_algorithm_get(self, dpu):
+    def test_sai_port_attr_ecmp_hash_algorithm_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_algorithm_get',
@@ -3795,7 +3794,7 @@ class TestSaiPort:
             [result == 'SAI_HASH_ALGORITHM_CRC' for result in results]
         ), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_seed_set(self, dpu):
+    def test_sai_port_attr_ecmp_hash_seed_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_seed_set',
@@ -3809,7 +3808,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_seed_get(self, dpu):
+    def test_sai_port_attr_ecmp_hash_seed_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_seed_get',
@@ -3823,7 +3822,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == '0' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_offset_set(self, dpu):
+    def test_sai_port_attr_ecmp_hash_offset_set(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_offset_set',
@@ -3837,7 +3836,7 @@ class TestSaiPort:
         pprint(results)
         assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
 
-    def test_sai_port_attr_ecmp_hash_offset_get(self, dpu):
+    def test_sai_port_attr_ecmp_hash_offset_get(self, npu):
         commands = [
             {
                 'name': 'sai_port_attr_ecmp_hash_offset_get',
