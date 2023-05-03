@@ -27,9 +27,9 @@ class TestSaiDtelQueueReport:
                     'SAI_SCHEDULER_GROUP_ATTR_PORT_ID',
                     '$port_1',
                     'SAI_SCHEDULER_GROUP_ATTR_LEVEL',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_SCHEDULER_GROUP_ATTR_MAX_CHILDS',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE',
                     'TODO_circular parent reference',
                 ],
@@ -44,7 +44,7 @@ class TestSaiDtelQueueReport:
                     'SAI_QUEUE_ATTR_PORT',
                     '$port_1',
                     'SAI_QUEUE_ATTR_INDEX',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_QUEUE_ATTR_PARENT_SCHEDULER_NODE',
                     '$scheduler_group_1',
                 ],
@@ -62,10 +62,11 @@ class TestSaiDtelQueueReport:
         pprint(results)
         assert all(results), 'Create error'
 
+    @pytest.mark.dependency()
     def test_sai_dtel_queue_report_attr_depth_threshold_set(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_depth_threshold_set',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': ['SAI_DTEL_QUEUE_REPORT_ATTR_DEPTH_THRESHOLD', '0'],
@@ -74,12 +75,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(
+        depends=['test_sai_dtel_queue_report_attr_depth_threshold_set']
+    )
     def test_sai_dtel_queue_report_attr_depth_threshold_get(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_depth_threshold_get',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': 'SAI_DTEL_QUEUE_REPORT_ATTR_DEPTH_THRESHOLD',
@@ -88,12 +92,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_dtel_queue_report_attr_latency_threshold_set(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_latency_threshold_set',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': ['SAI_DTEL_QUEUE_REPORT_ATTR_LATENCY_THRESHOLD', '0'],
@@ -102,12 +109,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(
+        depends=['test_sai_dtel_queue_report_attr_latency_threshold_set']
+    )
     def test_sai_dtel_queue_report_attr_latency_threshold_get(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_latency_threshold_get',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': 'SAI_DTEL_QUEUE_REPORT_ATTR_LATENCY_THRESHOLD',
@@ -116,12 +126,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_dtel_queue_report_attr_breach_quota_set(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_breach_quota_set',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': ['SAI_DTEL_QUEUE_REPORT_ATTR_BREACH_QUOTA', '0'],
@@ -130,12 +143,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(
+        depends=['test_sai_dtel_queue_report_attr_breach_quota_set']
+    )
     def test_sai_dtel_queue_report_attr_breach_quota_get(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_breach_quota_get',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': 'SAI_DTEL_QUEUE_REPORT_ATTR_BREACH_QUOTA',
@@ -144,12 +160,15 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_dtel_queue_report_attr_tail_drop_set(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_tail_drop_set',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': ['SAI_DTEL_QUEUE_REPORT_ATTR_TAIL_DROP', 'false'],
@@ -158,12 +177,13 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_dtel_queue_report_attr_tail_drop_set'])
     def test_sai_dtel_queue_report_attr_tail_drop_get(self, npu):
         commands = [
             {
-                'name': 'sai_dtel_queue_report_attr_tail_drop_get',
+                'name': 'dtel_queue_report_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_DTEL_QUEUE_REPORT',
                 'atrribute': 'SAI_DTEL_QUEUE_REPORT_ATTR_TAIL_DROP',
@@ -172,7 +192,9 @@ class TestSaiDtelQueueReport:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'false' for result in results]), 'Get error'
+        assert results[1][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[1][0].value()
+        )
 
     def test_dtel_queue_report_remove(self, npu):
         commands = [
@@ -192,7 +214,7 @@ class TestSaiDtelQueueReport:
                     'SAI_QUEUE_ATTR_PORT',
                     '$port_1',
                     'SAI_QUEUE_ATTR_INDEX',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_QUEUE_ATTR_PARENT_SCHEDULER_NODE',
                     '$scheduler_group_1',
                 ],
@@ -205,9 +227,9 @@ class TestSaiDtelQueueReport:
                     'SAI_SCHEDULER_GROUP_ATTR_PORT_ID',
                     '$port_1',
                     'SAI_SCHEDULER_GROUP_ATTR_LEVEL',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_SCHEDULER_GROUP_ATTR_MAX_CHILDS',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE',
                     'TODO_circular parent reference',
                 ],

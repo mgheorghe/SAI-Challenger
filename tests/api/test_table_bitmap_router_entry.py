@@ -1,7 +1,5 @@
 from pprint import pprint
 
-import pytest
-
 
 class TestSaiTableBitmapRouterEntry:
     # object with parent SAI_OBJECT_TYPE_NEXT_HOP SAI_OBJECT_TYPE_ROUTER_INTERFACE SAI_OBJECT_TYPE_HOSTIF_TRAP
@@ -85,7 +83,7 @@ class TestSaiTableBitmapRouterEntry:
                     'SAI_NEXT_HOP_ATTR_TYPE',
                     'SAI_NEXT_HOP_TYPE_IP',
                     'SAI_NEXT_HOP_ATTR_IP',
-                    'sai_ip_address_t',
+                    '180.0.0.1',
                     'SAI_NEXT_HOP_ATTR_ROUTER_INTERFACE_ID',
                     '$router_interface_1',
                     'SAI_NEXT_HOP_ATTR_TUNNEL_ID',
@@ -113,7 +111,7 @@ class TestSaiTableBitmapRouterEntry:
                 'type': 'SAI_OBJECT_TYPE_TABLE_BITMAP_ROUTER_ENTRY',
                 'attributes': [
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_ACTION',
-                    'sai_table_bitmap_router_entry_action_t',
+                    'SAI_TABLE_BITMAP_ROUTER_ENTRY_ACTION_NOACTION',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_PRIORITY',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_IN_RIF_METADATA_KEY',
@@ -121,7 +119,7 @@ class TestSaiTableBitmapRouterEntry:
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_IN_RIF_METADATA_MASK',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_DST_IP_KEY',
-                    'sai_ip_prefix_t',
+                    '190.0.0.1',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_TUNNEL_INDEX',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_NEXT_HOP',
@@ -147,7 +145,7 @@ class TestSaiTableBitmapRouterEntry:
                 'type': 'SAI_OBJECT_TYPE_TABLE_BITMAP_ROUTER_ENTRY',
                 'attributes': [
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_ACTION',
-                    'sai_table_bitmap_router_entry_action_t',
+                    'SAI_TABLE_BITMAP_ROUTER_ENTRY_ACTION_NOACTION',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_PRIORITY',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_IN_RIF_METADATA_KEY',
@@ -155,7 +153,7 @@ class TestSaiTableBitmapRouterEntry:
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_IN_RIF_METADATA_MASK',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_DST_IP_KEY',
-                    'sai_ip_prefix_t',
+                    '190.0.0.1',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_TUNNEL_INDEX',
                     '10',
                     'SAI_TABLE_BITMAP_ROUTER_ENTRY_ATTR_NEXT_HOP',
@@ -185,7 +183,7 @@ class TestSaiTableBitmapRouterEntry:
                     'SAI_NEXT_HOP_ATTR_TYPE',
                     'SAI_NEXT_HOP_TYPE_IP',
                     'SAI_NEXT_HOP_ATTR_IP',
-                    'sai_ip_address_t',
+                    '180.0.0.1',
                     'SAI_NEXT_HOP_ATTR_ROUTER_INTERFACE_ID',
                     '$router_interface_1',
                     'SAI_NEXT_HOP_ATTR_TUNNEL_ID',

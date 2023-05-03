@@ -13,6 +13,12 @@ class TestSaiNatEntry:
                 'op': 'create',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'attributes': [],
+                'key': {
+                    'switch_id': '$SWITCH_ID',
+                    'vr_id': 'TODO',
+                    'nat_type': 'TODO',
+                    'data': 'TODO',
+                },
             }
         ]
 
@@ -21,10 +27,11 @@ class TestSaiNatEntry:
         pprint(results)
         assert all(results), 'Create error'
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_nat_type_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_nat_type_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_NAT_TYPE', 'SAI_NAT_TYPE_NONE'],
@@ -33,12 +40,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_nat_type_set'])
     def test_sai_nat_entry_attr_nat_type_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_nat_type_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_NAT_TYPE',
@@ -47,12 +55,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_NAT_TYPE_NONE' for result in results]), 'Get error'
+        assert results[1][0].value() == 'SAI_NAT_TYPE_NONE', (
+            'Get error, expected SAI_NAT_TYPE_NONE but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_src_ip_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_src_ip_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_SRC_IP', '0.0.0.0'],
@@ -61,12 +72,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_src_ip_set'])
     def test_sai_nat_entry_attr_src_ip_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_src_ip_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_SRC_IP',
@@ -75,12 +87,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0.0.0.0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0.0.0.0', (
+            'Get error, expected 0.0.0.0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_src_ip_mask_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_src_ip_mask_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_SRC_IP_MASK', '0.0.0.0'],
@@ -89,12 +104,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_src_ip_mask_set'])
     def test_sai_nat_entry_attr_src_ip_mask_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_src_ip_mask_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_SRC_IP_MASK',
@@ -103,12 +119,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0.0.0.0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0.0.0.0', (
+            'Get error, expected 0.0.0.0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_vr_id_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_vr_id_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_VR_ID', 'SAI_NULL_OBJECT_ID'],
@@ -117,12 +136,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_vr_id_set'])
     def test_sai_nat_entry_attr_vr_id_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_vr_id_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_VR_ID',
@@ -131,12 +151,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_NULL_OBJECT_ID' for result in results]), 'Get error'
+        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_dst_ip_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_dst_ip_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_DST_IP', '0.0.0.0'],
@@ -145,12 +168,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_dst_ip_set'])
     def test_sai_nat_entry_attr_dst_ip_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_dst_ip_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_DST_IP',
@@ -159,12 +183,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0.0.0.0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0.0.0.0', (
+            'Get error, expected 0.0.0.0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_dst_ip_mask_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_dst_ip_mask_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_DST_IP_MASK', '0.0.0.0'],
@@ -173,12 +200,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_dst_ip_mask_set'])
     def test_sai_nat_entry_attr_dst_ip_mask_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_dst_ip_mask_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_DST_IP_MASK',
@@ -187,12 +215,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0.0.0.0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0.0.0.0', (
+            'Get error, expected 0.0.0.0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_l4_src_port_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_l4_src_port_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_L4_SRC_PORT', '0'],
@@ -201,12 +232,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_l4_src_port_set'])
     def test_sai_nat_entry_attr_l4_src_port_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_l4_src_port_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_L4_SRC_PORT',
@@ -215,12 +247,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_l4_dst_port_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_l4_dst_port_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_L4_DST_PORT', '0'],
@@ -229,12 +264,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_l4_dst_port_set'])
     def test_sai_nat_entry_attr_l4_dst_port_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_l4_dst_port_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_L4_DST_PORT',
@@ -243,12 +279,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_enable_packet_count_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_enable_packet_count_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_ENABLE_PACKET_COUNT', 'false'],
@@ -257,12 +296,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_enable_packet_count_set'])
     def test_sai_nat_entry_attr_enable_packet_count_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_enable_packet_count_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_ENABLE_PACKET_COUNT',
@@ -271,12 +311,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'false' for result in results]), 'Get error'
+        assert results[1][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_packet_count_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_packet_count_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_PACKET_COUNT', '0'],
@@ -285,12 +328,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_packet_count_set'])
     def test_sai_nat_entry_attr_packet_count_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_packet_count_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_PACKET_COUNT',
@@ -299,12 +343,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_enable_byte_count_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_enable_byte_count_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_ENABLE_BYTE_COUNT', 'false'],
@@ -313,12 +360,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_enable_byte_count_set'])
     def test_sai_nat_entry_attr_enable_byte_count_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_enable_byte_count_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_ENABLE_BYTE_COUNT',
@@ -327,12 +375,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'false' for result in results]), 'Get error'
+        assert results[1][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_byte_count_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_byte_count_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_BYTE_COUNT', '0'],
@@ -341,12 +392,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_byte_count_set'])
     def test_sai_nat_entry_attr_byte_count_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_byte_count_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_BYTE_COUNT',
@@ -355,12 +407,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_hit_bit_cor_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_hit_bit_cor_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_HIT_BIT_COR', 'false'],
@@ -369,12 +424,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_hit_bit_cor_set'])
     def test_sai_nat_entry_attr_hit_bit_cor_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_hit_bit_cor_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_HIT_BIT_COR',
@@ -383,12 +439,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'false' for result in results]), 'Get error'
+        assert results[1][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_hit_bit_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_hit_bit_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_HIT_BIT', 'false'],
@@ -397,12 +456,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_hit_bit_set'])
     def test_sai_nat_entry_attr_hit_bit_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_hit_bit_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_HIT_BIT',
@@ -411,12 +471,15 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'false' for result in results]), 'Get error'
+        assert results[1][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_nat_entry_attr_aging_time_set(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_aging_time_set',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': ['SAI_NAT_ENTRY_ATTR_AGING_TIME', '0'],
@@ -425,12 +488,13 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_nat_entry_attr_aging_time_set'])
     def test_sai_nat_entry_attr_aging_time_get(self, npu):
         commands = [
             {
-                'name': 'sai_nat_entry_attr_aging_time_get',
+                'name': 'nat_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'atrribute': 'SAI_NAT_ENTRY_ATTR_AGING_TIME',
@@ -439,7 +503,9 @@ class TestSaiNatEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
     def test_nat_entry_remove(self, npu):
         commands = [
@@ -448,6 +514,12 @@ class TestSaiNatEntry:
                 'op': 'remove',
                 'type': 'SAI_OBJECT_TYPE_NAT_ENTRY',
                 'attributes': [],
+                'key': {
+                    'switch_id': '$SWITCH_ID',
+                    'vr_id': 'TODO',
+                    'nat_type': 'TODO',
+                    'data': 'TODO',
+                },
             }
         ]
 

@@ -1,7 +1,5 @@
 from pprint import pprint
 
-import pytest
-
 
 class TestSaiTableMetaTunnelEntry:
     # object with parent SAI_OBJECT_TYPE_TUNNEL
@@ -83,7 +81,7 @@ class TestSaiTableMetaTunnelEntry:
                     'SAI_TABLE_META_TUNNEL_ENTRY_ATTR_TUNNEL_ID',
                     '$tunnel_1',
                     'SAI_TABLE_META_TUNNEL_ENTRY_ATTR_UNDERLAY_DIP',
-                    'sai_ip_address_t',
+                    '180.0.0.1',
                 ],
             },
         ]
@@ -107,7 +105,7 @@ class TestSaiTableMetaTunnelEntry:
                     'SAI_TABLE_META_TUNNEL_ENTRY_ATTR_TUNNEL_ID',
                     '$tunnel_1',
                     'SAI_TABLE_META_TUNNEL_ENTRY_ATTR_UNDERLAY_DIP',
-                    'sai_ip_address_t',
+                    '180.0.0.1',
                 ],
             },
             {

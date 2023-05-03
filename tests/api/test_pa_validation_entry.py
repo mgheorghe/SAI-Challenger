@@ -13,6 +13,7 @@ class TestSaiPaValidationEntry:
                 'op': 'create',
                 'type': 'SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY',
                 'attributes': [],
+                'key': {'switch_id': '$SWITCH_ID', 'vnet_id': 'TODO', 'sip': 'TODO'},
             }
         ]
 
@@ -21,10 +22,11 @@ class TestSaiPaValidationEntry:
         pprint(results)
         assert all(results), 'Create error'
 
+    @pytest.mark.dependency()
     def test_sai_pa_validation_entry_attr_action_set(self, npu):
         commands = [
             {
-                'name': 'sai_pa_validation_entry_attr_action_set',
+                'name': 'pa_validation_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY',
                 'atrribute': [
@@ -36,12 +38,13 @@ class TestSaiPaValidationEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_pa_validation_entry_attr_action_set'])
     def test_sai_pa_validation_entry_attr_action_get(self, npu):
         commands = [
             {
-                'name': 'sai_pa_validation_entry_attr_action_get',
+                'name': 'pa_validation_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY',
                 'atrribute': 'SAI_PA_VALIDATION_ENTRY_ATTR_ACTION',
@@ -50,23 +53,10 @@ class TestSaiPaValidationEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all(
-            [result == 'SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT' for result in results]
-        ), 'Get error'
-
-    def test_sai_pa_validation_entry_attr_ip_addr_family_get(self, npu):
-        commands = [
-            {
-                'name': 'sai_pa_validation_entry_attr_ip_addr_family_get',
-                'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY',
-                'atrribute': 'SAI_PA_VALIDATION_ENTRY_ATTR_IP_ADDR_FAMILY',
-            }
-        ]
-        results = [*npu.process_commands(commands)]
-        print('======= SAI commands RETURN values get =======')
-        pprint(results)
-        assert all([result == 'TODO' for result in results]), 'Get error'
+        assert results[1][0].value() == 'SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT', (
+            'Get error, expected SAI_PA_VALIDATION_ENTRY_ACTION_PERMIT but got %s'
+            % results[1][0].value()
+        )
 
     def test_pa_validation_entry_remove(self, npu):
         commands = [
@@ -75,6 +65,7 @@ class TestSaiPaValidationEntry:
                 'op': 'remove',
                 'type': 'SAI_OBJECT_TYPE_PA_VALIDATION_ENTRY',
                 'attributes': [],
+                'key': {'switch_id': '$SWITCH_ID', 'vnet_id': 'TODO', 'sip': 'TODO'},
             }
         ]
 

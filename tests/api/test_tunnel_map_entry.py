@@ -1,7 +1,5 @@
 from pprint import pprint
 
-import pytest
-
 
 class TestSaiTunnelMapEntry:
     # object with parent SAI_OBJECT_TYPE_TUNNEL_MAP SAI_OBJECT_TYPE_BRIDGE SAI_OBJECT_TYPE_BRIDGE SAI_OBJECT_TYPE_VIRTUAL_ROUTER SAI_OBJECT_TYPE_VIRTUAL_ROUTER
@@ -16,6 +14,7 @@ class TestSaiTunnelMapEntry:
                     'SAI_TUNNEL_MAP_ATTR_TYPE',
                     'SAI_TUNNEL_MAP_TYPE_OECN_TO_UECN',
                 ],
+                'key': {'key': 'TODO', 'value': 'TODO'},
             },
             {
                 'name': 'bridge_1',
@@ -39,13 +38,13 @@ class TestSaiTunnelMapEntry:
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP',
                     '$tunnel_map_1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_KEY',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_VALUE',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_KEY',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_VALUE',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_KEY',
                     '10',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_VALUE',
@@ -91,13 +90,13 @@ class TestSaiTunnelMapEntry:
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_TUNNEL_MAP',
                     '$tunnel_map_1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_KEY',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_OECN_VALUE',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_KEY',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_UECN_VALUE',
-                    'sai_uint8_t',
+                    '1',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_KEY',
                     '10',
                     'SAI_TUNNEL_MAP_ENTRY_ATTR_VLAN_ID_VALUE',
@@ -144,6 +143,7 @@ class TestSaiTunnelMapEntry:
                     'SAI_TUNNEL_MAP_ATTR_TYPE',
                     'SAI_TUNNEL_MAP_TYPE_OECN_TO_UECN',
                 ],
+                'key': {'key': 'TODO', 'value': 'TODO'},
             },
         ]
 

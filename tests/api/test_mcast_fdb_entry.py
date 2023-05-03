@@ -24,6 +24,11 @@ class TestSaiMcastFdbEntry:
                     'SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION',
                     'SAI_PACKET_ACTION_DROP',
                 ],
+                'key': {
+                    'switch_id': '$SWITCH_ID',
+                    'mac_address': 'TODO',
+                    'bv_id': 'TODO',
+                },
             },
         ]
 
@@ -32,10 +37,11 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all(results), 'Create error'
 
+    @pytest.mark.dependency()
     def test_sai_mcast_fdb_entry_attr_group_id_set(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_group_id_set',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID', 'TODO'],
@@ -44,12 +50,13 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_mcast_fdb_entry_attr_group_id_set'])
     def test_sai_mcast_fdb_entry_attr_group_id_get(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_group_id_get',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID',
@@ -58,12 +65,15 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'TODO' for result in results]), 'Get error'
+        assert results[1][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_mcast_fdb_entry_attr_packet_action_set(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_packet_action_set',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION', 'TODO'],
@@ -72,12 +82,13 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_mcast_fdb_entry_attr_packet_action_set'])
     def test_sai_mcast_fdb_entry_attr_packet_action_get(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_packet_action_get',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION',
@@ -86,12 +97,15 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'TODO' for result in results]), 'Get error'
+        assert results[1][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[1][0].value()
+        )
 
+    @pytest.mark.dependency()
     def test_sai_mcast_fdb_entry_attr_meta_data_set(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_meta_data_set',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_META_DATA', '0'],
@@ -100,12 +114,13 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Get error'
+        assert all([result == 'SAI_STATUS_SUCCESS' for result in results]), 'Set error'
 
+    @pytest.mark.dependency(depends=['test_sai_mcast_fdb_entry_attr_meta_data_set'])
     def test_sai_mcast_fdb_entry_attr_meta_data_get(self, npu):
         commands = [
             {
-                'name': 'sai_mcast_fdb_entry_attr_meta_data_get',
+                'name': 'mcast_fdb_entry_1',
                 'op': 'get',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_META_DATA',
@@ -114,7 +129,9 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert all([result == '0' for result in results]), 'Get error'
+        assert results[1][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[1][0].value()
+        )
 
     def test_mcast_fdb_entry_remove(self, npu):
         commands = [
@@ -128,6 +145,11 @@ class TestSaiMcastFdbEntry:
                     'SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION',
                     'SAI_PACKET_ACTION_DROP',
                 ],
+                'key': {
+                    'switch_id': '$SWITCH_ID',
+                    'mac_address': 'TODO',
+                    'bv_id': 'TODO',
+                },
             },
             {
                 'name': 'l2mc_group_1',
