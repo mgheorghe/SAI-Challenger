@@ -6,6 +6,11 @@ import pytest
 class TestSaiVlan:
     # object with no parents
 
+    @pytest.fixture(autouse=True)
+    def on_prev_test_failure(prev_test_failed, npu):
+        if prev_test_failed:
+            npu.reset()
+
     def test_vlan_create(self, npu):
         commands = [
             {
@@ -21,21 +26,21 @@ class TestSaiVlan:
         pprint(results)
         assert all(results), 'Create error'
 
-    # def test_sai_vlan_attr_vlan_id_get(self, npu):
-    #     commands = [
-    #         {
-    #             'name': 'sai_vlan_attr_vlan_id_get',
-    #             'vlan_oid': '$vlan_1',
-    #             'op': 'get',
-    #             'type': 'SAI_OBJECT_TYPE_VLAN',
-    #             'attributes': ['SAI_VLAN_ATTR_VLAN_ID'],
-    #         }
-    #     ]
-    #     pprint(commands)
-    #     results = [*npu.process_commands(commands)]
-    #     print('======= SAI commands RETURN values get =======')
-    #     pprint(results)
-    #     assert all([result[1].value() == '10' for result in results]), 'Get error'
+    def test_sai_vlan_attr_vlan_id_get(self, npu):
+        commands = [
+            {
+                'name': 'sai_vlan_attr_vlan_id_get',
+                'vlan_oid': '$vlan_1',
+                'op': 'get',
+                'type': 'SAI_OBJECT_TYPE_VLAN',
+                'attributes': ['SAI_VLAN_ATTR_VLAN_ID'],
+            }
+        ]
+        pprint(commands)
+        results = [*npu.process_commands(commands)]
+        print('======= SAI commands RETURN values get =======')
+        pprint(results)
+        assert all([result[1].value() == '10' for result in results]), 'Get error'
 
     def test_vlan_remove(self, npu):
         commands = [
