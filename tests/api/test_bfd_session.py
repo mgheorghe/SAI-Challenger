@@ -83,14 +83,13 @@ class TestSaiBfdSession:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_virtual_router_set')
     def test_sai_bfd_session_attr_virtual_router_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_VIRTUAL_ROUTER', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_VIRTUAL_ROUTER', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -110,18 +109,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_port_set')
     def test_sai_bfd_session_attr_port_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_PORT', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_PORT', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -141,18 +139,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_tc_set')
     def test_sai_bfd_session_attr_tc_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_TC', '0'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_TC', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -172,18 +169,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_vlan_tpid_set')
     def test_sai_bfd_session_attr_vlan_tpid_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_VLAN_TPID', '0x8100'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_VLAN_TPID', '0x8100'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -203,18 +199,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0x8100', (
-            'Get error, expected 0x8100 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0x8100', 'Get error, expected 0x8100 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_vlan_pri_set')
     def test_sai_bfd_session_attr_vlan_pri_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_VLAN_PRI', '0'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_VLAN_PRI', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -234,18 +229,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_vlan_cfi_set')
     def test_sai_bfd_session_attr_vlan_cfi_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_VLAN_CFI', '0'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_VLAN_CFI', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -265,18 +259,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_iphdr_version_set')
     def test_sai_bfd_session_attr_iphdr_version_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_IPHDR_VERSION', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_IPHDR_VERSION', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -296,18 +289,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_tos_set')
     def test_sai_bfd_session_attr_tos_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_TOS', '0'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_TOS', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -327,18 +319,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_ttl_set')
     def test_sai_bfd_session_attr_ttl_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_TTL', '255'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_TTL', '255'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -358,18 +349,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '255', (
-            'Get error, expected 255 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '255', 'Get error, expected 255 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_tunnel_tos_set')
     def test_sai_bfd_session_attr_tunnel_tos_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_TUNNEL_TOS', '0'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_TUNNEL_TOS', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -389,18 +379,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_tunnel_ttl_set')
     def test_sai_bfd_session_attr_tunnel_ttl_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_TUNNEL_TTL', '255'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_TUNNEL_TTL', '255'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -420,18 +409,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '255', (
-            'Get error, expected 255 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '255', 'Get error, expected 255 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_src_mac_address_set')
     def test_sai_bfd_session_attr_src_mac_address_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_SRC_MAC_ADDRESS', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_SRC_MAC_ADDRESS', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -451,18 +439,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_dst_mac_address_set')
     def test_sai_bfd_session_attr_dst_mac_address_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_DST_MAC_ADDRESS', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_DST_MAC_ADDRESS', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -482,18 +469,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_echo_enable_set')
     def test_sai_bfd_session_attr_echo_enable_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_ECHO_ENABLE', 'false'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_ECHO_ENABLE', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -513,18 +499,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_min_tx_set')
     def test_sai_bfd_session_attr_min_tx_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_MIN_TX', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_MIN_TX', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -544,18 +529,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_min_rx_set')
     def test_sai_bfd_session_attr_min_rx_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_MIN_RX', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_MIN_RX', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -575,18 +559,17 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_bfd_session_attr_multiplier_set')
     def test_sai_bfd_session_attr_multiplier_set(self, npu):
         commands = [
             {
                 'name': 'bfd_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_BFD_SESSION',
-                'atrribute': ['SAI_BFD_SESSION_ATTR_MULTIPLIER', 'TODO'],
+                'attributes': ['SAI_BFD_SESSION_ATTR_MULTIPLIER', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -606,9 +589,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_remote_min_tx_get(self, npu):
         commands = [
@@ -621,9 +604,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_remote_min_rx_get(self, npu):
         commands = [
@@ -636,9 +619,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_state_get(self, npu):
         commands = [
@@ -651,9 +634,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_negotiated_tx_get(self, npu):
         commands = [
@@ -666,9 +649,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_negotiated_rx_get(self, npu):
         commands = [
@@ -681,9 +664,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_local_diag_get(self, npu):
         commands = [
@@ -696,9 +679,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_remote_diag_get(self, npu):
         commands = [
@@ -711,9 +694,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_sai_bfd_session_attr_remote_multiplier_get(self, npu):
         commands = [
@@ -726,9 +709,9 @@ class TestSaiBfdSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_bfd_session_remove(self, npu):
         commands = [

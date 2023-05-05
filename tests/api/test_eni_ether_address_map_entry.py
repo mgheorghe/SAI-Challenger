@@ -22,14 +22,13 @@ class TestSaiEniEtherAddressMapEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_eni_ether_address_map_entry_attr_eni_id_set')
     def test_sai_eni_ether_address_map_entry_attr_eni_id_set(self, npu):
         commands = [
             {
                 'name': 'eni_ether_address_map_entry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_ENI_ETHER_ADDRESS_MAP_ENTRY',
-                'atrribute': [
+                'attributes': [
                     'SAI_ENI_ETHER_ADDRESS_MAP_ENTRY_ATTR_ENI_ID',
                     'SAI_NULL_OBJECT_ID',
                 ],
@@ -54,8 +53,10 @@ class TestSaiEniEtherAddressMapEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % r_value
         )
 
     def test_eni_ether_address_map_entry_remove(self, npu):

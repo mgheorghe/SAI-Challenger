@@ -21,14 +21,13 @@ class TestSaiHash:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_hash_attr_native_hash_field_list_set')
     def test_sai_hash_attr_native_hash_field_list_set(self, npu):
         commands = [
             {
                 'name': 'hash_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_HASH',
-                'atrribute': ['SAI_HASH_ATTR_NATIVE_HASH_FIELD_LIST', 'empty'],
+                'attributes': ['SAI_HASH_ATTR_NATIVE_HASH_FIELD_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -48,18 +47,17 @@ class TestSaiHash:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_hash_attr_udf_group_list_set')
     def test_sai_hash_attr_udf_group_list_set(self, npu):
         commands = [
             {
                 'name': 'hash_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_HASH',
-                'atrribute': ['SAI_HASH_ATTR_UDF_GROUP_LIST', 'empty'],
+                'attributes': ['SAI_HASH_ATTR_UDF_GROUP_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -79,18 +77,17 @@ class TestSaiHash:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_hash_attr_fine_grained_hash_field_list_set')
     def test_sai_hash_attr_fine_grained_hash_field_list_set(self, npu):
         commands = [
             {
                 'name': 'hash_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_HASH',
-                'atrribute': ['SAI_HASH_ATTR_FINE_GRAINED_HASH_FIELD_LIST', 'empty'],
+                'attributes': ['SAI_HASH_ATTR_FINE_GRAINED_HASH_FIELD_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -112,9 +109,9 @@ class TestSaiHash:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
     def test_hash_remove(self, npu):
         commands = [{'name': 'hash_1', 'op': 'remove'}]

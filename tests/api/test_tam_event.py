@@ -28,14 +28,13 @@ class TestSaiTamEvent:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_tam_event_attr_threshold_set')
     def test_sai_tam_event_attr_threshold_set(self, npu):
         commands = [
             {
                 'name': 'tam_event_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_TAM_EVENT',
-                'atrribute': ['SAI_TAM_EVENT_ATTR_THRESHOLD', 'SAI_NULL_OBJECT_ID'],
+                'attributes': ['SAI_TAM_EVENT_ATTR_THRESHOLD', 'SAI_NULL_OBJECT_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -55,18 +54,19 @@ class TestSaiTamEvent:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % r_value
         )
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_tam_event_attr_dscp_value_set')
     def test_sai_tam_event_attr_dscp_value_set(self, npu):
         commands = [
             {
                 'name': 'tam_event_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_TAM_EVENT',
-                'atrribute': ['SAI_TAM_EVENT_ATTR_DSCP_VALUE', '0'],
+                'attributes': ['SAI_TAM_EVENT_ATTR_DSCP_VALUE', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -86,9 +86,9 @@ class TestSaiTamEvent:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
     def test_tam_event_remove(self, npu):
         commands = [{'name': 'tam_event_1', 'op': 'remove'}]

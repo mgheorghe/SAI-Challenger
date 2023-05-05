@@ -21,14 +21,13 @@ class TestSaiDtelIntSession:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_dtel_int_session_attr_max_hop_count_set')
     def test_sai_dtel_int_session_attr_max_hop_count_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': ['SAI_DTEL_INT_SESSION_ATTR_MAX_HOP_COUNT', '8'],
+                'attributes': ['SAI_DTEL_INT_SESSION_ATTR_MAX_HOP_COUNT', '8'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -50,18 +49,17 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '8', (
-            'Get error, expected 8 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '8', 'Get error, expected 8 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_dtel_int_session_attr_collect_switch_id_set')
     def test_sai_dtel_int_session_attr_collect_switch_id_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': ['SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_ID', 'false'],
+                'attributes': ['SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_ID', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -83,18 +81,19 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_dtel_int_session_attr_collect_switch_ports_set'
+    )
     def test_sai_dtel_int_session_attr_collect_switch_ports_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': [
+                'attributes': [
                     'SAI_DTEL_INT_SESSION_ATTR_COLLECT_SWITCH_PORTS',
                     'false',
                 ],
@@ -119,18 +118,19 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_dtel_int_session_attr_collect_ingress_timestamp_set'
+    )
     def test_sai_dtel_int_session_attr_collect_ingress_timestamp_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': [
+                'attributes': [
                     'SAI_DTEL_INT_SESSION_ATTR_COLLECT_INGRESS_TIMESTAMP',
                     'false',
                 ],
@@ -155,18 +155,19 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_dtel_int_session_attr_collect_egress_timestamp_set'
+    )
     def test_sai_dtel_int_session_attr_collect_egress_timestamp_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': [
+                'attributes': [
                     'SAI_DTEL_INT_SESSION_ATTR_COLLECT_EGRESS_TIMESTAMP',
                     'false',
                 ],
@@ -191,18 +192,19 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_dtel_int_session_attr_collect_queue_info_set'
+    )
     def test_sai_dtel_int_session_attr_collect_queue_info_set(self, npu):
         commands = [
             {
                 'name': 'dtel_int_session_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DTEL_INT_SESSION',
-                'atrribute': ['SAI_DTEL_INT_SESSION_ATTR_COLLECT_QUEUE_INFO', 'false'],
+                'attributes': ['SAI_DTEL_INT_SESSION_ATTR_COLLECT_QUEUE_INFO', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -224,9 +226,9 @@ class TestSaiDtelIntSession:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
     def test_dtel_int_session_remove(self, npu):
         commands = [{'name': 'dtel_int_session_1', 'op': 'remove'}]

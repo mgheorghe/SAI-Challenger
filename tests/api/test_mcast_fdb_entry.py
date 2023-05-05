@@ -37,14 +37,13 @@ class TestSaiMcastFdbEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_mcast_fdb_entry_attr_group_id_set')
     def test_sai_mcast_fdb_entry_attr_group_id_set(self, npu):
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID', 'TODO'],
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -64,18 +63,17 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_mcast_fdb_entry_attr_packet_action_set')
     def test_sai_mcast_fdb_entry_attr_packet_action_set(self, npu):
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION', 'TODO'],
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -95,18 +93,17 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_mcast_fdb_entry_attr_meta_data_set')
     def test_sai_mcast_fdb_entry_attr_meta_data_set(self, npu):
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_META_DATA', '0'],
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_META_DATA', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -126,9 +123,9 @@ class TestSaiMcastFdbEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
     def test_mcast_fdb_entry_remove(self, npu):
         commands = [

@@ -22,14 +22,13 @@ class TestSaiDirectionLookupEntry:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_direction_lookup_entry_attr_action_set')
     def test_sai_direction_lookup_entry_attr_action_set(self, npu):
         commands = [
             {
                 'name': 'direction_lookup_entry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY',
-                'atrribute': [
+                'attributes': [
                     'SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION',
                     'SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION',
                 ],
@@ -52,12 +51,11 @@ class TestSaiDirectionLookupEntry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert (
-            results[0][0].value()
-            == 'SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION'
-        ), (
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION', (
             'Get error, expected SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION but got %s'
-            % results[0][0].value()
+            % r_value
         )
 
     def test_direction_lookup_entry_remove(self, npu):

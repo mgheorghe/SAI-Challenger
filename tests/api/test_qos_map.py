@@ -27,14 +27,13 @@ class TestSaiQosMap:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_qos_map_attr_map_to_value_list_set')
     def test_sai_qos_map_attr_map_to_value_list_set(self, npu):
         commands = [
             {
                 'name': 'qos_map_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_QOS_MAP',
-                'atrribute': ['SAI_QOS_MAP_ATTR_MAP_TO_VALUE_LIST', 'TODO'],
+                'attributes': ['SAI_QOS_MAP_ATTR_MAP_TO_VALUE_LIST', 'TODO'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -54,9 +53,9 @@ class TestSaiQosMap:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
     def test_qos_map_remove(self, npu):
         commands = [

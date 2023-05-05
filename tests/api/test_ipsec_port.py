@@ -37,14 +37,13 @@ class TestSaiIpsecPort:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_port_attr_ctag_enable_set')
     def test_sai_ipsec_port_attr_ctag_enable_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_port_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_PORT',
-                'atrribute': ['SAI_IPSEC_PORT_ATTR_CTAG_ENABLE', 'false'],
+                'attributes': ['SAI_IPSEC_PORT_ATTR_CTAG_ENABLE', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -64,18 +63,17 @@ class TestSaiIpsecPort:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_port_attr_stag_enable_set')
     def test_sai_ipsec_port_attr_stag_enable_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_port_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_PORT',
-                'atrribute': ['SAI_IPSEC_PORT_ATTR_STAG_ENABLE', 'false'],
+                'attributes': ['SAI_IPSEC_PORT_ATTR_STAG_ENABLE', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -95,18 +93,19 @@ class TestSaiIpsecPort:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_ipsec_port_attr_vrf_from_packet_vlan_enable_set'
+    )
     def test_sai_ipsec_port_attr_vrf_from_packet_vlan_enable_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_port_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_PORT',
-                'atrribute': [
+                'attributes': [
                     'SAI_IPSEC_PORT_ATTR_VRF_FROM_PACKET_VLAN_ENABLE',
                     'false',
                 ],
@@ -131,18 +130,17 @@ class TestSaiIpsecPort:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_port_attr_switch_switching_mode_set')
     def test_sai_ipsec_port_attr_switch_switching_mode_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_port_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_PORT',
-                'atrribute': [
+                'attributes': [
                     'SAI_IPSEC_PORT_ATTR_SWITCH_SWITCHING_MODE',
                     'SAI_SWITCH_SWITCHING_MODE_CUT_THROUGH',
                 ],
@@ -167,9 +165,11 @@ class TestSaiIpsecPort:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_SWITCH_SWITCHING_MODE_CUT_THROUGH', (
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_SWITCH_SWITCHING_MODE_CUT_THROUGH', (
             'Get error, expected SAI_SWITCH_SWITCHING_MODE_CUT_THROUGH but got %s'
-            % results[0][0].value()
+            % r_value
         )
 
     def test_ipsec_port_remove(self, npu):

@@ -24,14 +24,13 @@ class TestSaiTamTelemetry:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_tam_telemetry_attr_tam_type_list_set')
     def test_sai_tam_telemetry_attr_tam_type_list_set(self, npu):
         commands = [
             {
                 'name': 'tam_telemetry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': ['SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST', 'empty'],
+                'attributes': ['SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -51,18 +50,17 @@ class TestSaiTamTelemetry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_tam_telemetry_attr_tam_reporting_unit_set')
     def test_sai_tam_telemetry_attr_tam_reporting_unit_set(self, npu):
         commands = [
             {
                 'name': 'tam_telemetry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': [
+                'attributes': [
                     'SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT',
                     'SAI_TAM_REPORTING_UNIT_SEC',
                 ],
@@ -87,19 +85,19 @@ class TestSaiTamTelemetry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_TAM_REPORTING_UNIT_SEC', (
-            'Get error, expected SAI_TAM_REPORTING_UNIT_SEC but got %s'
-            % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_TAM_REPORTING_UNIT_SEC', (
+            'Get error, expected SAI_TAM_REPORTING_UNIT_SEC but got %s' % r_value
         )
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_tam_telemetry_attr_reporting_interval_set')
     def test_sai_tam_telemetry_attr_reporting_interval_set(self, npu):
         commands = [
             {
                 'name': 'tam_telemetry_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': ['SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL', '1'],
+                'attributes': ['SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL', '1'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -121,9 +119,9 @@ class TestSaiTamTelemetry:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '1', (
-            'Get error, expected 1 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '1', 'Get error, expected 1 but got %s' % r_value
 
     def test_tam_telemetry_remove(self, npu):
         commands = [{'name': 'tam_telemetry_1', 'op': 'remove'}]

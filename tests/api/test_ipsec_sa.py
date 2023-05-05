@@ -57,18 +57,17 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_sa_attr_external_sa_index_set')
     def test_sai_ipsec_sa_attr_external_sa_index_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': ['SAI_IPSEC_SA_ATTR_EXTERNAL_SA_INDEX', '0'],
+                'attributes': ['SAI_IPSEC_SA_ATTR_EXTERNAL_SA_INDEX', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -88,9 +87,9 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
     def test_sai_ipsec_sa_attr_sa_index_get(self, npu):
         commands = [
@@ -103,18 +102,17 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_sa_attr_ipsec_port_list_set')
     def test_sai_ipsec_sa_attr_ipsec_port_list_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': ['SAI_IPSEC_SA_ATTR_IPSEC_PORT_LIST', 'empty'],
+                'attributes': ['SAI_IPSEC_SA_ATTR_IPSEC_PORT_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -134,18 +132,19 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_set'
+    )
     def test_sai_ipsec_sa_attr_ipsec_replay_protection_enable_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': [
+                'attributes': [
                     'SAI_IPSEC_SA_ATTR_IPSEC_REPLAY_PROTECTION_ENABLE',
                     'false',
                 ],
@@ -170,18 +169,19 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_ipsec_sa_attr_ipsec_replay_protection_window_set'
+    )
     def test_sai_ipsec_sa_attr_ipsec_replay_protection_window_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': ['SAI_IPSEC_SA_ATTR_IPSEC_REPLAY_PROTECTION_WINDOW', '0'],
+                'attributes': ['SAI_IPSEC_SA_ATTR_IPSEC_REPLAY_PROTECTION_WINDOW', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -203,18 +203,17 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_sa_attr_egress_esn_set')
     def test_sai_ipsec_sa_attr_egress_esn_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': ['SAI_IPSEC_SA_ATTR_EGRESS_ESN', '0'],
+                'attributes': ['SAI_IPSEC_SA_ATTR_EGRESS_ESN', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -234,18 +233,17 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ipsec_sa_attr_minimum_ingress_esn_set')
     def test_sai_ipsec_sa_attr_minimum_ingress_esn_set(self, npu):
         commands = [
             {
                 'name': 'ipsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_IPSEC_SA',
-                'atrribute': ['SAI_IPSEC_SA_ATTR_MINIMUM_INGRESS_ESN', '1'],
+                'attributes': ['SAI_IPSEC_SA_ATTR_MINIMUM_INGRESS_ESN', '1'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -265,9 +263,9 @@ class TestSaiIpsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '1', (
-            'Get error, expected 1 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '1', 'Get error, expected 1 but got %s' % r_value
 
     def test_ipsec_sa_remove(self, npu):
         commands = [

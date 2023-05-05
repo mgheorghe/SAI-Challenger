@@ -24,16 +24,17 @@ class TestSaiHostifUserDefinedTrap:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_hostif_user_defined_trap_attr_trap_priority_set'
+    )
     def test_sai_hostif_user_defined_trap_attr_trap_priority_set(self, npu):
         commands = [
             {
                 'name': 'hostif_user_defined_trap_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_HOSTIF_USER_DEFINED_TRAP',
-                'atrribute': [
+                'attributes': [
                     'SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_PRIORITY',
-                    'attrvalue SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY',
+                    'SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY',
                 ],
             }
         ]
@@ -56,24 +57,24 @@ class TestSaiHostifUserDefinedTrap:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert (
-            results[0][0].value()
-            == 'attrvalue SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY'
-        ), (
-            'Get error, expected attrvalue SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY but got %s'
-            % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY', (
+            'Get error, expected SAI_SWITCH_ATTR_ACL_ENTRY_MINIMUM_PRIORITY but got %s'
+            % r_value
         )
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_hostif_user_defined_trap_attr_trap_group_set'
+    )
     def test_sai_hostif_user_defined_trap_attr_trap_group_set(self, npu):
         commands = [
             {
                 'name': 'hostif_user_defined_trap_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_HOSTIF_USER_DEFINED_TRAP',
-                'atrribute': [
+                'attributes': [
                     'SAI_HOSTIF_USER_DEFINED_TRAP_ATTR_TRAP_GROUP',
-                    'attrvalue SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP',
+                    'SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP',
                 ],
             }
         ]
@@ -96,11 +97,11 @@ class TestSaiHostifUserDefinedTrap:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert (
-            results[0][0].value() == 'attrvalue SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP'
-        ), (
-            'Get error, expected attrvalue SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP but got %s'
-            % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP', (
+            'Get error, expected SAI_SWITCH_ATTR_DEFAULT_TRAP_GROUP but got %s'
+            % r_value
         )
 
     def test_hostif_user_defined_trap_remove(self, npu):

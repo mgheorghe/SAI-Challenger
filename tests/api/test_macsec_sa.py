@@ -60,14 +60,13 @@ class TestSaiMacsecSa:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_macsec_sa_attr_configured_egress_xpn_set')
     def test_sai_macsec_sa_attr_configured_egress_xpn_set(self, npu):
         commands = [
             {
                 'name': 'macsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_MACSEC_SA',
-                'atrribute': ['SAI_MACSEC_SA_ATTR_CONFIGURED_EGRESS_XPN', '0'],
+                'attributes': ['SAI_MACSEC_SA_ATTR_CONFIGURED_EGRESS_XPN', '0'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -89,9 +88,9 @@ class TestSaiMacsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
     def test_sai_macsec_sa_attr_current_xpn_get(self, npu):
         commands = [
@@ -104,18 +103,17 @@ class TestSaiMacsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'TODO', 'Get error, expected TODO but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_macsec_sa_attr_minimum_ingress_xpn_set')
     def test_sai_macsec_sa_attr_minimum_ingress_xpn_set(self, npu):
         commands = [
             {
                 'name': 'macsec_sa_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_MACSEC_SA',
-                'atrribute': ['SAI_MACSEC_SA_ATTR_MINIMUM_INGRESS_XPN', '1'],
+                'attributes': ['SAI_MACSEC_SA_ATTR_MINIMUM_INGRESS_XPN', '1'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -135,9 +133,9 @@ class TestSaiMacsecSa:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '1', (
-            'Get error, expected 1 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '1', 'Get error, expected 1 but got %s' % r_value
 
     def test_macsec_sa_remove(self, npu):
         commands = [

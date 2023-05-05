@@ -40,14 +40,13 @@ class TestSaiUdf:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_udf_attr_base_set')
     def test_sai_udf_attr_base_set(self, npu):
         commands = [
             {
                 'name': 'udf_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_UDF',
-                'atrribute': ['SAI_UDF_ATTR_BASE', 'SAI_UDF_BASE_L2'],
+                'attributes': ['SAI_UDF_ATTR_BASE', 'SAI_UDF_BASE_L2'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -61,18 +60,19 @@ class TestSaiUdf:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_UDF_BASE_L2', (
-            'Get error, expected SAI_UDF_BASE_L2 but got %s' % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_UDF_BASE_L2', (
+            'Get error, expected SAI_UDF_BASE_L2 but got %s' % r_value
         )
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_udf_attr_hash_mask_set')
     def test_sai_udf_attr_hash_mask_set(self, npu):
         commands = [
             {
                 'name': 'udf_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_UDF',
-                'atrribute': ['SAI_UDF_ATTR_HASH_MASK', 'const'],
+                'attributes': ['SAI_UDF_ATTR_HASH_MASK', 'const'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -88,9 +88,9 @@ class TestSaiUdf:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'const', (
-            'Get error, expected const but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'const', 'Get error, expected const but got %s' % r_value
 
     def test_udf_remove(self, npu):
         commands = [

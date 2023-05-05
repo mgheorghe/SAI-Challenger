@@ -43,14 +43,13 @@ class TestSaiLagMember:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_lag_member_attr_egress_disable_set')
     def test_sai_lag_member_attr_egress_disable_set(self, npu):
         commands = [
             {
                 'name': 'lag_member_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
-                'atrribute': ['SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE', 'false'],
+                'attributes': ['SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -70,18 +69,17 @@ class TestSaiLagMember:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_lag_member_attr_ingress_disable_set')
     def test_sai_lag_member_attr_ingress_disable_set(self, npu):
         commands = [
             {
                 'name': 'lag_member_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
-                'atrribute': ['SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE', 'false'],
+                'attributes': ['SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE', 'false'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -101,9 +99,9 @@ class TestSaiLagMember:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'false', 'Get error, expected false but got %s' % r_value
 
     def test_lag_member_remove(self, npu):
         commands = [

@@ -21,15 +21,10 @@ class TestSaiVnet:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_vnet_attr_vni_set')
     def test_sai_vnet_attr_vni_set(self, npu):
         commands = [
-            {
-                'name': 'vnet_1',
-                'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_VNET',
-                'atrribute': ['SAI_VNET_ATTR_VNI', '0'],
-            }
+            {'name': 'vnet_1', 'op': 'set', 'attributes': ['SAI_VNET_ATTR_VNI', '0']}
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
@@ -44,9 +39,9 @@ class TestSaiVnet:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == '0', 'Get error, expected 0 but got %s' % r_value
 
     def test_vnet_remove(self, npu):
         commands = [{'name': 'vnet_1', 'op': 'remove'}]

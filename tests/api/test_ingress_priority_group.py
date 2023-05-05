@@ -37,14 +37,15 @@ class TestSaiIngressPriorityGroup:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(
+        name='test_sai_ingress_priority_group_attr_buffer_profile_set'
+    )
     def test_sai_ingress_priority_group_attr_buffer_profile_set(self, npu):
         commands = [
             {
                 'name': 'ingress_priority_group_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_INGRESS_PRIORITY_GROUP',
-                'atrribute': [
+                'attributes': [
                     'SAI_INGRESS_PRIORITY_GROUP_ATTR_BUFFER_PROFILE',
                     'SAI_NULL_OBJECT_ID',
                 ],
@@ -69,18 +70,19 @@ class TestSaiIngressPriorityGroup:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % r_value
         )
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_ingress_priority_group_attr_tam_set')
     def test_sai_ingress_priority_group_attr_tam_set(self, npu):
         commands = [
             {
                 'name': 'ingress_priority_group_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_INGRESS_PRIORITY_GROUP',
-                'atrribute': ['SAI_INGRESS_PRIORITY_GROUP_ATTR_TAM', 'empty'],
+                'attributes': ['SAI_INGRESS_PRIORITY_GROUP_ATTR_TAM', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -100,9 +102,9 @@ class TestSaiIngressPriorityGroup:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
     def test_ingress_priority_group_remove(self, npu):
         commands = [

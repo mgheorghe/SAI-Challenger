@@ -21,14 +21,13 @@ class TestSaiSrv6Sidlist:
         pprint(results)
         assert all(results), 'Create error'
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_srv6_sidlist_attr_tlv_list_set')
     def test_sai_srv6_sidlist_attr_tlv_list_set(self, npu):
         commands = [
             {
                 'name': 'srv6_sidlist_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_SRV6_SIDLIST',
-                'atrribute': ['SAI_SRV6_SIDLIST_ATTR_TLV_LIST', 'empty'],
+                'attributes': ['SAI_SRV6_SIDLIST_ATTR_TLV_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -48,18 +47,17 @@ class TestSaiSrv6Sidlist:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_srv6_sidlist_attr_segment_list_set')
     def test_sai_srv6_sidlist_attr_segment_list_set(self, npu):
         commands = [
             {
                 'name': 'srv6_sidlist_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_SRV6_SIDLIST',
-                'atrribute': ['SAI_SRV6_SIDLIST_ATTR_SEGMENT_LIST', 'empty'],
+                'attributes': ['SAI_SRV6_SIDLIST_ATTR_SEGMENT_LIST', 'empty'],
             }
         ]
         results = [*npu.process_commands(commands)]
@@ -79,18 +77,17 @@ class TestSaiSrv6Sidlist:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[0][0].value()
-        )
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'empty', 'Get error, expected empty but got %s' % r_value
 
-    @pytest.mark.dependency()
+    @pytest.mark.dependency(name='test_sai_srv6_sidlist_attr_next_hop_id_set')
     def test_sai_srv6_sidlist_attr_next_hop_id_set(self, npu):
         commands = [
             {
                 'name': 'srv6_sidlist_1',
                 'op': 'set',
-                'type': 'SAI_OBJECT_TYPE_SRV6_SIDLIST',
-                'atrribute': [
+                'attributes': [
                     'SAI_SRV6_SIDLIST_ATTR_NEXT_HOP_ID',
                     'SAI_NULL_OBJECT_ID',
                 ],
@@ -113,8 +110,10 @@ class TestSaiSrv6Sidlist:
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
+        r_value = results[0][0].value()
+        print(r_value)
+        assert r_value == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % r_value
         )
 
     def test_srv6_sidlist_remove(self, npu):
