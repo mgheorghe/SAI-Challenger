@@ -57,3 +57,375 @@ jobs:
       run: ./exec.sh --no-tty -s thrift pytest --testbed=saivs_thrift_standalone -v ut/test_vrf_ut.py ut/test_bridge_ut.py ut/test_acl_ut.py
     - name: Run thrift sairedis tests
       run: ./exec.sh --no-tty -s thrift pytest --testbed=saivs_thrift_standalone -v -k "test_sairec"
+    - name: Run API test_acl_counter.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_counter.py"
+    - name: Run API test_acl_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_entry.py"
+    - name: Run API test_acl_range.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_range.py"
+    - name: Run API test_acl_table.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_table.py"
+    - name: Run API test_acl_table_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_table_group.py"
+    - name: Run API test_acl_table_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_acl_table_group_member.py"
+    - name: Run API test_ars.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ars.py"
+    - name: Run API test_ars_profile.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ars_profile.py"
+    - name: Run API test_bfd_session.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_bfd_session.py"
+    - name: Run API test_bridge.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_bridge.py"
+    - name: Run API test_bridge_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_bridge_port.py"
+    - name: Run API test_buffer_pool.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_buffer_pool.py"
+    - name: Run API test_buffer_profile.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_buffer_profile.py"
+    - name: Run API test_counter.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_counter.py"
+    - name: Run API test_dash_acl_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dash_acl_group.py"
+    - name: Run API test_dash_acl_rule.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dash_acl_rule.py"
+    - name: Run API test_debug_counter.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_debug_counter.py"
+    - name: Run API test_direction_lookup_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_direction_lookup_entry.py"
+    - name: Run API test_dtel.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dtel.py"
+    - name: Run API test_dtel_event.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dtel_event.py"
+    - name: Run API test_dtel_int_session.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dtel_int_session.py"
+    - name: Run API test_dtel_queue_report.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dtel_queue_report.py"
+    - name: Run API test_dtel_report_session.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_dtel_report_session.py"
+    - name: Run API test_eni.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_eni.py"
+    - name: Run API test_eni_ether_address_map_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_eni_ether_address_map_entry.py"
+    - name: Run API test_extensions_range_end.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_extensions_range_end.py"
+    - name: Run API test_extensions_range_start.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_extensions_range_start.py"
+    - name: Run API test_fdb_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_fdb_entry.py"
+    - name: Run API test_fdb_flush.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_fdb_flush.py"
+    - name: Run API test_fine_grained_hash_field.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_fine_grained_hash_field.py"
+    - name: Run API test_generic_programmable.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_generic_programmable.py"
+    - name: Run API test_hash.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hash.py"
+    - name: Run API test_hostif.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif.py"
+    - name: Run API test_hostif_packet.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif_packet.py"
+    - name: Run API test_hostif_table_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif_table_entry.py"
+    - name: Run API test_hostif_trap.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif_trap.py"
+    - name: Run API test_hostif_trap_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif_trap_group.py"
+    - name: Run API test_hostif_user_defined_trap.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_hostif_user_defined_trap.py"
+    - name: Run API test_host_interface.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_host_interface.py"
+    - name: Run API test_inbound_routing_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_inbound_routing_entry.py"
+    - name: Run API test_ingress_priority_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ingress_priority_group.py"
+    - name: Run API test_inseg_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_inseg_entry.py"
+    - name: Run API test_ipmc_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipmc_entry.py"
+    - name: Run API test_ipmc_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipmc_group.py"
+    - name: Run API test_ipmc_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipmc_group_member.py"
+    - name: Run API test_ipsec.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipsec.py"
+    - name: Run API test_ipsec_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipsec_port.py"
+    - name: Run API test_ipsec_sa.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_ipsec_sa.py"
+    - name: Run API test_isolation_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_isolation_group.py"
+    - name: Run API test_isolation_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_isolation_group_member.py"
+    - name: Run API test_l2mc_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_l2mc_entry.py"
+    - name: Run API test_l2mc_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_l2mc_group.py"
+    - name: Run API test_l2mc_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_l2mc_group_member.py"
+    - name: Run API test_lag.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_lag.py"
+    - name: Run API test_lag_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_lag_member.py"
+    - name: Run API test_macsec.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_macsec.py"
+    - name: Run API test_macsec_flow.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_macsec_flow.py"
+    - name: Run API test_macsec_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_macsec_port.py"
+    - name: Run API test_macsec_sa.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_macsec_sa.py"
+    - name: Run API test_macsec_sc.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_macsec_sc.py"
+    - name: Run API test_max.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_max.py"
+    - name: Run API test_mcast_fdb_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_mcast_fdb_entry.py"
+    - name: Run API test_mirror_session.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_mirror_session.py"
+    - name: Run API test_my_mac.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_my_mac.py"
+    - name: Run API test_my_sid_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_my_sid_entry.py"
+    - name: Run API test_nat_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_nat_entry.py"
+    - name: Run API test_nat_zone_counter.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_nat_zone_counter.py"
+    - name: Run API test_neighbor_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_neighbor_entry.py"
+    - name: Run API test_next_hop.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_next_hop.py"
+    - name: Run API test_next_hop_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_next_hop_group.py"
+    - name: Run API test_next_hop_group_map.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_next_hop_group_map.py"
+    - name: Run API test_next_hop_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_next_hop_group_member.py"
+    - name: Run API test_null.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_null.py"
+    - name: Run API test_outbound_ca_to_pa_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_outbound_ca_to_pa_entry.py"
+    - name: Run API test_outbound_routing_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_outbound_routing_entry.py"
+    - name: Run API test_pa_validation_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_pa_validation_entry.py"
+    - name: Run API test_policer.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_policer.py"
+    - name: Run API test_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_port.py"
+    - name: Run API test_port_connector.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_port_connector.py"
+    - name: Run API test_port_pool.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_port_pool.py"
+    - name: Run API test_port_serdes.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_port_serdes.py"
+    - name: Run API test_qos_map.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_qos_map.py"
+    - name: Run API test_queue.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_queue.py"
+    - name: Run API test_router_interface.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_router_interface.py"
+    - name: Run API test_route_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_route_entry.py"
+    - name: Run API test_rpf_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_rpf_group.py"
+    - name: Run API test_rpf_group_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_rpf_group_member.py"
+    - name: Run API test_samplepacket.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_samplepacket.py"
+    - name: Run API test_scheduler.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_scheduler.py"
+    - name: Run API test_scheduler_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_scheduler_group.py"
+    - name: Run API test_srv6_sidlist.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_srv6_sidlist.py"
+    - name: Run API test_stp.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_stp.py"
+    - name: Run API test_stp_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_stp_port.py"
+    - name: Run API test_switch.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_switch.py"
+    - name: Run API test_switch_tunnel.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_switch_tunnel.py"
+    - name: Run API test_system_port.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_system_port.py"
+    - name: Run API test_table_bitmap_router_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_table_bitmap_router_entry.py"
+    - name: Run API test_table_meta_tunnel_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_table_meta_tunnel_entry.py"
+    - name: Run API test_tam.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam.py"
+    - name: Run API test_tam_collector.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_collector.py"
+    - name: Run API test_tam_event.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_event.py"
+    - name: Run API test_tam_event_action.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_event_action.py"
+    - name: Run API test_tam_event_threshold.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_event_threshold.py"
+    - name: Run API test_tam_int.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_int.py"
+    - name: Run API test_tam_math_func.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_math_func.py"
+    - name: Run API test_tam_report.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_report.py"
+    - name: Run API test_tam_telemetry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_telemetry.py"
+    - name: Run API test_tam_tel_type.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_tel_type.py"
+    - name: Run API test_tam_transport.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tam_transport.py"
+    - name: Run API test_tunnel.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tunnel.py"
+    - name: Run API test_tunnel_map.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tunnel_map.py"
+    - name: Run API test_tunnel_map_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tunnel_map_entry.py"
+    - name: Run API test_tunnel_term_table_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_tunnel_term_table_entry.py"
+    - name: Run API test_udf.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_udf.py"
+    - name: Run API test_udf_group.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_udf_group.py"
+    - name: Run API test_udf_match.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_udf_match.py"
+    - name: Run API test_vip_entry.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_vip_entry.py"
+    - name: Run API test_virtual_router.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_virtual_router.py"
+    - name: Run API test_vlan.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_vlan.py"
+    - name: Run API test_vlan_member.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_vlan_member.py"
+    - name: Run API test_vnet.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_vnet.py"
+    - name: Run API test_wred.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_wred.py"
+    - name: Run API test_xxx.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test_xxx.py"
+    - name: Run API test___60.py
+      continue-on-error: true
+      run: ./exec.sh --no-tty pytest --testbed=saivs_standalone -v -k "api/test___60.py"
