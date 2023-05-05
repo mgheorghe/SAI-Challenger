@@ -46,15 +46,14 @@ class TestSaiSchedulerGroup:
             {
                 'name': 'scheduler_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
-                'atrribute': 'SAI_SCHEDULER_GROUP_ATTR_CHILD_COUNT',
+                'attributes': ['SAI_SCHEDULER_GROUP_ATTR_CHILD_COUNT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_sai_scheduler_group_attr_child_list_get(self, npu):
@@ -62,15 +61,14 @@ class TestSaiSchedulerGroup:
             {
                 'name': 'scheduler_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
-                'atrribute': 'SAI_SCHEDULER_GROUP_ATTR_CHILD_LIST',
+                'attributes': ['SAI_SCHEDULER_GROUP_ATTR_CHILD_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -78,7 +76,7 @@ class TestSaiSchedulerGroup:
         commands = [
             {
                 'name': 'scheduler_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
                 'atrribute': [
                     'SAI_SCHEDULER_GROUP_ATTR_SCHEDULER_PROFILE_ID',
@@ -99,15 +97,14 @@ class TestSaiSchedulerGroup:
             {
                 'name': 'scheduler_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
-                'atrribute': 'SAI_SCHEDULER_GROUP_ATTR_SCHEDULER_PROFILE_ID',
+                'attributes': ['SAI_SCHEDULER_GROUP_ATTR_SCHEDULER_PROFILE_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -115,7 +112,7 @@ class TestSaiSchedulerGroup:
         commands = [
             {
                 'name': 'scheduler_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
                 'atrribute': ['SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE', 'TODO'],
             }
@@ -131,45 +128,20 @@ class TestSaiSchedulerGroup:
             {
                 'name': 'scheduler_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
-                'atrribute': 'SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE',
+                'attributes': ['SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_scheduler_group_remove(self, npu):
         commands = [
-            {
-                'name': 'scheduler_group_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_SCHEDULER_GROUP',
-                'attributes': [
-                    'SAI_SCHEDULER_GROUP_ATTR_PORT_ID',
-                    '$port_1',
-                    'SAI_SCHEDULER_GROUP_ATTR_LEVEL',
-                    '1',
-                    'SAI_SCHEDULER_GROUP_ATTR_MAX_CHILDS',
-                    '1',
-                    'SAI_SCHEDULER_GROUP_ATTR_PARENT_NODE',
-                    'TODO_circular parent reference',
-                ],
-            },
-            {
-                'name': 'port_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_PORT',
-                'attributes': [
-                    'SAI_PORT_ATTR_HW_LANE_LIST',
-                    '2:10,11',
-                    'SAI_PORT_ATTR_SPEED',
-                    '10',
-                ],
-            },
+            {'name': 'scheduler_group_1', 'op': 'remove'},
+            {'name': 'port_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

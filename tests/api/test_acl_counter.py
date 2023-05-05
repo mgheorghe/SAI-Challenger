@@ -32,7 +32,7 @@ class TestSaiAclCounter:
         commands = [
             {
                 'name': 'acl_counter_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
                 'atrribute': ['SAI_ACL_COUNTER_ATTR_PACKETS', '0'],
             }
@@ -48,15 +48,14 @@ class TestSaiAclCounter:
             {
                 'name': 'acl_counter_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
-                'atrribute': 'SAI_ACL_COUNTER_ATTR_PACKETS',
+                'attributes': ['SAI_ACL_COUNTER_ATTR_PACKETS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -64,7 +63,7 @@ class TestSaiAclCounter:
         commands = [
             {
                 'name': 'acl_counter_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
                 'atrribute': ['SAI_ACL_COUNTER_ATTR_BYTES', '0'],
             }
@@ -80,15 +79,14 @@ class TestSaiAclCounter:
             {
                 'name': 'acl_counter_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
-                'atrribute': 'SAI_ACL_COUNTER_ATTR_BYTES',
+                'attributes': ['SAI_ACL_COUNTER_ATTR_BYTES'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -96,7 +94,7 @@ class TestSaiAclCounter:
         commands = [
             {
                 'name': 'acl_counter_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
                 'atrribute': ['SAI_ACL_COUNTER_ATTR_LABEL', '""'],
             }
@@ -112,31 +110,20 @@ class TestSaiAclCounter:
             {
                 'name': 'acl_counter_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
-                'atrribute': 'SAI_ACL_COUNTER_ATTR_LABEL',
+                'attributes': ['SAI_ACL_COUNTER_ATTR_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '""', (
-            'Get error, expected "" but got %s' % results[1][0].value()
+        assert results[0][0].value() == '""', (
+            'Get error, expected "" but got %s' % results[0][0].value()
         )
 
     def test_acl_counter_remove(self, npu):
         commands = [
-            {
-                'name': 'acl_counter_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_ACL_COUNTER',
-                'attributes': ['SAI_ACL_COUNTER_ATTR_TABLE_ID', '$acl_table_1'],
-            },
-            {
-                'name': 'acl_table_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_ACL_TABLE',
-                'attributes': ['SAI_ACL_TABLE_ATTR_ACL_STAGE', 'SAI_ACL_STAGE_INGRESS'],
-            },
+            {'name': 'acl_counter_1', 'op': 'remove'},
+            {'name': 'acl_table_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

@@ -26,7 +26,7 @@ class TestSaiDtelReportSession:
         commands = [
             {
                 'name': 'dtel_report_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
                 'atrribute': ['SAI_DTEL_REPORT_SESSION_ATTR_SRC_IP', '0.0.0.0'],
             }
@@ -42,15 +42,14 @@ class TestSaiDtelReportSession:
             {
                 'name': 'dtel_report_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'atrribute': 'SAI_DTEL_REPORT_SESSION_ATTR_SRC_IP',
+                'attributes': ['SAI_DTEL_REPORT_SESSION_ATTR_SRC_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0.0.0.0', (
-            'Get error, expected 0.0.0.0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0.0.0.0', (
+            'Get error, expected 0.0.0.0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -58,7 +57,7 @@ class TestSaiDtelReportSession:
         commands = [
             {
                 'name': 'dtel_report_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
                 'atrribute': ['SAI_DTEL_REPORT_SESSION_ATTR_DST_IP_LIST', 'empty'],
             }
@@ -76,15 +75,14 @@ class TestSaiDtelReportSession:
             {
                 'name': 'dtel_report_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'atrribute': 'SAI_DTEL_REPORT_SESSION_ATTR_DST_IP_LIST',
+                'attributes': ['SAI_DTEL_REPORT_SESSION_ATTR_DST_IP_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'empty', (
+            'Get error, expected empty but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -92,7 +90,7 @@ class TestSaiDtelReportSession:
         commands = [
             {
                 'name': 'dtel_report_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
                 'atrribute': [
                     'SAI_DTEL_REPORT_SESSION_ATTR_VIRTUAL_ROUTER_ID',
@@ -113,15 +111,14 @@ class TestSaiDtelReportSession:
             {
                 'name': 'dtel_report_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'atrribute': 'SAI_DTEL_REPORT_SESSION_ATTR_VIRTUAL_ROUTER_ID',
+                'attributes': ['SAI_DTEL_REPORT_SESSION_ATTR_VIRTUAL_ROUTER_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -129,7 +126,7 @@ class TestSaiDtelReportSession:
         commands = [
             {
                 'name': 'dtel_report_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
                 'atrribute': ['SAI_DTEL_REPORT_SESSION_ATTR_TRUNCATE_SIZE', '0'],
             }
@@ -147,15 +144,14 @@ class TestSaiDtelReportSession:
             {
                 'name': 'dtel_report_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'atrribute': 'SAI_DTEL_REPORT_SESSION_ATTR_TRUNCATE_SIZE',
+                'attributes': ['SAI_DTEL_REPORT_SESSION_ATTR_TRUNCATE_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -163,7 +159,7 @@ class TestSaiDtelReportSession:
         commands = [
             {
                 'name': 'dtel_report_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
                 'atrribute': ['SAI_DTEL_REPORT_SESSION_ATTR_UDP_DST_PORT', '0'],
             }
@@ -181,26 +177,18 @@ class TestSaiDtelReportSession:
             {
                 'name': 'dtel_report_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'atrribute': 'SAI_DTEL_REPORT_SESSION_ATTR_UDP_DST_PORT',
+                'attributes': ['SAI_DTEL_REPORT_SESSION_ATTR_UDP_DST_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     def test_dtel_report_session_remove(self, npu):
-        commands = [
-            {
-                'name': 'dtel_report_session_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_DTEL_REPORT_SESSION',
-                'attributes': [],
-            }
-        ]
+        commands = [{'name': 'dtel_report_session_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

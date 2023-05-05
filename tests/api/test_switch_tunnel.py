@@ -29,7 +29,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_LOOPBACK_PACKET_ACTION',
@@ -50,16 +50,15 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_LOOPBACK_PACKET_ACTION',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_LOOPBACK_PACKET_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_PACKET_ACTION_FORWARD', (
+        assert results[0][0].value() == 'SAI_PACKET_ACTION_FORWARD', (
             'Get error, expected SAI_PACKET_ACTION_FORWARD but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -67,7 +66,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_TUNNEL_VXLAN_UDP_SPORT_MODE',
@@ -88,16 +87,15 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_TUNNEL_VXLAN_UDP_SPORT_MODE',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_TUNNEL_VXLAN_UDP_SPORT_MODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_TUNNEL_VXLAN_UDP_SPORT_MODE_EPHEMERAL', (
+        assert results[0][0].value() == 'SAI_TUNNEL_VXLAN_UDP_SPORT_MODE_EPHEMERAL', (
             'Get error, expected SAI_TUNNEL_VXLAN_UDP_SPORT_MODE_EPHEMERAL but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -105,7 +103,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': ['SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT', '0'],
             }
@@ -121,15 +119,14 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -137,7 +134,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': ['SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT_MASK', '0'],
             }
@@ -155,15 +152,14 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT_MASK',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_VXLAN_UDP_SPORT_MASK'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -171,7 +167,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_AND_COLOR_TO_DSCP_MAP',
@@ -192,15 +188,16 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_AND_COLOR_TO_DSCP_MAP',
+                'attributes': [
+                    'SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_AND_COLOR_TO_DSCP_MAP'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -208,7 +205,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_TO_QUEUE_MAP',
@@ -229,15 +226,14 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_TO_QUEUE_MAP',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_ENCAP_QOS_TC_TO_QUEUE_MAP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -245,7 +241,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_DSCP_TO_TC_MAP',
@@ -266,15 +262,14 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_DSCP_TO_TC_MAP',
+                'attributes': ['SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_DSCP_TO_TC_MAP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -282,7 +277,7 @@ class TestSaiSwitchTunnel:
         commands = [
             {
                 'name': 'switch_tunnel_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
                 'atrribute': [
                     'SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_TC_TO_PRIORITY_GROUP_MAP',
@@ -303,29 +298,20 @@ class TestSaiSwitchTunnel:
             {
                 'name': 'switch_tunnel_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'atrribute': 'SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_TC_TO_PRIORITY_GROUP_MAP',
+                'attributes': [
+                    'SAI_SWITCH_TUNNEL_ATTR_DECAP_QOS_TC_TO_PRIORITY_GROUP_MAP'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_switch_tunnel_remove(self, npu):
-        commands = [
-            {
-                'name': 'switch_tunnel_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_SWITCH_TUNNEL',
-                'attributes': [
-                    'SAI_SWITCH_TUNNEL_ATTR_TUNNEL_TYPE',
-                    'SAI_TUNNEL_TYPE_IPINIP',
-                ],
-            }
-        ]
+        commands = [{'name': 'switch_tunnel_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

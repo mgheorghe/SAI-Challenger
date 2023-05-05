@@ -29,15 +29,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_COUNT',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_COUNT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_sai_next_hop_group_attr_next_hop_member_list_get(self, npu):
@@ -45,15 +44,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_MEMBER_LIST',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_NEXT_HOP_MEMBER_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -61,7 +59,7 @@ class TestSaiNextHopGroup:
         commands = [
             {
                 'name': 'next_hop_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
                 'atrribute': ['SAI_NEXT_HOP_GROUP_ATTR_SET_SWITCHOVER', 'false'],
             }
@@ -77,15 +75,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_SET_SWITCHOVER',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_SET_SWITCHOVER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -93,7 +90,7 @@ class TestSaiNextHopGroup:
         commands = [
             {
                 'name': 'next_hop_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
                 'atrribute': [
                     'SAI_NEXT_HOP_GROUP_ATTR_COUNTER_ID',
@@ -112,15 +109,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_COUNTER_ID',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_COUNTER_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_sai_next_hop_group_attr_real_size_get(self, npu):
@@ -128,15 +124,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_REAL_SIZE',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_REAL_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -144,7 +139,7 @@ class TestSaiNextHopGroup:
         commands = [
             {
                 'name': 'next_hop_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
                 'atrribute': [
                     'SAI_NEXT_HOP_GROUP_ATTR_SELECTION_MAP',
@@ -163,15 +158,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_SELECTION_MAP',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_SELECTION_MAP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -179,7 +173,7 @@ class TestSaiNextHopGroup:
         commands = [
             {
                 'name': 'next_hop_group_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
                 'atrribute': [
                     'SAI_NEXT_HOP_GROUP_ATTR_ARS_OBJECT_ID',
@@ -198,15 +192,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_ARS_OBJECT_ID',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_ARS_OBJECT_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_sai_next_hop_group_attr_ars_packet_drops_get(self, npu):
@@ -214,15 +207,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_ARS_PACKET_DROPS',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_ARS_PACKET_DROPS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_sai_next_hop_group_attr_ars_next_hop_reassignments_get(self, npu):
@@ -230,15 +222,14 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_ARS_NEXT_HOP_REASSIGNMENTS',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_ARS_NEXT_HOP_REASSIGNMENTS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_sai_next_hop_group_attr_ars_port_reassignments_get(self, npu):
@@ -246,29 +237,18 @@ class TestSaiNextHopGroup:
             {
                 'name': 'next_hop_group_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'atrribute': 'SAI_NEXT_HOP_GROUP_ATTR_ARS_PORT_REASSIGNMENTS',
+                'attributes': ['SAI_NEXT_HOP_GROUP_ATTR_ARS_PORT_REASSIGNMENTS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_next_hop_group_remove(self, npu):
-        commands = [
-            {
-                'name': 'next_hop_group_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP_GROUP',
-                'attributes': [
-                    'SAI_NEXT_HOP_GROUP_ATTR_TYPE',
-                    'SAI_NEXT_HOP_GROUP_TYPE_DYNAMIC_UNORDERED_ECMP',
-                ],
-            }
-        ]
+        commands = [{'name': 'next_hop_group_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

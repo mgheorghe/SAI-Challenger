@@ -26,7 +26,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': ['SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V4_STATE', 'true'],
             }
@@ -42,15 +42,14 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V4_STATE',
+                'attributes': ['SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V4_STATE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'true', (
-            'Get error, expected true but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'true', (
+            'Get error, expected true but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -58,7 +57,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': ['SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V6_STATE', 'true'],
             }
@@ -74,15 +73,14 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V6_STATE',
+                'attributes': ['SAI_VIRTUAL_ROUTER_ATTR_ADMIN_V6_STATE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'true', (
-            'Get error, expected true but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'true', (
+            'Get error, expected true but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -90,7 +88,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': [
                     'SAI_VIRTUAL_ROUTER_ATTR_SRC_MAC_ADDRESS',
@@ -111,16 +109,15 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_SRC_MAC_ADDRESS',
+                'attributes': ['SAI_VIRTUAL_ROUTER_ATTR_SRC_MAC_ADDRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'attrvalue SAI_SWITCH_ATTR_SRC_MAC_ADDRESS', (
+        assert results[0][0].value() == 'attrvalue SAI_SWITCH_ATTR_SRC_MAC_ADDRESS', (
             'Get error, expected attrvalue SAI_SWITCH_ATTR_SRC_MAC_ADDRESS but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -128,7 +125,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': [
                     'SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_TTL1_PACKET_ACTION',
@@ -149,16 +146,15 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_TTL1_PACKET_ACTION',
+                'attributes': ['SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_TTL1_PACKET_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_PACKET_ACTION_TRAP', (
+        assert results[0][0].value() == 'SAI_PACKET_ACTION_TRAP', (
             'Get error, expected SAI_PACKET_ACTION_TRAP but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -166,7 +162,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': [
                     'SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_IP_OPTIONS_PACKET_ACTION',
@@ -187,16 +183,17 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_IP_OPTIONS_PACKET_ACTION',
+                'attributes': [
+                    'SAI_VIRTUAL_ROUTER_ATTR_VIOLATION_IP_OPTIONS_PACKET_ACTION'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_PACKET_ACTION_TRAP', (
+        assert results[0][0].value() == 'SAI_PACKET_ACTION_TRAP', (
             'Get error, expected SAI_PACKET_ACTION_TRAP but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -204,7 +201,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': [
                     'SAI_VIRTUAL_ROUTER_ATTR_UNKNOWN_L3_MULTICAST_PACKET_ACTION',
@@ -225,16 +222,17 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_UNKNOWN_L3_MULTICAST_PACKET_ACTION',
+                'attributes': [
+                    'SAI_VIRTUAL_ROUTER_ATTR_UNKNOWN_L3_MULTICAST_PACKET_ACTION'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_PACKET_ACTION_DROP', (
+        assert results[0][0].value() == 'SAI_PACKET_ACTION_DROP', (
             'Get error, expected SAI_PACKET_ACTION_DROP but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -242,7 +240,7 @@ class TestSaiVirtualRouter:
         commands = [
             {
                 'name': 'virtual_router_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
                 'atrribute': ['SAI_VIRTUAL_ROUTER_ATTR_LABEL', '""'],
             }
@@ -258,26 +256,18 @@ class TestSaiVirtualRouter:
             {
                 'name': 'virtual_router_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'atrribute': 'SAI_VIRTUAL_ROUTER_ATTR_LABEL',
+                'attributes': ['SAI_VIRTUAL_ROUTER_ATTR_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '""', (
-            'Get error, expected "" but got %s' % results[1][0].value()
+        assert results[0][0].value() == '""', (
+            'Get error, expected "" but got %s' % results[0][0].value()
         )
 
     def test_virtual_router_remove(self, npu):
-        commands = [
-            {
-                'name': 'virtual_router_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'attributes': [],
-            }
-        ]
+        commands = [{'name': 'virtual_router_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

@@ -27,7 +27,7 @@ class TestSaiDirectionLookupEntry:
         commands = [
             {
                 'name': 'direction_lookup_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY',
                 'atrribute': [
                     'SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION',
@@ -46,29 +46,26 @@ class TestSaiDirectionLookupEntry:
             {
                 'name': 'direction_lookup_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY',
-                'atrribute': 'SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION',
+                'attributes': ['SAI_DIRECTION_LOOKUP_ENTRY_ATTR_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
         assert (
-            results[1][0].value()
+            results[0][0].value()
             == 'SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION'
         ), (
             'Get error, expected SAI_DIRECTION_LOOKUP_ENTRY_ACTION_SET_OUTBOUND_DIRECTION but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     def test_direction_lookup_entry_remove(self, npu):
         commands = [
             {
                 'name': 'direction_lookup_entry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_DIRECTION_LOOKUP_ENTRY',
-                'attributes': [],
                 'key': {'switch_id': '$SWITCH_ID', 'vni': 'TODO'},
+                'op': 'remove',
             }
         ]
 

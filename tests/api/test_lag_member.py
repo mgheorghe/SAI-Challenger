@@ -48,7 +48,7 @@ class TestSaiLagMember:
         commands = [
             {
                 'name': 'lag_member_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
                 'atrribute': ['SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE', 'false'],
             }
@@ -64,15 +64,14 @@ class TestSaiLagMember:
             {
                 'name': 'lag_member_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
-                'atrribute': 'SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE',
+                'attributes': ['SAI_LAG_MEMBER_ATTR_EGRESS_DISABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -80,7 +79,7 @@ class TestSaiLagMember:
         commands = [
             {
                 'name': 'lag_member_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
                 'atrribute': ['SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE', 'false'],
             }
@@ -96,47 +95,21 @@ class TestSaiLagMember:
             {
                 'name': 'lag_member_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
-                'atrribute': 'SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE',
+                'attributes': ['SAI_LAG_MEMBER_ATTR_INGRESS_DISABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     def test_lag_member_remove(self, npu):
         commands = [
-            {
-                'name': 'lag_member_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_LAG_MEMBER',
-                'attributes': [
-                    'SAI_LAG_MEMBER_ATTR_LAG_ID',
-                    '$lag_1',
-                    'SAI_LAG_MEMBER_ATTR_PORT_ID',
-                    '$port_1',
-                ],
-            },
-            {
-                'name': 'port_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_PORT',
-                'attributes': [
-                    'SAI_PORT_ATTR_HW_LANE_LIST',
-                    '2:10,11',
-                    'SAI_PORT_ATTR_SPEED',
-                    '10',
-                ],
-            },
-            {
-                'name': 'lag_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_LAG',
-                'attributes': [],
-            },
+            {'name': 'lag_member_1', 'op': 'remove'},
+            {'name': 'port_1', 'op': 'remove'},
+            {'name': 'lag_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

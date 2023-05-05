@@ -108,7 +108,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_TUNNEL_VNI', '0'],
             }
@@ -124,15 +124,14 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_TUNNEL_VNI',
+                'attributes': ['SAI_NEXT_HOP_ATTR_TUNNEL_VNI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -140,7 +139,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': [
                     'SAI_NEXT_HOP_ATTR_TUNNEL_MAC',
@@ -159,19 +158,18 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_TUNNEL_MAC',
+                'attributes': ['SAI_NEXT_HOP_ATTR_TUNNEL_MAC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
         assert (
-            results[1][0].value()
+            results[0][0].value()
             == 'attrvalue SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC'
         ), (
             'Get error, expected attrvalue SAI_SWITCH_ATTR_VXLAN_DEFAULT_ROUTER_MAC but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -179,7 +177,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_COUNTER_ID', 'SAI_NULL_OBJECT_ID'],
             }
@@ -195,15 +193,14 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_COUNTER_ID',
+                'attributes': ['SAI_NEXT_HOP_ATTR_COUNTER_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -211,7 +208,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_DISABLE_DECREMENT_TTL', 'false'],
             }
@@ -229,15 +226,14 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_DISABLE_DECREMENT_TTL',
+                'attributes': ['SAI_NEXT_HOP_ATTR_DISABLE_DECREMENT_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -245,7 +241,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_OUTSEG_TYPE', 'SAI_OUTSEG_TYPE_SWAP'],
             }
@@ -261,16 +257,15 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_OUTSEG_TYPE',
+                'attributes': ['SAI_NEXT_HOP_ATTR_OUTSEG_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_OUTSEG_TYPE_SWAP', (
+        assert results[0][0].value() == 'SAI_OUTSEG_TYPE_SWAP', (
             'Get error, expected SAI_OUTSEG_TYPE_SWAP but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -278,7 +273,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': [
                     'SAI_NEXT_HOP_ATTR_OUTSEG_TTL_MODE',
@@ -297,16 +292,15 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_OUTSEG_TTL_MODE',
+                'attributes': ['SAI_NEXT_HOP_ATTR_OUTSEG_TTL_MODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_OUTSEG_TTL_MODE_UNIFORM', (
+        assert results[0][0].value() == 'SAI_OUTSEG_TTL_MODE_UNIFORM', (
             'Get error, expected SAI_OUTSEG_TTL_MODE_UNIFORM but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -314,7 +308,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_OUTSEG_TTL_VALUE', '255'],
             }
@@ -330,15 +324,14 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_OUTSEG_TTL_VALUE',
+                'attributes': ['SAI_NEXT_HOP_ATTR_OUTSEG_TTL_VALUE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '255', (
-            'Get error, expected 255 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '255', (
+            'Get error, expected 255 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -346,7 +339,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': [
                     'SAI_NEXT_HOP_ATTR_OUTSEG_EXP_MODE',
@@ -365,16 +358,15 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_OUTSEG_EXP_MODE',
+                'attributes': ['SAI_NEXT_HOP_ATTR_OUTSEG_EXP_MODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_OUTSEG_EXP_MODE_UNIFORM', (
+        assert results[0][0].value() == 'SAI_OUTSEG_EXP_MODE_UNIFORM', (
             'Get error, expected SAI_OUTSEG_EXP_MODE_UNIFORM but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -382,7 +374,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': ['SAI_NEXT_HOP_ATTR_OUTSEG_EXP_VALUE', '0'],
             }
@@ -398,15 +390,14 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_OUTSEG_EXP_VALUE',
+                'attributes': ['SAI_NEXT_HOP_ATTR_OUTSEG_EXP_VALUE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -414,7 +405,7 @@ class TestSaiNextHop:
         commands = [
             {
                 'name': 'next_hop_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
                 'atrribute': [
                     'SAI_NEXT_HOP_ATTR_QOS_TC_AND_COLOR_TO_MPLS_EXP_MAP',
@@ -435,107 +426,26 @@ class TestSaiNextHop:
             {
                 'name': 'next_hop_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'atrribute': 'SAI_NEXT_HOP_ATTR_QOS_TC_AND_COLOR_TO_MPLS_EXP_MAP',
+                'attributes': ['SAI_NEXT_HOP_ATTR_QOS_TC_AND_COLOR_TO_MPLS_EXP_MAP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_next_hop_remove(self, npu):
         commands = [
-            {
-                'name': 'next_hop_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_NEXT_HOP',
-                'attributes': [
-                    'SAI_NEXT_HOP_ATTR_TYPE',
-                    'SAI_NEXT_HOP_TYPE_IP',
-                    'SAI_NEXT_HOP_ATTR_IP',
-                    '180.0.0.1',
-                    'SAI_NEXT_HOP_ATTR_ROUTER_INTERFACE_ID',
-                    '$router_interface_1',
-                    'SAI_NEXT_HOP_ATTR_TUNNEL_ID',
-                    '$tunnel_1',
-                    'SAI_NEXT_HOP_ATTR_SRV6_SIDLIST_ID',
-                    '$srv6_sidlist_1',
-                    'SAI_NEXT_HOP_ATTR_LABELSTACK',
-                    '2:10,11',
-                ],
-            },
-            {
-                'name': 'srv6_sidlist_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_SRV6_SIDLIST',
-                'attributes': ['SAI_SRV6_SIDLIST_ATTR_TYPE', 'sai_srv6_sidlist_type_t'],
-            },
-            {
-                'name': 'tunnel_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_TUNNEL',
-                'attributes': [
-                    'SAI_TUNNEL_ATTR_TYPE',
-                    'SAI_TUNNEL_TYPE_IPINIP',
-                    'SAI_TUNNEL_ATTR_UNDERLAY_INTERFACE',
-                    '$router_interface_1',
-                    'SAI_TUNNEL_ATTR_OVERLAY_INTERFACE',
-                    '$router_interface_1',
-                ],
-            },
-            {
-                'name': 'router_interface_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_ROUTER_INTERFACE',
-                'attributes': [
-                    'SAI_ROUTER_INTERFACE_ATTR_VIRTUAL_ROUTER_ID',
-                    '$virtual_router_1',
-                    'SAI_ROUTER_INTERFACE_ATTR_TYPE',
-                    'SAI_ROUTER_INTERFACE_TYPE_PORT',
-                    'SAI_ROUTER_INTERFACE_ATTR_PORT_ID',
-                    '$port_1',
-                    'SAI_ROUTER_INTERFACE_ATTR_VLAN_ID',
-                    '$vlan_1',
-                    'SAI_ROUTER_INTERFACE_ATTR_OUTER_VLAN_ID',
-                    '10',
-                    'SAI_ROUTER_INTERFACE_ATTR_INNER_VLAN_ID',
-                    '10',
-                    'SAI_ROUTER_INTERFACE_ATTR_BRIDGE_ID',
-                    '$bridge_1',
-                ],
-            },
-            {
-                'name': 'bridge_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_BRIDGE',
-                'attributes': ['SAI_BRIDGE_ATTR_TYPE', 'SAI_BRIDGE_TYPE_1Q'],
-            },
-            {
-                'name': 'vlan_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_VLAN',
-                'attributes': ['SAI_VLAN_ATTR_VLAN_ID', '10'],
-            },
-            {
-                'name': 'port_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_PORT',
-                'attributes': [
-                    'SAI_PORT_ATTR_HW_LANE_LIST',
-                    '2:10,11',
-                    'SAI_PORT_ATTR_SPEED',
-                    '10',
-                ],
-            },
-            {
-                'name': 'virtual_router_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_VIRTUAL_ROUTER',
-                'attributes': [],
-            },
+            {'name': 'next_hop_1', 'op': 'remove'},
+            {'name': 'srv6_sidlist_1', 'op': 'remove'},
+            {'name': 'tunnel_1', 'op': 'remove'},
+            {'name': 'router_interface_1', 'op': 'remove'},
+            {'name': 'bridge_1', 'op': 'remove'},
+            {'name': 'vlan_1', 'op': 'remove'},
+            {'name': 'port_1', 'op': 'remove'},
+            {'name': 'virtual_router_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

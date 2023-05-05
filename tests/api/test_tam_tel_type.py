@@ -37,7 +37,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_INT_SWITCH_IDENTIFIER', '0'],
             }
@@ -55,15 +55,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_INT_SWITCH_IDENTIFIER',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_INT_SWITCH_IDENTIFIER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -71,7 +70,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS',
@@ -92,15 +91,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -108,7 +106,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_INGRESS',
@@ -129,15 +127,16 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_INGRESS',
+                'attributes': [
+                    'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_INGRESS'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -145,7 +144,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_EGRESS',
@@ -166,15 +165,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_EGRESS',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_PORT_STATS_EGRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -182,7 +180,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_VIRTUAL_QUEUE_STATS',
@@ -203,15 +201,16 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_VIRTUAL_QUEUE_STATS',
+                'attributes': [
+                    'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_VIRTUAL_QUEUE_STATS'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -219,7 +218,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_OUTPUT_QUEUE_STATS',
@@ -240,15 +239,16 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_OUTPUT_QUEUE_STATS',
+                'attributes': [
+                    'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_OUTPUT_QUEUE_STATS'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -256,7 +256,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_MMU_STATS', 'false'],
             }
@@ -274,15 +274,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_MMU_STATS',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_MMU_STATS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -290,7 +289,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FABRIC_STATS',
@@ -311,15 +310,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FABRIC_STATS',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FABRIC_STATS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -327,7 +325,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FILTER_STATS',
@@ -348,15 +346,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FILTER_STATS',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_FILTER_STATS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -366,7 +363,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': [
                     'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_RESOURCE_UTILIZATION_STATS',
@@ -391,15 +388,16 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_RESOURCE_UTILIZATION_STATS',
+                'attributes': [
+                    'SAI_TAM_TEL_TYPE_ATTR_SWITCH_ENABLE_RESOURCE_UTILIZATION_STATS'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -407,7 +405,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_FABRIC_Q', 'false'],
             }
@@ -423,15 +421,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_FABRIC_Q',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_FABRIC_Q'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -439,7 +436,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_NE_ENABLE', 'false'],
             }
@@ -455,15 +452,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_NE_ENABLE',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_NE_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -471,7 +467,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_DSCP_VALUE', '0'],
             }
@@ -487,15 +483,14 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_DSCP_VALUE',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_DSCP_VALUE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -503,7 +498,7 @@ class TestSaiTamTelType:
         commands = [
             {
                 'name': 'tam_tel_type_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
                 'atrribute': ['SAI_TAM_TEL_TYPE_ATTR_MATH_FUNC', 'SAI_NULL_OBJECT_ID'],
             }
@@ -519,36 +514,20 @@ class TestSaiTamTelType:
             {
                 'name': 'tam_tel_type_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'atrribute': 'SAI_TAM_TEL_TYPE_ATTR_MATH_FUNC',
+                'attributes': ['SAI_TAM_TEL_TYPE_ATTR_MATH_FUNC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_tam_tel_type_remove(self, npu):
         commands = [
-            {
-                'name': 'tam_tel_type_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_TAM_TEL_TYPE',
-                'attributes': [
-                    'SAI_TAM_TEL_TYPE_ATTR_TAM_TELEMETRY_TYPE',
-                    'SAI_TAM_TELEMETRY_TYPE_NE',
-                    'SAI_TAM_TEL_TYPE_ATTR_REPORT_ID',
-                    '$tam_report_1',
-                ],
-            },
-            {
-                'name': 'tam_report_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_TAM_REPORT',
-                'attributes': ['SAI_TAM_REPORT_ATTR_TYPE', 'SAI_TAM_REPORT_TYPE_SFLOW'],
-            },
+            {'name': 'tam_tel_type_1', 'op': 'remove'},
+            {'name': 'tam_report_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

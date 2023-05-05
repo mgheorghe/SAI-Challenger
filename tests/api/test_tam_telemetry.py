@@ -29,7 +29,7 @@ class TestSaiTamTelemetry:
         commands = [
             {
                 'name': 'tam_telemetry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
                 'atrribute': ['SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST', 'empty'],
             }
@@ -45,15 +45,14 @@ class TestSaiTamTelemetry:
             {
                 'name': 'tam_telemetry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': 'SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST',
+                'attributes': ['SAI_TAM_TELEMETRY_ATTR_TAM_TYPE_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'empty', (
+            'Get error, expected empty but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -61,7 +60,7 @@ class TestSaiTamTelemetry:
         commands = [
             {
                 'name': 'tam_telemetry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
                 'atrribute': [
                     'SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT',
@@ -82,16 +81,15 @@ class TestSaiTamTelemetry:
             {
                 'name': 'tam_telemetry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': 'SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT',
+                'attributes': ['SAI_TAM_TELEMETRY_ATTR_TAM_REPORTING_UNIT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_TAM_REPORTING_UNIT_SEC', (
+        assert results[0][0].value() == 'SAI_TAM_REPORTING_UNIT_SEC', (
             'Get error, expected SAI_TAM_REPORTING_UNIT_SEC but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -99,7 +97,7 @@ class TestSaiTamTelemetry:
         commands = [
             {
                 'name': 'tam_telemetry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
                 'atrribute': ['SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL', '1'],
             }
@@ -117,29 +115,18 @@ class TestSaiTamTelemetry:
             {
                 'name': 'tam_telemetry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'atrribute': 'SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL',
+                'attributes': ['SAI_TAM_TELEMETRY_ATTR_REPORTING_INTERVAL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '1', (
-            'Get error, expected 1 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '1', (
+            'Get error, expected 1 but got %s' % results[0][0].value()
         )
 
     def test_tam_telemetry_remove(self, npu):
-        commands = [
-            {
-                'name': 'tam_telemetry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_TAM_TELEMETRY',
-                'attributes': [
-                    'SAI_TAM_TELEMETRY_ATTR_COLLECTOR_LIST',
-                    'sai_object_list_t',
-                ],
-            }
-        ]
+        commands = [{'name': 'tam_telemetry_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

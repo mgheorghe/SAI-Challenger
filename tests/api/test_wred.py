@@ -26,7 +26,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_GREEN_ENABLE', 'false'],
             }
@@ -42,15 +42,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_GREEN_ENABLE',
+                'attributes': ['SAI_WRED_ATTR_GREEN_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -58,7 +57,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_GREEN_MIN_THRESHOLD', '0'],
             }
@@ -74,15 +73,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_GREEN_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_GREEN_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -90,7 +88,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_GREEN_MAX_THRESHOLD', '0'],
             }
@@ -106,15 +104,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_GREEN_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_GREEN_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -122,7 +119,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_GREEN_DROP_PROBABILITY', '100'],
             }
@@ -138,15 +135,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_GREEN_DROP_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_GREEN_DROP_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -154,7 +150,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_YELLOW_ENABLE', 'false'],
             }
@@ -170,15 +166,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_YELLOW_ENABLE',
+                'attributes': ['SAI_WRED_ATTR_YELLOW_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -186,7 +181,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD', '0'],
             }
@@ -202,15 +197,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_YELLOW_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -218,7 +212,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_YELLOW_MAX_THRESHOLD', '0'],
             }
@@ -234,15 +228,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_YELLOW_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_YELLOW_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -250,7 +243,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_YELLOW_DROP_PROBABILITY', '100'],
             }
@@ -266,15 +259,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_YELLOW_DROP_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_YELLOW_DROP_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -282,7 +274,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_RED_ENABLE', 'false'],
             }
@@ -295,18 +287,13 @@ class TestSaiWred:
     @pytest.mark.dependency(depends=['test_sai_wred_attr_red_enable_set'])
     def test_sai_wred_attr_red_enable_get(self, npu):
         commands = [
-            {
-                'name': 'wred_1',
-                'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_RED_ENABLE',
-            }
+            {'name': 'wred_1', 'op': 'get', 'attributes': ['SAI_WRED_ATTR_RED_ENABLE']}
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -314,7 +301,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_RED_MIN_THRESHOLD', '0'],
             }
@@ -330,15 +317,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_RED_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_RED_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -346,7 +332,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_RED_MAX_THRESHOLD', '0'],
             }
@@ -362,15 +348,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_RED_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_RED_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -378,7 +363,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_RED_DROP_PROBABILITY', '100'],
             }
@@ -394,15 +379,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_RED_DROP_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_RED_DROP_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -410,7 +394,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_WEIGHT', '0'],
             }
@@ -423,18 +407,13 @@ class TestSaiWred:
     @pytest.mark.dependency(depends=['test_sai_wred_attr_weight_set'])
     def test_sai_wred_attr_weight_get(self, npu):
         commands = [
-            {
-                'name': 'wred_1',
-                'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_WEIGHT',
-            }
+            {'name': 'wred_1', 'op': 'get', 'attributes': ['SAI_WRED_ATTR_WEIGHT']}
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -442,7 +421,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_MARK_MODE', 'SAI_ECN_MARK_MODE_NONE'],
             }
@@ -458,16 +437,15 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_MARK_MODE',
+                'attributes': ['SAI_WRED_ATTR_ECN_MARK_MODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_ECN_MARK_MODE_NONE', (
+        assert results[0][0].value() == 'SAI_ECN_MARK_MODE_NONE', (
             'Get error, expected SAI_ECN_MARK_MODE_NONE but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -475,7 +453,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_GREEN_MIN_THRESHOLD', '0'],
             }
@@ -491,15 +469,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_GREEN_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_GREEN_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -507,7 +484,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_GREEN_MAX_THRESHOLD', '0'],
             }
@@ -523,15 +500,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_GREEN_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_GREEN_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -539,7 +515,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_GREEN_MARK_PROBABILITY', '100'],
             }
@@ -557,15 +533,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_GREEN_MARK_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_ECN_GREEN_MARK_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -573,7 +548,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_YELLOW_MIN_THRESHOLD', '0'],
             }
@@ -589,15 +564,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_YELLOW_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_YELLOW_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -605,7 +579,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_YELLOW_MAX_THRESHOLD', '0'],
             }
@@ -621,15 +595,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_YELLOW_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_YELLOW_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -637,7 +610,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_YELLOW_MARK_PROBABILITY', '100'],
             }
@@ -655,15 +628,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_YELLOW_MARK_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_ECN_YELLOW_MARK_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -671,7 +643,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_RED_MIN_THRESHOLD', '0'],
             }
@@ -687,15 +659,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_RED_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_RED_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -703,7 +674,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_RED_MAX_THRESHOLD', '0'],
             }
@@ -719,15 +690,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_RED_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_RED_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -735,7 +705,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_RED_MARK_PROBABILITY', '100'],
             }
@@ -751,15 +721,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_RED_MARK_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_ECN_RED_MARK_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -767,7 +736,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MIN_THRESHOLD', '0'],
             }
@@ -785,15 +754,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MIN_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MIN_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -801,7 +769,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': ['SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MAX_THRESHOLD', '0'],
             }
@@ -819,15 +787,14 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MAX_THRESHOLD',
+                'attributes': ['SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MAX_THRESHOLD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -835,7 +802,7 @@ class TestSaiWred:
         commands = [
             {
                 'name': 'wred_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_WRED',
                 'atrribute': [
                     'SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MARK_PROBABILITY',
@@ -856,26 +823,18 @@ class TestSaiWred:
             {
                 'name': 'wred_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'atrribute': 'SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MARK_PROBABILITY',
+                'attributes': ['SAI_WRED_ATTR_ECN_COLOR_UNAWARE_MARK_PROBABILITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '100', (
-            'Get error, expected 100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '100', (
+            'Get error, expected 100 but got %s' % results[0][0].value()
         )
 
     def test_wred_remove(self, npu):
-        commands = [
-            {
-                'name': 'wred_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_WRED',
-                'attributes': [],
-            }
-        ]
+        commands = [{'name': 'wred_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

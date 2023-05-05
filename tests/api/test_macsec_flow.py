@@ -27,15 +27,14 @@ class TestSaiMacsecFlow:
             {
                 'name': 'macsec_flow_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MACSEC_FLOW',
-                'atrribute': 'SAI_MACSEC_FLOW_ATTR_ACL_ENTRY_LIST',
+                'attributes': ['SAI_MACSEC_FLOW_ATTR_ACL_ENTRY_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_sai_macsec_flow_attr_sc_list_get(self, npu):
@@ -43,29 +42,18 @@ class TestSaiMacsecFlow:
             {
                 'name': 'macsec_flow_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MACSEC_FLOW',
-                'atrribute': 'SAI_MACSEC_FLOW_ATTR_SC_LIST',
+                'attributes': ['SAI_MACSEC_FLOW_ATTR_SC_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     def test_macsec_flow_remove(self, npu):
-        commands = [
-            {
-                'name': 'macsec_flow_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_MACSEC_FLOW',
-                'attributes': [
-                    'SAI_MACSEC_FLOW_ATTR_MACSEC_DIRECTION',
-                    'SAI_MACSEC_DIRECTION_EGRESS',
-                ],
-            }
-        ]
+        commands = [{'name': 'macsec_flow_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

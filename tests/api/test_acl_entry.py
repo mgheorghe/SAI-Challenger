@@ -32,7 +32,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_PRIORITY', '0'],
             }
@@ -48,15 +48,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_PRIORITY',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_PRIORITY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -64,7 +63,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ADMIN_STATE', 'true'],
             }
@@ -80,15 +79,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ADMIN_STATE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ADMIN_STATE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'true', (
-            'Get error, expected true but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'true', (
+            'Get error, expected true but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -96,7 +94,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6', 'disabled'],
             }
@@ -112,15 +110,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -128,7 +125,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD3', 'disabled'],
             }
@@ -146,15 +143,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD3',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD3'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -162,7 +158,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD2', 'disabled'],
             }
@@ -180,15 +176,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD2',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD2'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -196,7 +191,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD1', 'disabled'],
             }
@@ -214,15 +209,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD1',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD1'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -230,7 +224,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD0', 'disabled'],
             }
@@ -248,15 +242,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD0',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IPV6_WORD0'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -264,7 +257,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6', 'disabled'],
             }
@@ -280,15 +273,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -296,7 +288,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD3', 'disabled'],
             }
@@ -314,15 +306,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD3',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD3'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -330,7 +321,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD2', 'disabled'],
             }
@@ -348,15 +339,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD2',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD2'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -364,7 +354,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD1', 'disabled'],
             }
@@ -382,15 +372,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD1',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD1'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -398,7 +387,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD0', 'disabled'],
             }
@@ -416,15 +405,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD0',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IPV6_WORD0'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -432,7 +420,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IPV6', 'disabled'],
             }
@@ -450,15 +438,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -466,7 +453,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IPV6', 'disabled'],
             }
@@ -484,15 +471,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -500,7 +486,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_MAC', 'disabled'],
             }
@@ -516,15 +502,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_MAC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_MAC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -532,7 +517,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_MAC', 'disabled'],
             }
@@ -548,15 +533,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_MAC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_MAC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -564,7 +548,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IP', 'disabled'],
             }
@@ -580,15 +564,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -596,7 +579,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IP', 'disabled'],
             }
@@ -612,15 +595,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DST_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DST_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -628,7 +610,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IP', 'disabled'],
             }
@@ -644,15 +626,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_SRC_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -660,7 +641,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IP', 'disabled'],
             }
@@ -676,15 +657,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_DST_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -692,7 +672,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IN_PORTS', 'disabled'],
             }
@@ -708,15 +688,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IN_PORTS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IN_PORTS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -724,7 +703,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORTS', 'disabled'],
             }
@@ -740,15 +719,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORTS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORTS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -756,7 +734,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IN_PORT', 'disabled'],
             }
@@ -772,15 +750,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IN_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IN_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -788,7 +765,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORT', 'disabled'],
             }
@@ -804,15 +781,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_OUT_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -820,7 +796,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_PORT', 'disabled'],
             }
@@ -836,15 +812,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_SRC_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_SRC_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -852,7 +827,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_ID', 'disabled'],
             }
@@ -868,15 +843,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -884,7 +858,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_PRI', 'disabled'],
             }
@@ -902,15 +876,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_PRI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -918,7 +891,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_CFI', 'disabled'],
             }
@@ -936,15 +909,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_CFI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_OUTER_VLAN_CFI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -952,7 +924,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_ID', 'disabled'],
             }
@@ -968,15 +940,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -984,7 +955,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_PRI', 'disabled'],
             }
@@ -1002,15 +973,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_PRI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1018,7 +988,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_CFI', 'disabled'],
             }
@@ -1036,15 +1006,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_CFI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_VLAN_CFI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1052,7 +1021,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_L4_SRC_PORT', 'disabled'],
             }
@@ -1068,15 +1037,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_L4_SRC_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_L4_SRC_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1084,7 +1052,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_L4_DST_PORT', 'disabled'],
             }
@@ -1100,15 +1068,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_L4_DST_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_L4_DST_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1116,7 +1083,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_SRC_PORT', 'disabled'],
             }
@@ -1134,15 +1101,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_SRC_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_SRC_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1150,7 +1116,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_DST_PORT', 'disabled'],
             }
@@ -1168,15 +1134,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_DST_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_L4_DST_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1184,7 +1149,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ETHER_TYPE', 'disabled'],
             }
@@ -1200,15 +1165,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ETHER_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ETHER_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1216,7 +1180,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_ETHER_TYPE', 'disabled'],
             }
@@ -1234,15 +1198,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_ETHER_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_ETHER_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1250,7 +1213,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_PROTOCOL', 'disabled'],
             }
@@ -1266,15 +1229,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IP_PROTOCOL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_PROTOCOL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1282,7 +1244,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_IP_PROTOCOL', 'disabled'],
             }
@@ -1300,15 +1262,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_INNER_IP_PROTOCOL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_INNER_IP_PROTOCOL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1316,7 +1277,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_IDENTIFICATION', 'disabled'],
             }
@@ -1334,15 +1295,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IP_IDENTIFICATION',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_IDENTIFICATION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1350,7 +1310,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_DSCP', 'disabled'],
             }
@@ -1366,15 +1326,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_DSCP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_DSCP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1382,7 +1341,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ECN', 'disabled'],
             }
@@ -1398,15 +1357,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ECN',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ECN'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1414,7 +1372,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TTL', 'disabled'],
             }
@@ -1430,15 +1388,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1446,7 +1403,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TOS', 'disabled'],
             }
@@ -1462,15 +1419,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1478,7 +1434,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_FLAGS', 'disabled'],
             }
@@ -1494,15 +1450,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IP_FLAGS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IP_FLAGS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1510,7 +1465,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TCP_FLAGS', 'disabled'],
             }
@@ -1526,15 +1481,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TCP_FLAGS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TCP_FLAGS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1542,7 +1496,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_TYPE', 'disabled'],
             }
@@ -1558,15 +1512,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1574,7 +1527,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_FRAG', 'disabled'],
             }
@@ -1590,15 +1543,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_FRAG',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_IP_FRAG'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1606,7 +1558,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IPV6_FLOW_LABEL', 'disabled'],
             }
@@ -1624,15 +1576,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IPV6_FLOW_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IPV6_FLOW_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1640,7 +1591,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TC', 'disabled'],
             }
@@ -1656,15 +1607,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1672,7 +1622,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMP_TYPE', 'disabled'],
             }
@@ -1688,15 +1638,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ICMP_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMP_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1704,7 +1653,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMP_CODE', 'disabled'],
             }
@@ -1720,15 +1669,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ICMP_CODE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMP_CODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1736,7 +1684,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_TYPE', 'disabled'],
             }
@@ -1752,15 +1700,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1768,7 +1715,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_CODE', 'disabled'],
             }
@@ -1784,15 +1731,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_CODE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ICMPV6_CODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1800,7 +1746,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_PACKET_VLAN', 'disabled'],
             }
@@ -1816,15 +1762,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_PACKET_VLAN',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_PACKET_VLAN'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1832,7 +1777,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TUNNEL_VNI', 'disabled'],
             }
@@ -1848,15 +1793,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TUNNEL_VNI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TUNNEL_VNI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1864,7 +1808,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_HAS_VLAN_TAG', 'disabled'],
             }
@@ -1880,15 +1824,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_HAS_VLAN_TAG',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_HAS_VLAN_TAG'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1896,7 +1839,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MACSEC_SCI', 'disabled'],
             }
@@ -1912,15 +1855,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MACSEC_SCI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MACSEC_SCI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1928,7 +1870,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_LABEL', 'disabled'],
             }
@@ -1946,15 +1888,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1962,7 +1903,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_TTL', 'disabled'],
             }
@@ -1980,15 +1921,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -1996,7 +1936,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_EXP', 'disabled'],
             }
@@ -2014,15 +1954,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_EXP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_EXP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2030,7 +1969,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_BOS', 'disabled'],
             }
@@ -2048,15 +1987,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_BOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL0_BOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2064,7 +2002,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_LABEL', 'disabled'],
             }
@@ -2082,15 +2020,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2098,7 +2035,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_TTL', 'disabled'],
             }
@@ -2116,15 +2053,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2132,7 +2068,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_EXP', 'disabled'],
             }
@@ -2150,15 +2086,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_EXP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_EXP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2166,7 +2101,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_BOS', 'disabled'],
             }
@@ -2184,15 +2119,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_BOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL1_BOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2200,7 +2134,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_LABEL', 'disabled'],
             }
@@ -2218,15 +2152,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2234,7 +2167,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_TTL', 'disabled'],
             }
@@ -2252,15 +2185,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2268,7 +2200,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_EXP', 'disabled'],
             }
@@ -2286,15 +2218,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_EXP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_EXP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2302,7 +2233,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_BOS', 'disabled'],
             }
@@ -2320,15 +2251,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_BOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL2_BOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2336,7 +2266,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_LABEL', 'disabled'],
             }
@@ -2354,15 +2284,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2370,7 +2299,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_TTL', 'disabled'],
             }
@@ -2388,15 +2317,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2404,7 +2332,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_EXP', 'disabled'],
             }
@@ -2422,15 +2350,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_EXP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_EXP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2438,7 +2365,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_BOS', 'disabled'],
             }
@@ -2456,15 +2383,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_BOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL3_BOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2472,7 +2398,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_LABEL', 'disabled'],
             }
@@ -2490,15 +2416,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_LABEL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_LABEL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2506,7 +2431,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_TTL', 'disabled'],
             }
@@ -2524,15 +2449,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2540,7 +2464,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_EXP', 'disabled'],
             }
@@ -2558,15 +2482,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_EXP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_EXP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2574,7 +2497,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_BOS', 'disabled'],
             }
@@ -2592,15 +2515,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_BOS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_MPLS_LABEL4_BOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2608,7 +2530,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_FDB_DST_USER_META', 'disabled'],
             }
@@ -2626,15 +2548,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_FDB_DST_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_FDB_DST_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2642,7 +2563,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_DST_USER_META',
@@ -2663,15 +2584,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_DST_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_DST_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2679,7 +2599,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_DST_USER_META',
@@ -2700,15 +2620,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_DST_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_DST_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2716,7 +2635,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_PORT_USER_META', 'disabled'],
             }
@@ -2734,15 +2653,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_PORT_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_PORT_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2750,7 +2668,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_VLAN_USER_META', 'disabled'],
             }
@@ -2768,15 +2686,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_VLAN_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_VLAN_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2784,7 +2701,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_USER_META', 'disabled'],
             }
@@ -2800,15 +2717,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ACL_USER_META',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_USER_META'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2816,7 +2732,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_FIELD_FDB_NPU_META_DST_HIT',
@@ -2837,15 +2753,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_FDB_NPU_META_DST_HIT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_FDB_NPU_META_DST_HIT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2853,7 +2768,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT',
@@ -2874,15 +2789,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_NEIGHBOR_NPU_META_DST_HIT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2890,7 +2804,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_NPU_META_DST_HIT',
@@ -2911,15 +2825,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_NPU_META_DST_HIT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ROUTE_NPU_META_DST_HIT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2927,7 +2840,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_BTH_OPCODE', 'disabled'],
             }
@@ -2943,15 +2856,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_BTH_OPCODE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_BTH_OPCODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2959,7 +2871,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_AETH_SYNDROME', 'disabled'],
             }
@@ -2975,15 +2887,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_AETH_SYNDROME',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_AETH_SYNDROME'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -2991,7 +2902,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MIN',
@@ -3012,15 +2923,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MIN',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MIN'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3028,7 +2938,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MAX',
@@ -3049,15 +2959,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MAX',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_USER_DEFINED_FIELD_GROUP_MAX'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3065,7 +2974,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_RANGE_TYPE', 'disabled'],
             }
@@ -3083,15 +2992,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_ACL_RANGE_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_ACL_RANGE_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3099,7 +3007,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_IPV6_NEXT_HEADER', 'disabled'],
             }
@@ -3117,15 +3025,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_IPV6_NEXT_HEADER',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_IPV6_NEXT_HEADER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3133,7 +3040,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_GRE_KEY', 'disabled'],
             }
@@ -3149,15 +3056,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_GRE_KEY',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_GRE_KEY'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3165,7 +3071,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_FIELD_TAM_INT_TYPE', 'disabled'],
             }
@@ -3181,15 +3087,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_FIELD_TAM_INT_TYPE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_FIELD_TAM_INT_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3197,7 +3102,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT', 'disabled'],
             }
@@ -3213,15 +3118,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3229,7 +3133,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_ENDPOINT_IP', 'disabled'],
             }
@@ -3245,15 +3149,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_ENDPOINT_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_ENDPOINT_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3261,7 +3164,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_LIST', 'disabled'],
             }
@@ -3279,15 +3182,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_LIST',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_REDIRECT_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3295,7 +3197,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_PACKET_ACTION', 'disabled'],
             }
@@ -3313,15 +3215,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_PACKET_ACTION',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_PACKET_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3329,7 +3230,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_FLOOD', 'disabled'],
             }
@@ -3345,15 +3246,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_FLOOD',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_FLOOD'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3361,7 +3261,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_COUNTER', 'disabled'],
             }
@@ -3377,15 +3277,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_COUNTER',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_COUNTER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3393,7 +3292,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_INGRESS', 'disabled'],
             }
@@ -3411,15 +3310,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_INGRESS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_INGRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3427,7 +3325,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_EGRESS', 'disabled'],
             }
@@ -3445,15 +3343,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_EGRESS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_MIRROR_EGRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3461,7 +3358,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_POLICER', 'disabled'],
             }
@@ -3477,15 +3374,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_POLICER',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_POLICER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3493,7 +3389,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_TTL', 'disabled'],
             }
@@ -3511,15 +3407,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_TTL',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DECREMENT_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3527,7 +3422,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_TC', 'disabled'],
             }
@@ -3543,15 +3438,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_TC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_TC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3559,7 +3453,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_PACKET_COLOR', 'disabled'],
             }
@@ -3577,15 +3471,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_PACKET_COLOR',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_PACKET_COLOR'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3593,7 +3486,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_ID',
@@ -3614,15 +3507,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3630,7 +3522,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_PRI',
@@ -3651,15 +3543,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_PRI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_INNER_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3667,7 +3558,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_ID',
@@ -3688,15 +3579,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3704,7 +3594,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_PRI',
@@ -3725,15 +3615,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_PRI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_OUTER_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3741,7 +3630,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_ID', 'disabled'],
             }
@@ -3757,15 +3646,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3773,7 +3661,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_PRI', 'disabled'],
             }
@@ -3789,15 +3677,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_PRI',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_ADD_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3805,7 +3692,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_MAC', 'disabled'],
             }
@@ -3821,15 +3708,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_MAC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_MAC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3837,7 +3723,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_MAC', 'disabled'],
             }
@@ -3853,15 +3739,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_MAC',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_MAC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3869,7 +3754,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IP', 'disabled'],
             }
@@ -3885,15 +3770,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3901,7 +3785,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IP', 'disabled'],
             }
@@ -3917,15 +3801,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3933,7 +3816,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IPV6', 'disabled'],
             }
@@ -3949,15 +3832,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_SRC_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3965,7 +3847,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IPV6', 'disabled'],
             }
@@ -3981,15 +3863,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IPV6',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DST_IPV6'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -3997,7 +3878,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DSCP', 'disabled'],
             }
@@ -4013,15 +3894,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_DSCP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DSCP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4029,7 +3909,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ECN', 'disabled'],
             }
@@ -4045,15 +3925,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ECN',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ECN'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4061,7 +3940,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_SRC_PORT', 'disabled'],
             }
@@ -4079,15 +3958,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_SRC_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_SRC_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4095,7 +3973,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_DST_PORT', 'disabled'],
             }
@@ -4113,15 +3991,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_DST_PORT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_L4_DST_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4129,7 +4006,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_INGRESS_SAMPLEPACKET_ENABLE',
@@ -4150,15 +4027,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INGRESS_SAMPLEPACKET_ENABLE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INGRESS_SAMPLEPACKET_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4166,7 +4042,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_SAMPLEPACKET_ENABLE',
@@ -4187,15 +4063,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_SAMPLEPACKET_ENABLE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_SAMPLEPACKET_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4203,7 +4078,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_ACL_META_DATA',
@@ -4224,15 +4099,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ACL_META_DATA',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ACL_META_DATA'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4240,7 +4114,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_BLOCK_PORT_LIST',
@@ -4261,15 +4135,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_BLOCK_PORT_LIST',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_EGRESS_BLOCK_PORT_LIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4277,7 +4150,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_USER_TRAP_ID', 'disabled'],
             }
@@ -4295,15 +4168,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_USER_TRAP_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_USER_TRAP_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4311,7 +4183,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DO_NOT_LEARN', 'disabled'],
             }
@@ -4329,15 +4201,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_DO_NOT_LEARN',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_DO_NOT_LEARN'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4345,7 +4216,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_ACL_DTEL_FLOW_OP', 'disabled'],
             }
@@ -4363,15 +4234,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_ACL_DTEL_FLOW_OP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_ACL_DTEL_FLOW_OP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4379,7 +4249,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_DTEL_INT_SESSION', 'disabled'],
             }
@@ -4397,15 +4267,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_INT_SESSION',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DTEL_INT_SESSION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4413,7 +4282,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_DROP_REPORT_ENABLE',
@@ -4434,15 +4303,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_DROP_REPORT_ENABLE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DTEL_DROP_REPORT_ENABLE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4450,7 +4318,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE',
@@ -4471,15 +4339,16 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE',
+                'attributes': [
+                    'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_TAIL_DROP_REPORT_ENABLE'
+                ],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4487,7 +4356,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_FLOW_SAMPLE_PERCENT',
@@ -4508,15 +4377,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_FLOW_SAMPLE_PERCENT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DTEL_FLOW_SAMPLE_PERCENT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4524,7 +4392,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_REPORT_ALL_PACKETS',
@@ -4545,15 +4413,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DTEL_REPORT_ALL_PACKETS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DTEL_REPORT_ALL_PACKETS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4561,7 +4428,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_NO_NAT', 'disabled'],
             }
@@ -4577,15 +4444,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_NO_NAT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_NO_NAT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4593,7 +4459,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_INSERT', 'disabled'],
             }
@@ -4609,15 +4475,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INT_INSERT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_INSERT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4625,7 +4490,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_DELETE', 'disabled'],
             }
@@ -4641,15 +4506,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INT_DELETE',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_DELETE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4657,7 +4521,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_FLOW', 'disabled'],
             }
@@ -4675,15 +4539,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_FLOW',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_FLOW'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4691,7 +4554,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_DROPS', 'disabled'],
             }
@@ -4709,15 +4572,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_DROPS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_DROPS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4725,7 +4587,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_TAIL_DROPS',
@@ -4746,15 +4608,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_TAIL_DROPS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_INT_REPORT_TAIL_DROPS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4762,7 +4623,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_TAM_INT_OBJECT', 'disabled'],
             }
@@ -4780,15 +4641,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_TAM_INT_OBJECT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_TAM_INT_OBJECT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4796,7 +4656,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_ISOLATION_GROUP',
@@ -4817,15 +4677,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ISOLATION_GROUP',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ISOLATION_GROUP'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4833,7 +4692,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_MACSEC_FLOW', 'disabled'],
             }
@@ -4849,15 +4708,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_MACSEC_FLOW',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_MACSEC_FLOW'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4865,7 +4723,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_LAG_HASH_ID', 'disabled'],
             }
@@ -4883,15 +4741,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_LAG_HASH_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_LAG_HASH_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4899,7 +4756,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ECMP_HASH_ID', 'disabled'],
             }
@@ -4917,15 +4774,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ECMP_HASH_ID',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ECMP_HASH_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4933,7 +4789,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_VRF', 'disabled'],
             }
@@ -4949,15 +4805,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_VRF',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_VRF'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -4965,7 +4820,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_FORWARDING_CLASS',
@@ -4986,15 +4841,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_FORWARDING_CLASS',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_FORWARDING_CLASS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -5002,7 +4856,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_MONITORING',
@@ -5023,15 +4877,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_MONITORING',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_MONITORING'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -5039,7 +4892,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_OBJECT', 'disabled'],
             }
@@ -5057,15 +4910,14 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_OBJECT',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_SET_ARS_OBJECT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -5073,7 +4925,7 @@ class TestSaiAclEntry:
         commands = [
             {
                 'name': 'acl_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
                 'atrribute': [
                     'SAI_ACL_ENTRY_ATTR_ACTION_DISABLE_ARS_FORWARDING',
@@ -5094,31 +4946,20 @@ class TestSaiAclEntry:
             {
                 'name': 'acl_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'atrribute': 'SAI_ACL_ENTRY_ATTR_ACTION_DISABLE_ARS_FORWARDING',
+                'attributes': ['SAI_ACL_ENTRY_ATTR_ACTION_DISABLE_ARS_FORWARDING'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'disabled', (
-            'Get error, expected disabled but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'disabled', (
+            'Get error, expected disabled but got %s' % results[0][0].value()
         )
 
     def test_acl_entry_remove(self, npu):
         commands = [
-            {
-                'name': 'acl_entry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_ACL_ENTRY',
-                'attributes': ['SAI_ACL_ENTRY_ATTR_TABLE_ID', '$acl_table_1'],
-            },
-            {
-                'name': 'acl_table_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_ACL_TABLE',
-                'attributes': ['SAI_ACL_TABLE_ATTR_ACL_STAGE', 'SAI_ACL_STAGE_INGRESS'],
-            },
+            {'name': 'acl_entry_1', 'op': 'remove'},
+            {'name': 'acl_table_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

@@ -34,7 +34,7 @@ class TestSaiInboundRoutingEntry:
         commands = [
             {
                 'name': 'inbound_routing_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY',
                 'atrribute': [
                     'SAI_INBOUND_ROUTING_ENTRY_ATTR_ACTION',
@@ -53,18 +53,17 @@ class TestSaiInboundRoutingEntry:
             {
                 'name': 'inbound_routing_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY',
-                'atrribute': 'SAI_INBOUND_ROUTING_ENTRY_ATTR_ACTION',
+                'attributes': ['SAI_INBOUND_ROUTING_ENTRY_ATTR_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
         assert (
-            results[1][0].value() == 'SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP'
+            results[0][0].value() == 'SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP'
         ), (
             'Get error, expected SAI_INBOUND_ROUTING_ENTRY_ACTION_VXLAN_DECAP but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -72,7 +71,7 @@ class TestSaiInboundRoutingEntry:
         commands = [
             {
                 'name': 'inbound_routing_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY',
                 'atrribute': [
                     'SAI_INBOUND_ROUTING_ENTRY_ATTR_SRC_VNET_ID',
@@ -93,24 +92,20 @@ class TestSaiInboundRoutingEntry:
             {
                 'name': 'inbound_routing_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY',
-                'atrribute': 'SAI_INBOUND_ROUTING_ENTRY_ATTR_SRC_VNET_ID',
+                'attributes': ['SAI_INBOUND_ROUTING_ENTRY_ATTR_SRC_VNET_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_inbound_routing_entry_remove(self, npu):
         commands = [
             {
                 'name': 'inbound_routing_entry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_INBOUND_ROUTING_ENTRY',
-                'attributes': [],
                 'key': {
                     'switch_id': '$SWITCH_ID',
                     'eni_id': 'TODO',
@@ -119,6 +114,7 @@ class TestSaiInboundRoutingEntry:
                     'sip_mask': 'TODO',
                     'priority': 'TODO',
                 },
+                'op': 'remove',
             }
         ]
 

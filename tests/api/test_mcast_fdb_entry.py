@@ -42,7 +42,7 @@ class TestSaiMcastFdbEntry:
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID', 'TODO'],
             }
@@ -58,15 +58,14 @@ class TestSaiMcastFdbEntry:
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID',
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -74,7 +73,7 @@ class TestSaiMcastFdbEntry:
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION', 'TODO'],
             }
@@ -90,15 +89,14 @@ class TestSaiMcastFdbEntry:
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION',
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -106,7 +104,7 @@ class TestSaiMcastFdbEntry:
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
                 'atrribute': ['SAI_MCAST_FDB_ENTRY_ATTR_META_DATA', '0'],
             }
@@ -122,41 +120,28 @@ class TestSaiMcastFdbEntry:
             {
                 'name': 'mcast_fdb_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'atrribute': 'SAI_MCAST_FDB_ENTRY_ATTR_META_DATA',
+                'attributes': ['SAI_MCAST_FDB_ENTRY_ATTR_META_DATA'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     def test_mcast_fdb_entry_remove(self, npu):
         commands = [
             {
                 'name': 'mcast_fdb_entry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_MCAST_FDB_ENTRY',
-                'attributes': [
-                    'SAI_MCAST_FDB_ENTRY_ATTR_GROUP_ID',
-                    '$l2mc_group_1',
-                    'SAI_MCAST_FDB_ENTRY_ATTR_PACKET_ACTION',
-                    'SAI_PACKET_ACTION_DROP',
-                ],
                 'key': {
                     'switch_id': '$SWITCH_ID',
                     'mac_address': 'TODO',
                     'bv_id': 'TODO',
                 },
-            },
-            {
-                'name': 'l2mc_group_1',
                 'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_L2MC_GROUP',
-                'attributes': [],
             },
+            {'name': 'l2mc_group_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

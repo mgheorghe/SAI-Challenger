@@ -31,15 +31,14 @@ class TestSaiBufferPool:
             {
                 'name': 'buffer_pool_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'atrribute': 'SAI_BUFFER_POOL_ATTR_SHARED_SIZE',
+                'attributes': ['SAI_BUFFER_POOL_ATTR_SHARED_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -47,7 +46,7 @@ class TestSaiBufferPool:
         commands = [
             {
                 'name': 'buffer_pool_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
                 'atrribute': ['SAI_BUFFER_POOL_ATTR_SIZE', 'TODO'],
             }
@@ -63,15 +62,14 @@ class TestSaiBufferPool:
             {
                 'name': 'buffer_pool_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'atrribute': 'SAI_BUFFER_POOL_ATTR_SIZE',
+                'attributes': ['SAI_BUFFER_POOL_ATTR_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -79,7 +77,7 @@ class TestSaiBufferPool:
         commands = [
             {
                 'name': 'buffer_pool_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
                 'atrribute': ['SAI_BUFFER_POOL_ATTR_TAM', 'empty'],
             }
@@ -95,15 +93,14 @@ class TestSaiBufferPool:
             {
                 'name': 'buffer_pool_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'atrribute': 'SAI_BUFFER_POOL_ATTR_TAM',
+                'attributes': ['SAI_BUFFER_POOL_ATTR_TAM'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'empty', (
-            'Get error, expected empty but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'empty', (
+            'Get error, expected empty but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -111,7 +108,7 @@ class TestSaiBufferPool:
         commands = [
             {
                 'name': 'buffer_pool_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
                 'atrribute': ['SAI_BUFFER_POOL_ATTR_XOFF_SIZE', '0'],
             }
@@ -127,15 +124,14 @@ class TestSaiBufferPool:
             {
                 'name': 'buffer_pool_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'atrribute': 'SAI_BUFFER_POOL_ATTR_XOFF_SIZE',
+                'attributes': ['SAI_BUFFER_POOL_ATTR_XOFF_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -143,7 +139,7 @@ class TestSaiBufferPool:
         commands = [
             {
                 'name': 'buffer_pool_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
                 'atrribute': [
                     'SAI_BUFFER_POOL_ATTR_WRED_PROFILE_ID',
@@ -162,31 +158,18 @@ class TestSaiBufferPool:
             {
                 'name': 'buffer_pool_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'atrribute': 'SAI_BUFFER_POOL_ATTR_WRED_PROFILE_ID',
+                'attributes': ['SAI_BUFFER_POOL_ATTR_WRED_PROFILE_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_buffer_pool_remove(self, npu):
-        commands = [
-            {
-                'name': 'buffer_pool_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_BUFFER_POOL',
-                'attributes': [
-                    'SAI_BUFFER_POOL_ATTR_TYPE',
-                    'SAI_BUFFER_POOL_TYPE_INGRESS',
-                    'SAI_BUFFER_POOL_ATTR_SIZE',
-                    '10',
-                ],
-            }
-        ]
+        commands = [{'name': 'buffer_pool_1', 'op': 'remove'}]
 
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values remove =======')

@@ -64,7 +64,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_MONITOR_PORT', 'TODO'],
             }
@@ -80,15 +80,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_MONITOR_PORT',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_MONITOR_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -96,7 +95,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_TRUNCATE_SIZE', '0'],
             }
@@ -112,15 +111,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_TRUNCATE_SIZE',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_TRUNCATE_SIZE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -128,7 +126,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_SAMPLE_RATE', '1'],
             }
@@ -144,15 +142,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_SAMPLE_RATE',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_SAMPLE_RATE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '1', (
-            'Get error, expected 1 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '1', (
+            'Get error, expected 1 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -160,7 +157,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': [
                     'SAI_MIRROR_SESSION_ATTR_CONGESTION_MODE',
@@ -181,18 +178,17 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_CONGESTION_MODE',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_CONGESTION_MODE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
         assert (
-            results[1][0].value() == 'SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT'
+            results[0][0].value() == 'SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT'
         ), (
             'Get error, expected SAI_MIRROR_SESSION_CONGESTION_MODE_INDEPENDENT but got %s'
-            % results[1][0].value()
+            % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -200,7 +196,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_TC', '0'],
             }
@@ -216,15 +212,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_TC',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_TC'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -232,7 +227,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_VLAN_TPID', '0x8100'],
             }
@@ -248,15 +243,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_VLAN_TPID',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_VLAN_TPID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0x8100', (
-            'Get error, expected 0x8100 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0x8100', (
+            'Get error, expected 0x8100 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -264,7 +258,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_VLAN_ID', '0'],
             }
@@ -280,15 +274,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_VLAN_ID',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_VLAN_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -296,7 +289,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_VLAN_PRI', '0'],
             }
@@ -312,15 +305,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_VLAN_PRI',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_VLAN_PRI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -328,7 +320,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_VLAN_CFI', '0'],
             }
@@ -344,15 +336,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_VLAN_CFI',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_VLAN_CFI'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '0', (
-            'Get error, expected 0 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '0', (
+            'Get error, expected 0 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -360,7 +351,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID', 'false'],
             }
@@ -378,15 +369,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_VLAN_HEADER_VALID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'false', (
-            'Get error, expected false but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'false', (
+            'Get error, expected false but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -394,7 +384,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION', 'TODO'],
             }
@@ -410,15 +400,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -426,7 +415,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_TOS', 'TODO'],
             }
@@ -442,15 +431,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_TOS',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_TOS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -458,7 +446,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_TTL', '255'],
             }
@@ -474,15 +462,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_TTL',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_TTL'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == '255', (
-            'Get error, expected 255 but got %s' % results[1][0].value()
+        assert results[0][0].value() == '255', (
+            'Get error, expected 255 but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -490,7 +477,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS', 'TODO'],
             }
@@ -506,15 +493,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -522,7 +508,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS', 'TODO'],
             }
@@ -538,15 +524,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -554,7 +539,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS', 'TODO'],
             }
@@ -572,15 +557,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -588,7 +572,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS', 'TODO'],
             }
@@ -606,15 +590,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -622,7 +605,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE', 'TODO'],
             }
@@ -640,15 +623,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -656,7 +638,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST', 'TODO'],
             }
@@ -674,15 +656,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -690,7 +671,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_POLICER', 'SAI_NULL_OBJECT_ID'],
             }
@@ -706,15 +687,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_POLICER',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_POLICER'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -722,7 +702,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_UDP_SRC_PORT', 'TODO'],
             }
@@ -738,15 +718,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_UDP_SRC_PORT',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_UDP_SRC_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -754,7 +733,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': ['SAI_MIRROR_SESSION_ATTR_UDP_DST_PORT', 'TODO'],
             }
@@ -770,15 +749,14 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_UDP_DST_PORT',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_UDP_DST_PORT'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -786,7 +764,7 @@ class TestSaiMirrorSession:
         commands = [
             {
                 'name': 'mirror_session_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
                 'atrribute': [
                     'SAI_MIRROR_SESSION_ATTR_COUNTER_ID',
@@ -805,63 +783,20 @@ class TestSaiMirrorSession:
             {
                 'name': 'mirror_session_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'atrribute': 'SAI_MIRROR_SESSION_ATTR_COUNTER_ID',
+                'attributes': ['SAI_MIRROR_SESSION_ATTR_COUNTER_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_mirror_session_remove(self, npu):
         commands = [
-            {
-                'name': 'mirror_session_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_MIRROR_SESSION',
-                'attributes': [
-                    'SAI_MIRROR_SESSION_ATTR_TYPE',
-                    'SAI_MIRROR_SESSION_TYPE_LOCAL',
-                    'SAI_MIRROR_SESSION_ATTR_MONITOR_PORT',
-                    '$port_1',
-                    'SAI_MIRROR_SESSION_ATTR_ERSPAN_ENCAPSULATION_TYPE',
-                    'SAI_ERSPAN_ENCAPSULATION_TYPE_MIRROR_L3_GRE_TUNNEL',
-                    'SAI_MIRROR_SESSION_ATTR_IPHDR_VERSION',
-                    '1',
-                    'SAI_MIRROR_SESSION_ATTR_TOS',
-                    '1',
-                    'SAI_MIRROR_SESSION_ATTR_SRC_IP_ADDRESS',
-                    '180.0.0.1',
-                    'SAI_MIRROR_SESSION_ATTR_DST_IP_ADDRESS',
-                    '180.0.0.1',
-                    'SAI_MIRROR_SESSION_ATTR_SRC_MAC_ADDRESS',
-                    '00:00:B1:AE:C5:00',
-                    'SAI_MIRROR_SESSION_ATTR_DST_MAC_ADDRESS',
-                    '00:00:B1:AE:C5:00',
-                    'SAI_MIRROR_SESSION_ATTR_GRE_PROTOCOL_TYPE',
-                    '10',
-                    'SAI_MIRROR_SESSION_ATTR_MONITOR_PORTLIST',
-                    'sai_object_list_t',
-                    'SAI_MIRROR_SESSION_ATTR_UDP_SRC_PORT',
-                    '10',
-                    'SAI_MIRROR_SESSION_ATTR_UDP_DST_PORT',
-                    '10',
-                ],
-            },
-            {
-                'name': 'port_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_PORT',
-                'attributes': [
-                    'SAI_PORT_ATTR_HW_LANE_LIST',
-                    '2:10,11',
-                    'SAI_PORT_ATTR_SPEED',
-                    '10',
-                ],
-            },
+            {'name': 'mirror_session_1', 'op': 'remove'},
+            {'name': 'port_1', 'op': 'remove'},
         ]
 
         results = [*npu.process_commands(commands)]

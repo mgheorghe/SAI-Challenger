@@ -36,7 +36,7 @@ class TestSaiL2McEntry:
         commands = [
             {
                 'name': 'l2mc_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_L2MC_ENTRY',
                 'atrribute': ['SAI_L2MC_ENTRY_ATTR_PACKET_ACTION', 'TODO'],
             }
@@ -52,15 +52,14 @@ class TestSaiL2McEntry:
             {
                 'name': 'l2mc_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_L2MC_ENTRY',
-                'atrribute': 'SAI_L2MC_ENTRY_ATTR_PACKET_ACTION',
+                'attributes': ['SAI_L2MC_ENTRY_ATTR_PACKET_ACTION'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'TODO', (
-            'Get error, expected TODO but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'TODO', (
+            'Get error, expected TODO but got %s' % results[0][0].value()
         )
 
     @pytest.mark.dependency()
@@ -68,7 +67,7 @@ class TestSaiL2McEntry:
         commands = [
             {
                 'name': 'l2mc_entry_1',
-                'op': 'get',
+                'op': 'set',
                 'type': 'SAI_OBJECT_TYPE_L2MC_ENTRY',
                 'atrribute': [
                     'SAI_L2MC_ENTRY_ATTR_OUTPUT_GROUP_ID',
@@ -87,27 +86,20 @@ class TestSaiL2McEntry:
             {
                 'name': 'l2mc_entry_1',
                 'op': 'get',
-                'type': 'SAI_OBJECT_TYPE_L2MC_ENTRY',
-                'atrribute': 'SAI_L2MC_ENTRY_ATTR_OUTPUT_GROUP_ID',
+                'attributes': ['SAI_L2MC_ENTRY_ATTR_OUTPUT_GROUP_ID'],
             }
         ]
         results = [*npu.process_commands(commands)]
         print('======= SAI commands RETURN values get =======')
         pprint(results)
-        assert results[1][0].value() == 'SAI_NULL_OBJECT_ID', (
-            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[1][0].value()
+        assert results[0][0].value() == 'SAI_NULL_OBJECT_ID', (
+            'Get error, expected SAI_NULL_OBJECT_ID but got %s' % results[0][0].value()
         )
 
     def test_l2mc_entry_remove(self, npu):
         commands = [
             {
                 'name': 'l2mc_entry_1',
-                'op': 'remove',
-                'type': 'SAI_OBJECT_TYPE_L2MC_ENTRY',
-                'attributes': [
-                    'SAI_L2MC_ENTRY_ATTR_PACKET_ACTION',
-                    'SAI_PACKET_ACTION_DROP',
-                ],
                 'key': {
                     'switch_id': '$SWITCH_ID',
                     'bv_id': 'TODO',
@@ -115,6 +107,7 @@ class TestSaiL2McEntry:
                     'destination': 'TODO',
                     'source': 'TODO',
                 },
+                'op': 'remove',
             }
         ]
 
