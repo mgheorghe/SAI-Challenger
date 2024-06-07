@@ -13,7 +13,7 @@ ASIC_TYPE=""
 ASIC_PATH=""
 TARGET=""
 SAI_INTERFACE="redis"
-BASE_OS="buster"
+BASE_OS="bullseye"
 NOSNAPPI=""
 
 declare -A base_os_map
