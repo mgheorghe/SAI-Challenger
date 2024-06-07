@@ -15,7 +15,7 @@ TARGET=""
 OPTS=""
 COMMAND="start"
 SAI_INTERFACE="redis"
-BASE_OS="buster"
+BASE_OS="bullseye"
 
 declare -A base_os_map
 base_os_map["deb10"]="buster"
